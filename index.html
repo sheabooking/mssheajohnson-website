@@ -170,7 +170,7 @@ a { color: inherit; }
   color: var(--paper);
 }
 .reviews cite { display: block; margin-top: 14px; font: 500 15px "Inter", sans-serif; font-style: normal; color: var(--muted); }
-.reviews .proof { margin-top: 28px; color: var(--lilac); }
+.reviews .proof { font: 500 clamp(24px, 3vw, 34px)/1.3 "Inter", sans-serif; letter-spacing: -0.01em; color: var(--ink); max-width: 30ch; }
 .reviews .proof a { color: var(--paper); text-underline-offset: 4px; }
 
 
@@ -285,9 +285,6 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
 
 <section class="reviews" aria-label="Reviews">
   <div class="wrap">
-    <blockquote>“Still working through it but so far it's been very helpful. Highly recommend!”
-      <cite>Angelica, Etsy customer</cite>
-    </blockquote>
     <p class="proof">Rated five stars in all 56 reviews on <a href="https://www.trustpilot.com/review/mssheajohnson.com">Trustpilot</a>.</p>
   </div>
 </section>
