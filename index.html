@@ -108,6 +108,9 @@ a { color: inherit; }
 .signup button:hover { background: #7f1ee6; }
 .fine { flex-basis: 100%; font-size: 13px; color: #9B93A8; }
 
+.signup-embed { min-height: 60px; }
+.signup-embed .fine { margin-top: 8px; }
+
 /* ---------- Gallery wall ---------- */
 .wall { padding: 112px 0 56px; }
 .wall-intro { max-width: 46ch; margin-bottom: 40px; }
@@ -225,13 +228,10 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
       <h2 id="letter-title">Get the studio letter</h2>
       <p>New art, free tools, and honest notes on what I'm learning, sent whenever I make something worth sharing.</p>
     </div>
-    <!-- SendFox: replace action with the form URL from SendFox → Forms → Embed -->
-    <form class="signup" action="#" method="post">
-      <label for="email">Your email</label>
-      <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-      <button type="submit">Join the letter</button>
-      <span class="fine">No spam. Unsubscribe anytime.</span>
-    </form>
+    <div class="signup-embed">
+      <script src="https://cdn.sendfox.com/js/embed.js" data-form="1xvqkn" data-api="https://sendfox.com" async></script>
+      <p class="fine">No spam. Unsubscribe anytime.</p>
+    </div>
   </div>
 </section>
 
