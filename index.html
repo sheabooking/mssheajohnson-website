@@ -178,15 +178,13 @@ a { color: inherit; }
 .findme { padding: 0 0 96px; }
 .findme h2 { font-family: "Alta", Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.05; }
 .findme p { margin-top: 8px; color: var(--lilac); }
-.socials { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; list-style: none; }
+.socials { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 14px; list-style: none; }
 .socials a {
-  display: flex; align-items: center; gap: 12px;
-  padding: 14px 16px; border: 1px solid #E7E2EE; border-radius: 12px; background: #fff;
-  text-decoration: none; color: var(--ink); font-weight: 500;
+  display: grid; place-items: center; width: 56px; height: 56px;
+  border: 1px solid #E7E2EE; border-radius: 50%; background: #fff;
 }
-.socials a:hover { border-color: var(--violet); }
-.socials img { width: 22px; height: 22px; }
-.socials small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
+.socials a:hover { border-color: var(--violet); background: #F4EEFD; }
+.socials img { width: 24px; height: 24px; }
 
 /* ---------- Footer ---------- */
 footer { border-top: 1px solid #ECE7F2; padding: 32px 0 48px; color: var(--muted); font-size: 15px; }
@@ -297,18 +295,17 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
 <section class="findme" aria-labelledby="findme-title">
   <div class="wrap">
     <h2 id="findme-title">Let&rsquo;s stay connected</h2>
-    <p>Come say hi wherever you spend your time.</p>
     <ul class="socials">
-      <li><a href="https://www.instagram.com/mssheajohnson/"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/instagram.svg" alt="" width="22" height="22"><span>Instagram<small>@mssheajohnson</small></span></a></li>
-      <li><a href="https://www.tiktok.com/@msheajohnson"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tiktok.svg" alt="" width="22" height="22"><span>TikTok<small>@msheajohnson</small></span></a></li>
-      <li><a href="https://www.youtube.com/@mssheajohnson"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/youtube.svg" alt="" width="22" height="22"><span>YouTube<small>@mssheajohnson</small></span></a></li>
-      <li><a href="https://www.linkedin.com/in/mssheajohnson"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/linkedin.svg" alt="" width="22" height="22"><span>LinkedIn<small>in/mssheajohnson</small></span></a></li>
-      <li><a href="https://www.facebook.com/mssheajohnson"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/facebook.svg" alt="" width="22" height="22"><span>Facebook<small>mssheajohnson</small></span></a></li>
-      <li><a href="https://mssheajohnson.medium.com/"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/medium.svg" alt="" width="22" height="22"><span>Medium<small>My blog</small></span></a></li>
-      <li><a href="https://github.com/sheabooking"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/github.svg" alt="" width="22" height="22"><span>GitHub<small>Free Claude skills</small></span></a></li>
-      <li><a href="https://www.etsy.com/shop/MsSheaJohnsonStudio"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/etsy.svg" alt="" width="22" height="22"><span>Etsy<small>MsSheaJohnsonStudio</small></span></a></li>
-      <li><a href="https://www.trustpilot.com/review/mssheajohnson.com"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/trustpilot.svg" alt="" width="22" height="22"><span>Trustpilot<small>56 five-star reviews</small></span></a></li>
-      <li><a href="https://linktr.ee/MsSheaJohnson"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/linktree.svg" alt="" width="22" height="22"><span>Linktree<small>All my links</small></span></a></li>
+      <li><a href="https://www.instagram.com/mssheajohnson/" aria-label="Instagram" title="Instagram"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/instagram.svg" alt="" width="24" height="24"></a></li>
+      <li><a href="https://www.tiktok.com/@msheajohnson" aria-label="TikTok" title="TikTok"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/tiktok.svg" alt="" width="24" height="24"></a></li>
+      <li><a href="https://www.youtube.com/@mssheajohnson" aria-label="YouTube" title="YouTube"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/youtube.svg" alt="" width="24" height="24"></a></li>
+      <li><a href="https://www.linkedin.com/in/mssheajohnson" aria-label="LinkedIn" title="LinkedIn"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/linkedin.svg" alt="" width="24" height="24"></a></li>
+      <li><a href="https://www.facebook.com/mssheajohnson" aria-label="Facebook" title="Facebook"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/facebook.svg" alt="" width="24" height="24"></a></li>
+      <li><a href="https://mssheajohnson.medium.com/" aria-label="Medium" title="Medium"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/medium.svg" alt="" width="24" height="24"></a></li>
+      <li><a href="https://github.com/sheabooking" aria-label="GitHub" title="GitHub"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/github.svg" alt="" width="24" height="24"></a></li>
+      <li><a href="https://www.etsy.com/shop/MsSheaJohnsonStudio" aria-label="Etsy" title="Etsy"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/etsy.svg" alt="" width="24" height="24"></a></li>
+      <li><a href="https://www.trustpilot.com/review/mssheajohnson.com" aria-label="Trustpilot" title="Trustpilot"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/trustpilot.svg" alt="" width="24" height="24"></a></li>
+      <li><a href="https://linktr.ee/MsSheaJohnson" aria-label="Linktree" title="Linktree"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13/icons/linktree.svg" alt="" width="24" height="24"></a></li>
     </ul>
   </div>
 </section>
