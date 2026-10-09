@@ -37,8 +37,16 @@ a { color: inherit; }
 
 .wrap { width: min(1080px, 100% - clamp(40px, 12vw, 160px)); margin-inline: auto; }
 
+/* ---------- Sticky top bar ---------- */
+.topbar { position: sticky; top: 0; z-index: 10; background: rgba(252,251,254,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #ECE7F2; }
+.topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; }
+.topbar .home { font-family: "Alta", Georgia, serif; font-size: 22px; text-decoration: none; color: var(--ink); }
+.topbar .go { padding: 12px 18px; font-size: 15px; }
+.topbar .home { white-space: nowrap; }
+@media (max-width: 400px) { .topbar .home { font-size: 19px; } .topbar .go { padding: 11px 14px; font-size: 14px; } }
+
 /* ---------- Hero ---------- */
-.hero { padding: 64px 0 0; }
+.hero { padding: 40px 0 0; }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -217,6 +225,13 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
 </style>
 </head>
 <body>
+
+<nav class="topbar" aria-label="Site">
+  <div class="wrap">
+    <a class="home" href="/">Shea Johnson</a>
+    <a class="go" href="ai-assistant.html">Hire your AI assistant</a>
+  </div>
+</nav>
 
 <header class="hero">
   <div class="wrap hero-grid">
