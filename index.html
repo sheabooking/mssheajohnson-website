@@ -65,9 +65,18 @@ a { color: inherit; }
 .portrait { position: relative; justify-self: end; width: min(460px, 100%); margin-bottom: 0; }
 .portrait img { position: relative; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 999px 999px 0 0; border: 10px solid #EFE4FF; border-bottom: 0; }
 
+/* ---------- Offer band (top) ---------- */
+.offer { background: var(--wash, #F4EEFD); border-top: 1px solid #E2D4FA; }
+.offer .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 40px 0; }
+.offer .kicker { font: 600 13px/1 "Inter", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet); margin-bottom: 12px; }
+.offer h2 { font-family: "Alta", Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.8vw, 46px); line-height: 1.05; max-width: 24ch; }
+.offer p.more { margin-top: 8px; color: var(--lilac); }
+.offer a.go { font: 600 16px/1 "Inter", sans-serif; padding: 17px 26px; border-radius: 10px; background: var(--violet); color: #fff; text-decoration: none; white-space: nowrap; }
+.offer a.go:hover { background: #7f1ee6; }
+
 /* ---------- Studio letter (main offer) ---------- */
 .letter {
-  margin-top: -2px;
+  margin-top: 0;
   background: var(--ink);
   color: #F3EFF7;
 }
@@ -156,15 +165,6 @@ a { color: inherit; }
   border-color: #E2D4FA;
 }
 .p-call .frame span { font-family: "Alta", Georgia, serif; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; }
-.p-hire   { grid-column: 1 / span 12; }
-.p-hire .frame {
-  padding: 40px 44px;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
-  background: var(--ink); border-color: var(--ink); color: #F3EFF7;
-}
-.p-hire .frame span { font-family: "Alta", Georgia, serif; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.08; max-width: 22ch; }
-.p-hire .frame em { font-style: normal; font-weight: 600; background: var(--violet); color: #fff; padding: 15px 22px; border-radius: 10px; white-space: nowrap; }
-.p-hire:hover .frame em { background: #7f1ee6; }
 .p-call .frame em { font-style: normal; font-weight: 600; color: var(--violet); white-space: nowrap; }
 
 /* ---------- Reviews ---------- */
@@ -212,7 +212,7 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
   .hero-grid, .letter .wrap { grid-template-columns: 1fr; }
   .portrait { width: min(340px, 90%); order: -1; }
   .hang { grid-template-columns: 1fr; gap: 36px; }
-  .p-shop, .p-skills, .p-blog, .p-call, .p-hire { grid-column: auto; grid-row: auto; margin-top: 0; }
+  .p-shop, .p-skills, .p-blog, .p-call { grid-column: auto; grid-row: auto; margin-top: 0; }
 }
 </style>
 </head>
@@ -230,6 +230,17 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
     </div>
   </div>
 </header>
+
+<section class="offer" aria-labelledby="offer-title">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Work with me</p>
+      <h2 id="offer-title">Your first hire is an AI assistant. I'll set it up with you, in person.</h2>
+      <p class="more">Four visits, one transparent price, the same for everyone.</p>
+    </div>
+    <a class="go" href="ai-assistant.html">See how it works</a>
+  </div>
+</section>
 
 <section class="letter" aria-labelledby="letter-title">
   <div class="wrap">
@@ -252,17 +263,6 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
     </div>
 
     <div class="hang">
-      <a class="piece p-hire" href="ai-assistant.html">
-        <div class="frame">
-          <span>Your first hire is an AI assistant. I'll set it up with you, in person.</span>
-          <em>See how it works</em>
-        </div>
-        <div class="plaque">
-          <h3>Work with me</h3>
-          <p>Four visits, one transparent price, the same for everyone.</p>
-        </div>
-      </a>
-
       <a class="piece p-shop" href="https://www.etsy.com/shop/MsSheaJohnsonStudio">
         <div class="frame"><img src="assets/art.jpg" alt="Original AI artwork: a moon rising over deep plum waves"></div>
         <div class="plaque">
