@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your AI Executive Assistant | Shea Johnson</title>
+<meta name="description" content="Your first hire is an AI Executive Assistant. Shea Johnson sets it up in person, on your own computer, in 30 days. Transparent pricing, the same for everyone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: "Alta"; src: url("assets/fonts/Alta_regular.otf") format("opentype"); font-display: swap; }
+
+:root {
+  --ink: #0C0C10;
+  --page: #FCFBFE;
+  --mat: #FFFFFF;
+  --violet: #9830FF;
+  --violet-dark: #7f1ee6;
+  --lilac: #5E5670;
+  --muted: #6F6781;
+  --line: #E7E2EE;
+  --wash: #F4EEFD;
+  --wash-line: #E2D4FA;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--page);
+  color: var(--ink);
+  font: 400 17px/1.65 "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { width: min(1080px, 100% - clamp(32px, 12vw, 160px)); margin-inline: auto; }
+.narrow { max-width: 720px; }
+
+h1, h2, .display {
+  font-family: "Alta", Georgia, serif;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0.005em;
+}
+h2 { font-size: clamp(34px, 4.6vw, 56px); }
+.eyebrow { font: 600 13px/1 "Inter", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet); margin-bottom: 14px; }
+.sub { margin-top: 14px; color: var(--lilac); max-width: 52ch; }
+
+.btn {
+  display: inline-block;
+  font: 600 16px/1 "Inter", sans-serif;
+  padding: 17px 26px;
+  border-radius: 10px;
+  background: var(--violet);
+  color: #fff;
+  text-decoration: none;
+}
+.btn:hover { background: var(--violet-dark); }
+.btn-quiet { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+.btn-quiet:hover { background: var(--wash); border-color: var(--wash-line); }
+.ctas { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+section { padding: 96px 0; }
+
+/* ---------- Top bar ---------- */
+.topbar { padding: 22px 0; }
+.topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.topbar a { text-decoration: none; font-weight: 600; }
+.topbar .home { font-family: "Alta", Georgia, serif; font-weight: 400; font-size: 24px; }
+.topbar .book { color: var(--violet); }
+
+/* ---------- Hero ---------- */
+.hero { padding: 40px 0 0; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: end; gap: 40px; }
+.hero h1 { font-size: clamp(48px, 7vw, 96px); }
+.hero h1 span { color: var(--violet); }
+.hero .lede { margin-top: 24px; font-size: 20px; color: var(--lilac); max-width: 36ch; }
+.hero .note { margin: 18px 0 56px; font-size: 15px; color: var(--muted); }
+.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 999px 999px 0 0; border: 10px solid #EFE4FF; border-bottom: 0; }
+
+/* ---------- Problem (ink band) ---------- */
+.band { background: var(--ink); color: #F3EFF7; }
+.band h2 { color: #fff; }
+.band .sub { color: #CFC6DA; }
+.stats { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.stat { border: 1px solid #2A2633; border-radius: 14px; padding: 26px; }
+.stat strong { display: block; font-family: "Alta", Georgia, serif; font-weight: 400; font-size: clamp(38px, 4.4vw, 52px); line-height: 1; color: #D9B8FF; }
+.stat p { margin-top: 10px; font-size: 15px; color: #CFC6DA; }
+
+/* ---------- The shift ---------- */
+.shift-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
+.card { background: var(--mat); border: 1px solid var(--line); border-radius: 16px; padding: 28px; box-shadow: 0 28px 50px -40px rgba(60,30,110,0.45); }
+.card h3 { font: 600 19px/1.3 "Inter", sans-serif; }
+.card p { margin-top: 8px; font-size: 16px; color: var(--lilac); }
+.quote { margin-top: 56px; font: 500 clamp(24px, 3vw, 34px)/1.3 "Inter", sans-serif; letter-spacing: -0.01em; max-width: 30ch; }
+.quote em { font-style: normal; color: var(--violet); }
+
+/* ---------- Visits ---------- */
+.visits { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.visit-list { margin-top: 48px; display: grid; gap: 22px; }
+.visit { display: grid; grid-template-columns: 120px 1fr; gap: 28px; padding: 30px; border: 1px solid var(--line); border-radius: 16px; background: var(--page); }
+.visit .num { font-family: "Alta", Georgia, serif; font-size: 64px; line-height: 0.9; color: var(--violet); }
+.visit .num small { display: block; margin-top: 10px; font: 600 13px/1.3 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.visit h3 { font-family: "Alta", Georgia, serif; font-weight: 400; font-size: clamp(28px, 3vw, 36px); line-height: 1.05; }
+.visit dl { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 28px; }
+.visit dt { font: 600 13px/1.3 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--violet); }
+.visit dd { margin-top: 4px; font-size: 16px; color: var(--lilac); }
+
+/* ---------- Pricing ---------- */
+.price-grid { margin-top: 48px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: stretch; }
+.plan { background: var(--mat); border: 1px solid var(--line); border-radius: 18px; padding: 34px; display: flex; flex-direction: column; }
+.plan.main { border: 2px solid var(--violet); box-shadow: 0 34px 60px -40px rgba(152,48,255,0.55); }
+.plan .tag { align-self: flex-start; font: 600 12px/1 "Inter", sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: var(--violet); padding: 7px 10px; border-radius: 999px; margin-bottom: 16px; }
+.plan h3 { font: 600 21px/1.3 "Inter", sans-serif; }
+.plan .amount { margin-top: 12px; font-family: "Alta", Georgia, serif; font-size: clamp(52px, 6vw, 72px); line-height: 1; }
+.plan .amount small { font: 500 16px "Inter", sans-serif; color: var(--muted); }
+.plan .ways { margin-top: 10px; font-size: 15px; color: var(--lilac); }
+.plan ul { margin-top: 20px; list-style: none; display: grid; gap: 10px; }
+.plan li { padding-left: 26px; position: relative; font-size: 16px; }
+.plan li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 12px; height: 7px; border-left: 2px solid var(--violet); border-bottom: 2px solid var(--violet); transform: rotate(-45deg); }
+.plan .btn { margin-top: auto; text-align: center; }
+.plan .spacer { height: 26px; }
+.paylinks { margin-top: 14px; font-size: 15px; color: var(--muted); text-align: center; }
+.paylinks a { color: var(--violet); font-weight: 600; text-underline-offset: 3px; }
+
+.addons { margin-top: 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.addon { border: 1px solid var(--line); border-radius: 16px; padding: 24px; background: var(--mat); }
+.addon h4 { font: 600 17px/1.3 "Inter", sans-serif; }
+.addon .amt { margin-top: 6px; font: 600 22px "Inter", sans-serif; color: var(--violet); }
+.addon p { margin-top: 6px; font-size: 15px; color: var(--lilac); }
+
+
+.compare { margin-top: 22px; border: 1px dashed var(--wash-line); border-radius: 16px; padding: 24px 28px; color: var(--lilac); }
+.compare strong { color: var(--ink); }
+.promise { margin-top: 28px; font-size: 15px; color: var(--muted); max-width: 70ch; }
+
+/* ---------- About ---------- */
+.about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: center; }
+.about-grid img { border-radius: 18px; aspect-ratio: 1 / 1; object-fit: cover; }
+.about p { margin-top: 16px; color: var(--lilac); max-width: 56ch; }
+.about p:first-of-type { margin-top: 20px; }
+.proof { margin-top: 24px; font-weight: 500; }
+.proof a { color: var(--violet); text-underline-offset: 4px; }
+
+/* ---------- FAQ ---------- */
+.faq-list { margin-top: 36px; border-top: 1px solid var(--line); }
+.faq-list details { border-bottom: 1px solid var(--line); padding: 22px 0; }
+.faq-list summary { cursor: pointer; list-style: none; font: 600 18px/1.4 "Inter", sans-serif; display: flex; justify-content: space-between; gap: 20px; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; color: var(--violet); font-size: 24px; line-height: 1; }
+.faq-list details[open] summary::after { content: "−"; }
+.faq-list details p { margin-top: 10px; color: var(--lilac); max-width: 64ch; }
+
+/* ---------- Final CTA ---------- */
+.final { text-align: center; }
+.final h2 { margin-inline: auto; max-width: 16ch; }
+.final .sub { margin-inline: auto; }
+.final .ctas { justify-content: center; }
+
+footer { border-top: 1px solid #ECE7F2; padding: 32px 0 48px; color: var(--muted); font-size: 15px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+footer a { text-decoration: none; color: var(--lilac); }
+footer a:hover { color: var(--ink); text-decoration: underline; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1, .portrait { animation: rise 900ms cubic-bezier(.2,.7,.2,1) both; }
+  .portrait { animation-delay: 150ms; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+}
+
+@media (max-width: 860px) {
+  section { padding: 72px 0; }
+  .hero-grid, .price-grid, .about-grid { grid-template-columns: 1fr; }
+  .portrait { width: min(340px, 90%); order: -1; justify-self: center; }
+  .hero .note { margin-bottom: 40px; }
+  .stats, .shift-grid, .addons { grid-template-columns: 1fr; }
+  .visit { grid-template-columns: 1fr; gap: 12px; padding: 24px; }
+  .visit dl { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar" aria-label="Site">
+  <div class="wrap">
+    <a class="home" href="/">Shea Johnson</a>
+    <a class="book" href="#pricing">See pricing</a>
+  </div>
+</nav>
+
+<!-- 1. Hero -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">AI Executive Assistant Setup</p>
+      <h1>Your first hire is an <span>AI assistant.</span></h1>
+      <p class="lede">You talk. She does the work. I come to you and set it up on your own computer, in four visits over 30 days.</p>
+      <div class="ctas">
+        <a class="btn" href="https://cal.com/mssheajohnson">Book a free call</a>
+        <a class="btn btn-quiet" href="#pricing">See the price</a>
+      </div>
+      <p class="note">Same price for everyone, listed below. I take two clients at a time.</p>
+    </div>
+    <div class="portrait">
+      <img src="assets/shea_hero.jpg" alt="Shea Johnson in her studio">
+    </div>
+  </div>
+</header>
+
+<!-- 2. The problem -->
+<section class="band" aria-labelledby="problem-title" style="margin-top:-2px">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#D9B8FF">The real problem</p>
+    <h2 id="problem-title">You started a business. Somehow you became its assistant.</h2>
+    <p class="sub">The inbox, the reminders, the client messages, the paperwork. It all lands on you, and the work that grows your business waits until tomorrow.</p>
+    <div class="stats">
+      <div class="stat"><strong>11 hrs</strong><p>a week, roughly what a small business owner spends on admin, according to a survey of 1,000 owners.</p></div>
+      <div class="stat"><strong>#1</strong><p>Email and the inbox top the list of admin work that eats owners' time.</p></div>
+      <div class="stat"><strong>$500+</strong><p>a month is what a part-time US virtual assistant usually costs. Often a lot more.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. The shift -->
+<section aria-labelledby="shift-title">
+  <div class="wrap">
+    <p class="eyebrow">What changes</p>
+    <h2 id="shift-title">Work that happens through a conversation</h2>
+    <p class="sub">This is the setup I run my own business on every day. Here's what it feels like.</p>
+    <div class="shift-grid">
+      <div class="card">
+        <h3>You talk, she talks back</h3>
+        <p>You speak naturally, and your assistant answers out loud. No staring at a screen, no long typed messages. It feels like talking to a real assistant across the desk.</p>
+      </div>
+      <div class="card">
+        <h3>She works behind the scenes</h3>
+        <p>She drafts your emails, adds events to your calendar, sets reminders, fills out paperwork and does your research, often without opening a single app on your screen.</p>
+      </div>
+      <div class="card">
+        <h3>She learns you</h3>
+        <p>She remembers your business, your clients and how you like things done, so you never explain yourself twice. Nothing gets sent until you've read it and said yes.</p>
+      </div>
+    </div>
+    <p class="quote">"I always ask, <em>can you do this?</em> And almost every time, the answer is yes. The only thing she can't do is show up in person. That's my job."</p>
+  </div>
+</section>
+
+<!-- 4. The four visits -->
+<section class="visits" aria-labelledby="visits-title">
+  <div class="wrap">
+    <p class="eyebrow">Exactly what you get</p>
+    <h2 id="visits-title">Four visits. One focus each.</h2>
+    <p class="sub">I come to your office or home. Each visit runs about two to three hours, and you leave every one of them with something working.</p>
+
+    <div class="visit-list">
+      <article class="visit">
+        <div class="num">1<small>Week 1</small></div>
+        <div>
+          <h3>Get Comfortable</h3>
+          <dl>
+            <div><dt>What I install</dt><dd>Claude on your computer, plus voice dictation and a talk-back voice.</dd></div>
+            <div><dt>Why</dt><dd>So you can run your assistant by talking, not typing. This is the part people love most.</dd></div>
+            <div><dt>What it does</dt><dd>You ask for something real from your business and watch it get done, out loud.</dd></div>
+            <div><dt>Time</dt><dd>About 2 to 3 hours together.</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="visit">
+        <div class="num">2<small>Week 2</small></div>
+        <div>
+          <h3>Meet Your Assistant</h3>
+          <dl>
+            <div><dt>What I set up</dt><dd>Your assistant's name, personality and memory of your business.</dd></div>
+            <div><dt>Why</dt><dd>An assistant who knows your clients, your services and your voice gets it right the first time.</dd></div>
+            <div><dt>What it does</dt><dd>She knows who you are every time you talk to her, and she writes like you do.</dd></div>
+            <div><dt>Time</dt><dd>About 2 to 3 hours together.</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="visit">
+        <div class="num">3<small>Week 3</small></div>
+        <div>
+          <h3>Put Her to Work</h3>
+          <dl>
+            <div><dt>What I install</dt><dd>Skills and connections for your email, calendar, reminders, a morning briefing, client messages and paperwork.</dd></div>
+            <div><dt>Why</dt><dd>We start with the three tasks you hate most, so you feel the difference right away.</dd></div>
+            <div><dt>What it does</dt><dd>She drafts, schedules, reminds and organizes. You approve.</dd></div>
+            <div><dt>Time</dt><dd>About 2 to 3 hours together.</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="visit">
+        <div class="num">4<small>Week 4</small></div>
+        <div>
+          <h3>The Keys</h3>
+          <dl>
+            <div><dt>What I teach</dt><dd>How to give your assistant new skills on your own.</dd></div>
+            <div><dt>Why</dt><dd>So you never depend on me to grow. When a new task shows up, you just ask her.</dd></div>
+            <div><dt>What it does</dt><dd>You leave as the person who runs the company, not the person doing all of it.</dd></div>
+            <div><dt>Time</dt><dd>About 2 to 3 hours together.</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Pricing -->
+<section id="pricing" aria-labelledby="pricing-title">
+  <div class="wrap">
+    <p class="eyebrow">Transparent pricing</p>
+    <h2 id="pricing-title">One price, the same for everyone</h2>
+    <p class="sub">No custom quotes and no surprises. This is what everyone pays.</p>
+
+    <div class="price-grid">
+      <div class="plan main">
+        <span class="tag">Start here</span>
+        <h3>AI Executive Assistant</h3>
+        <p class="amount">$5,000</p>
+        <p class="ways">$1,250 at each visit, or $4,500 paid in full (save $500). Pay over time with Affirm or Klarna.</p>
+        <ul>
+          <li>Four in-person visits over 30 days</li>
+          <li>Set up on your own computer</li>
+          <li>Voice in, voice out</li>
+          <li>Your assistant, with a name and personality</li>
+          <li>Email, calendar, reminders, briefings, client messages and paperwork</li>
+          <li>You learn to add new skills yourself</li>
+        </ul>
+        <div class="spacer"></div>
+        <a class="btn" href="https://cal.com/mssheajohnson">Book a free call</a>
+        <p class="paylinks">Already booked with me? <a href="https://buy.stripe.com/6oUcN53s62xb0RO2ev2wU03">Pay for a visit ($1,250)</a> or <a href="https://buy.stripe.com/fZu28r4wago17gc8CT2wU04">pay in full ($4,500)</a></p>
+      </div>
+
+      <div class="plan">
+        <h3>The Overnight Team</h3>
+        <p class="amount">$6,500</p>
+        <p class="ways">Everything in the AI Executive Assistant, plus one more visit. You buy a Mac mini, and I set it up to keep working while you sleep.</p>
+        <ul>
+          <li>Five in-person visits</li>
+          <li>A dedicated Mac mini that stays on</li>
+          <li>Text your assistant from your phone</li>
+          <li>Scheduled jobs that run overnight</li>
+        </ul>
+        <div class="spacer"></div>
+        <a class="btn btn-quiet" href="https://cal.com/mssheajohnson">Ask me about it</a>
+      </div>
+    </div>
+
+    <div class="addons">
+      <div class="addon">
+        <h4>Another specialist</h4>
+        <p class="amt">$1,500</p>
+        <p>Add a marketing, strategy or operations agent later. One visit each.</p>
+      </div>
+      <div class="addon">
+        <h4>Care plan</h4>
+        <p class="amt">$500 / month</p>
+        <p>One visit a month to tune things up and add what you need. Optional.</p>
+      </div>
+      <div class="addon">
+        <h4>Your Claude plan</h4>
+        <p class="amt">Paid to Anthropic</p>
+        <p>You pay Anthropic for Claude directly, not me. I'll help you pick the right plan.</p>
+      </div>
+    </div>
+
+    <p class="compare"><strong>Put it in perspective:</strong> a part-time human assistant costs about $500 to $2,000 a month. This setup costs less than four months of that, one time, and it keeps working every year after.</p>
+
+    <p class="promise">I only work with two clients at a time, because I set everything up in person. If you handle patient or client health information, your assistant stays away from it, and I'll show you how.</p>
+  </div>
+</section>
+
+<!-- 6. About -->
+<section class="about visits" aria-labelledby="about-title">
+  <div class="wrap about-grid">
+    <img src="assets/shea_hero.jpg" alt="Shea Johnson">
+    <div>
+      <p class="eyebrow">Who's coming to your office</p>
+      <h2 id="about-title">Hi, I'm Shea.</h2>
+      <p>I wanted assistants who never sleep. So I spent sleepless nights and one full week of trial and error teaching myself to build them, one skill at a time.</p>
+      <p>Now I run my business mostly by voice. I talk to my laptop, it talks back, and the work gets done. I even run it from my phone when I'm out.</p>
+      <p>I come to you so you can skip the week I spent figuring it out. You get the setup that works, built around your business.</p>
+      <p class="proof">Rated five stars in all 56 reviews on <a href="https://www.trustpilot.com/review/mssheajohnson.com">Trustpilot</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section aria-labelledby="faq-title">
+  <div class="wrap narrow">
+    <p class="eyebrow">Questions</p>
+    <h2 id="faq-title">Before you book</h2>
+    <div class="faq-list">
+      <details>
+        <summary>Do I need to be good with technology?</summary>
+        <p>No. If you can talk, you can run your assistant. Our first visit is all about getting comfortable, and I don't leave until you are.</p>
+      </details>
+      <details>
+        <summary>What kind of computer do I need?</summary>
+        <p>A Mac you use for work is ideal, since that's what I run my own business on. If you're on Windows, ask me on our call.</p>
+      </details>
+      <details>
+        <summary>Will she send emails without asking me?</summary>
+        <p>No. She drafts, and you approve. Nothing goes out until you've read it and said yes.</p>
+      </details>
+      <details>
+        <summary>Is there a monthly cost?</summary>
+        <p>Only your Claude plan, which you pay to Anthropic directly. The care plan with me is optional.</p>
+      </details>
+      <details>
+        <summary>Can I pay over time?</summary>
+        <p>Yes. You can pay at each visit, pay in full and save $500, or use Affirm or Klarna at checkout.</p>
+      </details>
+      <details>
+        <summary>Where do you travel?</summary>
+        <p>Greater Boston and Massachusetts. If you're farther out, ask me on our call.</p>
+      </details>
+      <details>
+        <summary>What if I want more than an assistant?</summary>
+        <p>Once she's running, you can add specialists, like a marketing or strategy agent, for $1,500 each. One visit each.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Final CTA -->
+<section class="final band" aria-labelledby="final-title">
+  <div class="wrap">
+    <h2 id="final-title">Stop doing the work. Start running the company.</h2>
+    <p class="sub">Book a free call. We'll talk about the three tasks you'd hand off first, and you'll know if this is right for you.</p>
+    <div class="ctas">
+      <a class="btn" href="https://cal.com/mssheajohnson">Book a free call</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Shea Johnson LLC</span>
+    <a href="/">Back to the studio</a>
+  </div>
+</footer>
+
+</body>
+</html>
