@@ -156,6 +156,15 @@ a { color: inherit; }
   border-color: #E2D4FA;
 }
 .p-call .frame span { font-family: "Alta", Georgia, serif; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; }
+.p-hire   { grid-column: 1 / span 12; }
+.p-hire .frame {
+  padding: 40px 44px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  background: var(--ink); border-color: var(--ink); color: #F3EFF7;
+}
+.p-hire .frame span { font-family: "Alta", Georgia, serif; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.08; max-width: 22ch; }
+.p-hire .frame em { font-style: normal; font-weight: 600; background: var(--violet); color: #fff; padding: 15px 22px; border-radius: 10px; white-space: nowrap; }
+.p-hire:hover .frame em { background: #7f1ee6; }
 .p-call .frame em { font-style: normal; font-weight: 600; color: var(--violet); white-space: nowrap; }
 
 /* ---------- Reviews ---------- */
@@ -203,7 +212,7 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
   .hero-grid, .letter .wrap { grid-template-columns: 1fr; }
   .portrait { width: min(340px, 90%); order: -1; }
   .hang { grid-template-columns: 1fr; gap: 36px; }
-  .p-shop, .p-skills, .p-blog, .p-call { grid-column: auto; grid-row: auto; margin-top: 0; }
+  .p-shop, .p-skills, .p-blog, .p-call, .p-hire { grid-column: auto; grid-row: auto; margin-top: 0; }
 }
 </style>
 </head>
@@ -243,6 +252,17 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
     </div>
 
     <div class="hang">
+      <a class="piece p-hire" href="ai-assistant.html">
+        <div class="frame">
+          <span>Your first hire is an AI assistant. I'll set it up with you, in person.</span>
+          <em>See how it works</em>
+        </div>
+        <div class="plaque">
+          <h3>Work with me</h3>
+          <p>Four visits, one transparent price, the same for everyone.</p>
+        </div>
+      </a>
+
       <a class="piece p-shop" href="https://www.etsy.com/shop/MsSheaJohnsonStudio">
         <div class="frame"><img src="assets/art.jpg" alt="Original AI artwork: a moon rising over deep plum waves"></div>
         <div class="plaque">
