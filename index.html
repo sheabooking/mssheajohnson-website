@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shea Johnson Studio</title>
-<meta name="description" content="Art, guided journals, and free AI tools from Shea Johnson, AI Business Coach and creator.">
+<meta name="description" content="Shea Johnson sets up AI executive assistants for business owners, in person. Plus art, guided journals and free AI tools.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -60,19 +60,19 @@ a { color: inherit; }
   font-size: 19px;
   color: var(--lilac);
 }
-.signature { width: 210px; margin: 18px 0 48px; opacity: 0.9; }
+.signature { width: 190px; margin: 26px 0 48px; opacity: 0.9; }
 
 .portrait { position: relative; justify-self: end; width: min(460px, 100%); margin-bottom: 0; }
 .portrait img { position: relative; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 999px 999px 0 0; border: 10px solid #EFE4FF; border-bottom: 0; }
 
-/* ---------- Offer band (top) ---------- */
-.offer { background: var(--wash, #F4EEFD); border-top: 1px solid #E2D4FA; }
-.offer .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 40px 0; }
-.offer .kicker { font: 600 13px/1 "Inter", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet); margin-bottom: 12px; }
-.offer h2 { font-family: "Alta", Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.8vw, 46px); line-height: 1.05; max-width: 24ch; }
-.offer p.more { margin-top: 8px; color: var(--lilac); }
-.offer a.go { font: 600 16px/1 "Inter", sans-serif; padding: 17px 26px; border-radius: 10px; background: var(--violet); color: #fff; text-decoration: none; white-space: nowrap; }
-.offer a.go:hover { background: #7f1ee6; }
+/* ---------- Hero offer ---------- */
+.kicker-top { margin-top: 28px; font: 600 13px/1 "Inter", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet); }
+.hero .lede { margin-top: 12px; }
+.hero-ctas { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
+.go { font: 600 16px/1 "Inter", sans-serif; padding: 17px 24px; border-radius: 10px; background: var(--violet); color: #fff; text-decoration: none; white-space: nowrap; }
+.go:hover { background: #7f1ee6; }
+.go.quiet { background: transparent; color: var(--ink); border: 1.5px solid #E7E2EE; }
+.go.quiet:hover { background: #F4EEFD; }
 
 /* ---------- Studio letter (main offer) ---------- */
 .letter {
@@ -222,7 +222,12 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
   <div class="wrap hero-grid">
     <div>
       <h1 class="wordmark">Shea Johnson <span>Studio</span></h1>
-      <p class="lede">I make art and guided journals, and I give away the AI tools I build for myself. Everything here was made to help you create something of your own.</p>
+      <p class="kicker-top">AI Executive Assistant Setup</p>
+      <p class="lede">I set up AI assistants for business owners, in person, on your own computer. You talk, and the work gets done.</p>
+      <div class="hero-ctas">
+        <a class="go" href="ai-assistant.html">See how it works</a>
+        <a class="go quiet" href="https://cal.com/mssheajohnson">Book a free call</a>
+      </div>
       <img class="signature" src="assets/signature.png" alt="Shea Johnson signature">
     </div>
     <div class="portrait">
@@ -230,17 +235,6 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
     </div>
   </div>
 </header>
-
-<section class="offer" aria-labelledby="offer-title">
-  <div class="wrap">
-    <div>
-      <p class="kicker">Work with me</p>
-      <h2 id="offer-title">Your first hire is an AI assistant. I'll set it up with you, in person.</h2>
-      <p class="more">Four visits, one transparent price, the same for everyone.</p>
-    </div>
-    <a class="go" href="ai-assistant.html">See how it works</a>
-  </div>
-</section>
 
 <section class="letter" aria-labelledby="letter-title">
   <div class="wrap">
@@ -259,7 +253,7 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
   <div class="wrap">
     <div class="wall-intro">
       <h2>Walk around the studio</h2>
-      <p>Take what helps. Stay as long as you like.</p>
+      <p>I also make art and guided journals, and I give away the AI tools I build for myself. Take what helps. Stay as long as you like.</p>
     </div>
 
     <div class="hang">
