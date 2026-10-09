@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Your AI Executive Assistant | Shea Johnson</title>
-<meta name="description" content="Your first hire is an AI Executive Assistant. Shea Johnson sets it up in person, on your own computer, in 30 days. Transparent pricing, the same for everyone.">
+<meta name="description" content="Your first hire is an AI Executive Assistant. Shea Johnson sets it up in person, on your own computer, in 30 days. Custom setups starting at $4,000, or $3,500 paid upfront.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -137,6 +137,29 @@ section { padding: 96px 0; }
 .compare strong { color: var(--ink); }
 .promise { margin-top: 28px; font-size: 15px; color: var(--muted); max-width: 70ch; }
 
+/* ---------- Quote form ---------- */
+.quote-sec { background: var(--wash); border-top: 1px solid var(--wash-line); border-bottom: 1px solid var(--wash-line); }
+.qform { margin-top: 40px; background: var(--mat); border: 1px solid var(--line); border-radius: 18px; padding: clamp(22px, 4vw, 40px); display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; }
+.qform .full { grid-column: 1 / -1; }
+.qform label, .qform legend { display: block; font: 600 15px/1.4 "Inter", sans-serif; margin-bottom: 8px; }
+.qform label span, .qform legend span { font-weight: 400; color: var(--muted); }
+.qform input[type=text], .qform input[type=email], .qform input[type=tel], .qform select, .qform textarea { width: 100%; font: 400 16px/1.4 "Inter", sans-serif; color: var(--ink); background: var(--page); border: 1.5px solid var(--line); border-radius: 10px; padding: 13px 14px; }
+.qform textarea { min-height: 110px; resize: vertical; }
+.qform input:focus, .qform select:focus, .qform textarea:focus { outline: none; border-color: var(--violet); }
+.qform fieldset { border: 0; }
+.qform .checks { display: flex; flex-wrap: wrap; gap: 10px; }
+.qform .checks label { display: inline-flex; align-items: center; gap: 8px; font-weight: 400; margin: 0; padding: 10px 14px; border: 1.5px solid var(--line); border-radius: 999px; cursor: pointer; background: var(--page); }
+.qform .checks input { accent-color: var(--violet); }
+.qform .btn { border: 0; cursor: pointer; justify-self: start; }
+.qform .fine { font-size: 14px; color: var(--muted); }
+.honey { position: absolute; left: -9999px; }
+.thanks { display: none; margin-top: 40px; background: var(--mat); border: 2px solid var(--violet); border-radius: 18px; padding: 36px; }
+.thanks h3 { font-family: "Alta", Georgia, serif; font-weight: 400; font-size: clamp(30px, 4vw, 42px); line-height: 1.05; }
+.thanks p { margin-top: 10px; color: var(--lilac); }
+.quote-sec:has(#thanks:target) .qform { display: none; }
+.quote-sec:has(#thanks:target) .thanks { display: block; }
+@media (max-width: 860px) { .qform { grid-template-columns: 1fr; } }
+
 /* ---------- About ---------- */
 .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: center; }
 .about-grid img { border-radius: 18px; aspect-ratio: 1 / 1; object-fit: cover; }
@@ -190,7 +213,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 <nav class="topbar" aria-label="Site">
   <div class="wrap">
     <a class="home" href="/">Shea Johnson</a>
-    <span style="display:flex;gap:16px;align-items:center"><a class="book hide-sm" href="#pricing">Pricing</a><a class="btn" style="padding:12px 18px;font-size:15px" href="https://cal.com/mssheajohnson">Book a free call</a></span>
+    <span style="display:flex;gap:16px;align-items:center"><a class="book hide-sm" href="#pricing">Pricing</a><a class="btn" style="padding:12px 18px;font-size:15px" href="#quote">Get a quote</a></span>
   </div>
 </nav>
 
@@ -202,10 +225,10 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       <h1>Your first hire is an <span>AI assistant.</span></h1>
       <p class="lede">You talk. She does the work. I come to you and set it up on your own computer, in four visits over 30 days.</p>
       <div class="ctas">
-        <a class="btn" href="https://cal.com/mssheajohnson">Book a free call</a>
-        <a class="btn btn-quiet" href="#pricing">See the price</a>
+        <a class="btn" href="#quote">Get your custom quote</a>
+        <a class="btn btn-quiet" href="#pricing">How pricing works</a>
       </div>
-      <p class="note">Same price for everyone, listed below. I take two clients at a time.</p>
+      <p class="note">Every setup is custom, starting at $4,000. I take two clients at a time.</p>
     </div>
     <div class="portrait">
       <img src="assets/shea_hero.jpg" alt="Shea Johnson in her studio">
@@ -317,65 +340,131 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 <!-- 5. Pricing -->
 <section id="pricing" aria-labelledby="pricing-title">
   <div class="wrap">
-    <p class="eyebrow">Transparent pricing</p>
-    <h2 id="pricing-title">One price, the same for everyone</h2>
-    <p class="sub">No custom quotes and no surprises. This is what everyone pays.</p>
+    <p class="eyebrow">Custom pricing</p>
+    <h2 id="pricing-title">Built for how your business runs</h2>
+    <p class="sub">No two businesses run the same way, so I quote every setup for you. Here's where it starts and what shapes your price.</p>
 
     <div class="price-grid">
       <div class="plan main">
         <span class="tag">Start here</span>
         <h3>AI Executive Assistant</h3>
-        <p class="amount">$5,000</p>
-        <p class="ways">$1,250 at each visit, or $4,500 paid in full (save $500). Pay over time with Affirm or Klarna.</p>
+        <p class="amount"><small>starting at</small> $4,000</p>
+        <p class="ways">Or $3,500 when you pay upfront. Fill out the short form below and I'll send your exact price. Pay at each visit, pay upfront, or pay over time with Affirm or Klarna.</p>
         <ul>
           <li>Four in-person visits over 30 days</li>
-          <li>Set up on your own computer</li>
           <li>Voice in, voice out</li>
           <li>Your assistant, with a name and personality</li>
           <li>Email, calendar, reminders, briefings, client messages and paperwork</li>
+          <li>Connected to the apps you already use</li>
           <li>You learn to add new skills yourself</li>
         </ul>
         <div class="spacer"></div>
-        <a class="btn" href="https://cal.com/mssheajohnson">Book a free call</a>
-        <p class="paylinks">Already booked with me? <a href="https://buy.stripe.com/6oUcN53s62xb0RO2ev2wU03">Pay for a visit ($1,250)</a> or <a href="https://buy.stripe.com/fZu28r4wago17gc8CT2wU04">pay in full ($4,500)</a></p>
+        <a class="btn" href="#quote">Get your custom quote</a>
       </div>
 
       <div class="plan">
-        <h3>The Overnight Team</h3>
-        <p class="amount">$6,500</p>
-        <p class="ways">Everything in the AI Executive Assistant, plus one more visit. You buy a Mac mini, and I set it up to keep working while you sleep.</p>
+        <h3>What shapes your quote</h3>
         <ul>
-          <li>Five in-person visits</li>
-          <li>A dedicated Mac mini that stays on</li>
-          <li>Text your assistant from your phone</li>
-          <li>Scheduled jobs that run overnight</li>
+          <li><strong>Your devices.</strong> A Mac and an iPhone are the simplest. A tablet or Windows computer may need a small cloud computer, and I'll set that up too.</li>
+          <li><strong>The apps she connects to.</strong> Some apps, like scheduling or payroll tools, take extra work to connect.</li>
+          <li><strong>How much you hand off.</strong> More tasks and more specialists mean more building.</li>
+          <li><strong>Working while you sleep.</strong> Scheduled jobs that run overnight, on a computer that stays on.</li>
+          <li><strong>Your team and locations.</strong> More people and places to keep track of take more setup.</li>
         </ul>
         <div class="spacer"></div>
-        <a class="btn btn-quiet" href="https://cal.com/mssheajohnson">Ask me about it</a>
+        <a class="btn btn-quiet" href="#quote">Get your quote</a>
       </div>
     </div>
 
     <div class="addons">
       <div class="addon">
         <h4>Another specialist</h4>
-        <p class="amt">$1,500</p>
-        <p>Add a marketing, strategy or operations agent later. One visit each.</p>
+        <p class="amt">Quoted for you</p>
+        <p>Add a marketing, strategy or operations agent now or later. One visit each.</p>
       </div>
       <div class="addon">
         <h4>Care and follow-up visits</h4>
         <p class="amt">Quoted for you</p>
-        <p>Need me back to fine-tune things or add something new? Every business is different, so I'll quote it for what you need. Optional.</p>
+        <p>Need me back to fine-tune things or add something new? I'll quote it for what you need. Optional.</p>
       </div>
       <div class="addon">
-        <h4>Your Claude plan</h4>
-        <p class="amt">Paid to Anthropic</p>
-        <p>You pay Anthropic for Claude directly, not me. I'll help you pick the right plan.</p>
+        <h4>Your AI plan</h4>
+        <p class="amt">Paid to them, not me</p>
+        <p>You pay for Claude or ChatGPT directly. I'll help you pick the right plan, and your quote lists any app upgrades you'd need.</p>
       </div>
     </div>
 
-    <p class="compare"><strong>Put it in perspective:</strong> a part-time human assistant costs about $500 to $2,000 a month. This setup costs less than four months of that, one time, and it keeps working every year after.</p>
+    <p class="compare"><strong>Put it in perspective:</strong> a part-time human assistant costs about $500 to $2,000 a month. Most setups cost less than four months of that, one time, and it keeps working every year after.</p>
 
     <p class="promise">I only work with two clients at a time, because I set everything up in person. If you handle patient or client health information, your assistant stays away from it, and I'll show you how.</p>
+  </div>
+</section>
+
+<!-- 5b. Quote form -->
+<section id="quote" class="quote-sec" aria-labelledby="quote-title">
+  <div class="wrap narrow">
+    <span id="thanks"></span>
+    <p class="eyebrow">Get your custom quote</p>
+    <h2 id="quote-title">Tell me about your business</h2>
+    <p class="sub">It takes about three minutes. My team will be in touch within one business day with your quote, or to set up a quick call.</p>
+
+    <form class="qform" action="https://formsubmit.co/sheabooking@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New AI assistant quote request">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://mssheajohnson.com/ai-assistant.html#thanks">
+      <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div><label for="q-name">Your name</label><input id="q-name" type="text" name="Name" autocomplete="name" required></div>
+      <div><label for="q-biz">Business name</label><input id="q-biz" type="text" name="Business" autocomplete="organization" required></div>
+      <div><label for="q-email">Email</label><input id="q-email" type="email" name="email" autocomplete="email" required></div>
+      <div><label for="q-phone">Phone</label><input id="q-phone" type="tel" name="Phone" autocomplete="tel" required></div>
+
+      <div class="full"><label for="q-what">What does your business do? <span>(and where are you located?)</span></label><input id="q-what" type="text" name="What the business does" required></div>
+
+      <div class="full"><label for="q-tasks">What are the three tasks you'd hand off first?</label><textarea id="q-tasks" name="Top 3 tasks" placeholder="For example: answering client emails, scheduling, payroll prep" required></textarea></div>
+
+      <fieldset class="full">
+        <legend>What computer do you use for work? <span>(pick all that apply)</span></legend>
+        <div class="checks">
+          <label><input type="checkbox" name="Computer" value="Mac laptop"> Mac laptop</label>
+          <label><input type="checkbox" name="Computer" value="Mac desktop"> Mac desktop</label>
+          <label><input type="checkbox" name="Computer" value="Windows"> Windows</label>
+          <label><input type="checkbox" name="Computer" value="Tablet"> Tablet</label>
+          <label><input type="checkbox" name="Computer" value="No computer"> No computer</label>
+        </div>
+      </fieldset>
+
+      <div><label for="q-phone-type">What phone do you have?</label>
+        <select id="q-phone-type" name="Phone type" required>
+          <option value="">Choose one</option><option>iPhone</option><option>Android</option><option>Other</option>
+        </select></div>
+      <div><label for="q-ai">Do you use AI now?</label>
+        <select id="q-ai" name="AI now" required>
+          <option value="">Choose one</option><option>ChatGPT</option><option>Claude</option><option>Something else</option><option>Not yet</option>
+        </select></div>
+
+      <div class="full"><label for="q-apps">What apps run your business? <span>(scheduling, payroll, email, booking, anything)</span></label><input id="q-apps" type="text" name="Apps" placeholder="For example: Acuity, Homebase, Gmail, QuickBooks"></div>
+
+      <div><label for="q-team">How many people on your team?</label>
+        <select id="q-team" name="Team size">
+          <option>Just me</option><option>2 to 5</option><option>6 to 15</option><option>16 or more</option>
+        </select></div>
+      <div><label for="q-contact">Best way to reach you</label>
+        <select id="q-contact" name="Best way to reach">
+          <option>Call me</option><option>Text me</option><option>Email me</option>
+        </select></div>
+
+      <div class="full"><label for="q-heard">How did you hear about me? <span>(optional)</span></label><input id="q-heard" type="text" name="Heard about Shea from"></div>
+
+      <div class="full"><button class="btn" type="submit">Send my quote request</button></div>
+      <p class="full fine">No spam and no pressure. Your answers only go to me.</p>
+    </form>
+
+    <div class="thanks" role="status">
+      <h3>Thank you. You're on my list.</h3>
+      <p>My team will be in touch within one business day with your custom quote, or to set up a quick call. Keep an eye on your phone and email.</p>
+    </div>
   </div>
 </section>
 
@@ -398,7 +487,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 <section aria-labelledby="faq-title">
   <div class="wrap narrow">
     <p class="eyebrow">Questions</p>
-    <h2 id="faq-title">Before you book</h2>
+    <h2 id="faq-title">Before you reach out</h2>
     <div class="faq-list">
       <details>
         <summary>Do I need to be good with technology?</summary>
@@ -406,7 +495,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       </details>
       <details>
         <summary>What kind of computer do I need?</summary>
-        <p>A Mac you use for work is ideal, since that's what I run my own business on. If you're on Windows, ask me on our call.</p>
+        <p>A Mac you use for work is the simplest, since that's what I run my own business on. On Windows or a tablet? I can usually make it work, sometimes with a small cloud computer. That's part of your quote.</p>
       </details>
       <details>
         <summary>Will she send emails without asking me?</summary>
@@ -414,11 +503,11 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       </details>
       <details>
         <summary>Is there a monthly cost?</summary>
-        <p>Only your Claude plan, which you pay to Anthropic directly. Follow-up visits with me are optional, and I quote them based on what you need.</p>
+        <p>Only your AI plan, which you pay to Anthropic or OpenAI directly, plus any app upgrades your setup needs. I list those in your quote, so nothing is a surprise. Follow-up visits with me are optional.</p>
       </details>
       <details>
         <summary>Can I pay over time?</summary>
-        <p>Yes. You can pay at each visit, pay in full and save $500, or use Affirm or Klarna at checkout.</p>
+        <p>Yes. You can pay at each visit, pay upfront and save $500, or use Affirm or Klarna at checkout.</p>
       </details>
       <details>
         <summary>Where do you travel?</summary>
@@ -426,7 +515,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       </details>
       <details>
         <summary>What if I want more than an assistant?</summary>
-        <p>Once she's running, you can add specialists, like a marketing or strategy agent, for $1,500 each. One visit each.</p>
+        <p>Once she's running, you can add specialists, like a marketing or strategy agent, priced as part of your quote. One visit each.</p>
       </details>
     </div>
   </div>
@@ -436,9 +525,9 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 <section class="final band" aria-labelledby="final-title">
   <div class="wrap">
     <h2 id="final-title">Stop doing the work. Start running the company.</h2>
-    <p class="sub">Book a free call. We'll talk about the three tasks you'd hand off first, and you'll know if this is right for you.</p>
+    <p class="sub">Fill out the short form. Tell me the three tasks you'd hand off first, and my team will be in touch with your custom quote.</p>
     <div class="ctas">
-      <a class="btn" href="https://cal.com/mssheajohnson">Book a free call</a>
+      <a class="btn" href="#quote">Get your custom quote</a>
     </div>
   </div>
 </section>
