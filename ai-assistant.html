@@ -135,6 +135,66 @@ section { padding: 96px 0; }
 
 .compare { margin-top: 22px; border: 1px dashed var(--wash-line); border-radius: 16px; padding: 24px 28px; color: var(--lilac); }
 .compare strong { color: var(--ink); }
+
+/* ---------- Monthly side-by-side ---------- */
+.mcmp { margin-top: 28px; border: 1px solid var(--wash-line); border-radius: 20px; background: var(--mat); padding: 32px; }
+.mcmp h3 { font-size: clamp(28px, 3.4vw, 40px); }
+.mcmp .lede { margin-top: 8px; color: var(--lilac); max-width: 62ch; }
+.sum { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.card { border-radius: 16px; padding: 20px 22px; border: 2px solid var(--line); }
+.card.va { background: #F6F4F9; border-color: #DCD5E6; }
+.card.ai { background: var(--wash); border-color: var(--violet); }
+.card .who { font: 600 16px/1.4 "Inter", sans-serif; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.card .per { margin-top: 6px; font: 600 clamp(30px, 4vw, 40px)/1.1 "Inter", sans-serif; font-variant-numeric: tabular-nums; }
+.card .per small { font-size: 16px; font-weight: 500; color: var(--muted); }
+.card.ai .per { color: var(--violet); }
+.card .note { margin-top: 4px; font-size: 15px; color: var(--lilac); }
+.dot { display: inline-block; width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.card.va .dot, .dot.g { background: #BDB2CC; }
+.card.ai .dot, .dot.p { background: var(--violet); }
+.dot.l { background: #C9A6FF; }
+.chart { margin-top: 22px; }
+.bars { display: grid; grid-template-columns: repeat(24, 1fr); gap: 4px; align-items: end; height: 130px; border-bottom: 1px solid var(--line); }
+.col { display: flex; align-items: flex-end; gap: 2px; height: 100%; }
+.col span { flex: 1; display: block; border-radius: 3px 3px 0 0; height: var(--h); min-height: 3px; transform-origin: bottom; }
+.col .v { background: #BDB2CC; }
+.col .a { background: var(--violet); }
+.col .a.after { background: #C9A6FF; }
+.months { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-top: 6px; }
+.legend { margin-top: 10px; display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; color: var(--lilac); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.mcmp-tag { margin-top: 8px; font-size: 15px; color: var(--lilac); }
+.mcmp-tag strong { color: var(--ink); }
+.math { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.math div { border-radius: 16px; padding: 20px 22px; background: var(--wash); }
+.math h5 { font: 600 15px/1.3 "Inter", sans-serif; margin-bottom: 8px; }
+.math ol { margin: 0; padding-left: 20px; font-size: 15px; color: var(--lilac); }
+.math ol li { margin: 4px 0; }
+.math b { color: var(--ink); }
+.keep { margin-top: 20px; text-align: center; font: 600 18px/1.5 "Inter", sans-serif; }
+.keep span { color: var(--violet); }
+.fine { margin-top: 12px; font-size: 13px; color: var(--muted); }
+.mcmp.js .bars .col span { transform: scaleY(0); transition: transform 420ms cubic-bezier(.2,.8,.25,1.15); }
+.mcmp.js .bars .col span.on { transform: scaleY(1); }
+.ticker { margin-top: 22px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.ticker .tm { font: 600 15px "Inter", sans-serif; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.ticker .tm b { display: inline-block; min-width: 2ch; color: var(--violet); font-size: 22px; }
+.replay { font: 600 14px "Inter", sans-serif; color: var(--violet); background: var(--wash); border: 1px solid var(--wash-line); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+.mcmp:not(.js) .replay { display: none; }
+.replay:hover { background: #EBDDFD; }
+.sofar { font-size: 14px; color: var(--muted); margin-top: 2px; }
+.sofar b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.ai .sofar b { color: var(--violet); }
+.badge { display: inline-block; font: 600 13px/1 "Inter", sans-serif; padding: 6px 10px; border-radius: 999px; vertical-align: middle; opacity: 0; transform: scale(.6); transition: opacity 300ms, transform 400ms cubic-bezier(.2,.8,.25,1.4); }
+.badge.show { opacity: 1; transform: scale(1); }
+.badge.paid { background: #E7F7EE; color: #17804A; }
+.badge.still { background: #FDECEC; color: #B4232A; }
+.badge.still.show { animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 6px rgba(180,35,42,.12); } }
+.keep span { font-variant-numeric: tabular-nums; }
+.keep.pop span { display: inline-block; animation: pop 600ms cubic-bezier(.2,.8,.25,1.5); }
+@keyframes pop { 0% { transform: scale(.8); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
+@media (max-width: 860px) { .mcmp { padding: 22px 18px; } .math, .sum { grid-template-columns: 1fr; } .bars { height: 100px; gap: 2px; } .col { gap: 1px; } }
 .promise { margin-top: 28px; font-size: 15px; color: var(--muted); max-width: 70ch; }
 
 /* ---------- Quote form ---------- */
@@ -394,7 +454,57 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       </div>
     </div>
 
-    <p class="compare"><strong>Put it in perspective:</strong> a part-time human assistant costs about $500 to $2,000 a month. Most setups cost less than four months of that, one time, and it keeps working every year after.</p>
+    <div class="mcmp" id="monthly">
+      <p class="eyebrow">Month by month</p>
+      <h3>One payment ends. The other never does.</h3>
+      <p class="lede">Here's what you'd pay each month for two years: a part-time virtual assistant, or me, paid over 12 months with Affirm or Klarna.</p>
+      <div class="ticker" aria-hidden="true"><span class="tm">Month <b id="tm">24</b> of 24</span><button class="replay" type="button" id="replay">↻ Play it again</button></div>
+
+      <div class="sum">
+        <div class="card va">
+          <p class="who"><i class="dot"></i>Virtual assistant <span class="badge still show" id="still">Still paying</span></p>
+          <p class="per">$1,083<small> / month</small></p>
+          <p class="note">Every month. It never stops.</p>
+          <p class="sofar">Paid so far: <b id="vaTot">$26,000</b></p>
+        </div>
+        <div class="card ai">
+          <p class="who"><i class="dot"></i>Your AI assistant <span class="badge paid show" id="paid">Paid off ✓</span></p>
+          <p class="per">$353<small> / month</small></p>
+          <p class="note">For 12 months. Then just $20 a month for your AI plan.</p>
+          <p class="sofar">Paid so far: <b id="aiTot">$4,480</b></p>
+        </div>
+      </div>
+
+      <div class="chart" role="img" aria-label="Month by month for 24 months: the virtual assistant costs about $1,083 every month. The AI assistant costs about $353 a month for 12 months, then $20 a month.">
+        <div class="bars"><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div></div>
+        <div class="months"><span>Month 1</span><span>Month 12</span><span>Month 24</span></div>
+        <p class="legend"><span><i class="dot g"></i>Virtual assistant</span><span><i class="dot p"></i>AI assistant</span><span><i class="dot l"></i>AI plan only ($20)</span></p>
+      </div>
+
+      <div class="math">
+        <div>
+          <h5>The virtual assistant math</h5>
+          <ol>
+            <li>$25 an hour × 10 hours a week = <b>$250 a week</b></li>
+            <li>$250 × 52 weeks = <b>$13,000 a year</b></li>
+            <li>$13,000 ÷ 12 months = <b>about $1,083 a month</b></li>
+            <li>Two years: $13,000 × 2 = <b>$26,000</b></li>
+          </ol>
+        </div>
+        <div>
+          <h5>The AI assistant math</h5>
+          <ol>
+            <li>$4,000 setup ÷ 12 months = <b>about $333 a month</b></li>
+            <li>$333 + $20 AI plan = <b>about $353 a month</b> for months 1 to 12</li>
+            <li>Months 13 and on: <b>$20 a month</b>, just the AI plan</li>
+            <li>Two years: $4,000 + ($20 × 24) = <b>$4,480</b></li>
+          </ol>
+        </div>
+      </div>
+
+      <p class="keep">$26,000 − $4,480 = <span id="keepAmt">$21,520</span> <span>you keep</span> in the first two years.</p>
+      <p class="fine">Based on a $4,000 setup and a virtual assistant at about $25 an hour for 10 hours a week. Your quote may be different. Affirm and Klarna set your actual monthly payment when you're approved, and it may include interest. Your AI plan is paid to Claude or ChatGPT, not to me.</p>
+    </div>
 
     <p class="promise">I only work with two clients at a time, because I set everything up in person. If you handle patient or client health information, your assistant stays away from it, and I'll show you how.</p>
   </div>
@@ -539,5 +649,42 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   </div>
 </footer>
 
+<script>
+(function(){
+  var el=document.getElementById("monthly"); if(!el) return;
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce||!("IntersectionObserver" in window)) return; /* final state is already in the HTML */
+  el.classList.add("js");
+  var va=el.querySelectorAll(".bars .v"), ai=el.querySelectorAll(".bars .a");
+  var tm=document.getElementById("tm"), vaT=document.getElementById("vaTot"), aiT=document.getElementById("aiTot");
+  var paid=document.getElementById("paid"), st=document.getElementById("still");
+  var keep=el.querySelector(".keep"), keepAmt=document.getElementById("keepAmt");
+  var money=function(n){return "$"+Math.round(n).toLocaleString("en-US");};
+  var timer=null;
+  function reset(){
+    clearInterval(timer);
+    [].forEach.call(va,function(b){b.classList.remove("on");});
+    [].forEach.call(ai,function(b){b.classList.remove("on");});
+    paid.classList.remove("show"); st.classList.remove("show"); keep.classList.remove("pop");
+    tm.textContent="0"; vaT.textContent="$0"; aiT.textContent="$0"; keepAmt.textContent="$0";
+  }
+  function play(){
+    reset();
+    var m=0, v=0, a=0;
+    timer=setInterval(function(){
+      va[m].classList.add("on"); ai[m].classList.add("on");
+      v+=13000/12; a+= m<12 ? 4000/12+20 : 20; m++;
+      tm.textContent=m; vaT.textContent=money(v); aiT.textContent=money(a);
+      keepAmt.textContent=money(v-a);
+      if(m===12) paid.classList.add("show");
+      if(m===24){ clearInterval(timer); st.classList.add("show"); keep.classList.add("pop"); }
+    },230);
+  }
+  reset();
+  var io=new IntersectionObserver(function(e){ if(e[0].isIntersecting){ io.disconnect(); play(); } },{threshold:.35});
+  io.observe(el);
+  document.getElementById("replay").addEventListener("click",play);
+})();
+</script>
 </body>
 </html>
