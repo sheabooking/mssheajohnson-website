@@ -266,6 +266,22 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   .visit { grid-template-columns: 1fr; gap: 12px; padding: 24px; }
   .visit dl { grid-template-columns: 1fr; }
 }
+
+/* endless list */
+.mq-sec{padding-bottom:56px;overflow:hidden}
+.mq{display:flex;flex-direction:column;gap:14px;margin-top:28px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq-row{display:flex;width:max-content;animation:mq-scroll var(--d) linear infinite}
+.mq-row.rev{animation-direction:reverse}
+.mq:hover .mq-row{animation-play-state:paused}
+.mq-track{display:flex;gap:12px;list-style:none;margin:0;padding:0 12px 0 0}
+.mq-track li{white-space:nowrap;background:var(--mat);border:1px solid var(--wash-line);color:var(--ink);border-radius:999px;padding:12px 20px;font-size:16px;font-weight:500;box-shadow:0 2px 10px rgba(80,40,140,.06)}
+.mq-row:nth-child(2) .mq-track li,.mq-row:nth-child(4) .mq-track li{background:var(--wash)}
+.mq-note{text-align:center;color:var(--muted);margin-top:26px;font-size:15px}
+@keyframes mq-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.mq-row{animation:none;width:auto;flex-wrap:wrap;justify-content:center}.mq-row .mq-track[aria-hidden]{display:none}.mq-track{flex-wrap:wrap;justify-content:center;padding:0 16px}.mq{-webkit-mask-image:none;mask-image:none}}
+@media (max-width:640px){.mq-track li{font-size:14px;padding:10px 16px}}
+.vline{margin:6px 0 0;color:var(--lilac);font-size:17px}
+.math-toggle{margin-top:18px}.math-toggle summary{cursor:pointer;color:var(--violet);font-weight:600;font-size:15px;text-align:center;list-style:none}.math-toggle summary::-webkit-details-marker{display:none}.math-toggle summary::after{content:" ▾"}.math-toggle[open] summary::after{content:" ▴"}
 </style>
 </head>
 <body>
@@ -315,22 +331,36 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   <div class="wrap">
     <p class="eyebrow">What changes</p>
     <h2 id="shift-title">Work that happens through a conversation</h2>
-    <p class="sub">This is the setup I run my own business on every day. Here's what it feels like.</p>
+    <p class="sub">The setup I run my own business on, every day.</p>
     <div class="shift-grid">
       <div class="card">
         <h3>You talk, she talks back</h3>
-        <p>You speak naturally, and your assistant answers out loud. No staring at a screen, no long typed messages. It feels like talking to a real assistant across the desk.</p>
+        <p>Speak naturally. She answers out loud.</p>
       </div>
       <div class="card">
         <h3>She works behind the scenes</h3>
-        <p>She drafts your emails, adds events to your calendar, sets reminders, fills out paperwork and does your research, often without opening a single app on your screen.</p>
+        <p>Emails, calendar, reminders, paperwork and research, handled.</p>
       </div>
       <div class="card">
         <h3>She learns you</h3>
-        <p>She remembers your business, your clients and how you like things done, so you never explain yourself twice. Nothing gets sent until you've read it and said yes.</p>
+        <p>She remembers your business. Nothing goes out without your yes.</p>
       </div>
     </div>
     <p class="quote">"I always ask, <em>can you do this?</em> And almost every time, the answer is yes. The only thing she can't do is show up in person. That's my job."</p>
+  </div>
+</section>
+
+
+<!-- 3b. The endless list -->
+<section class="mq-sec" aria-labelledby="mq-title">
+  <div class="wrap">
+    <p class="eyebrow">Just a few things</p>
+    <h2 id="mq-title">Ask, and it's done.</h2>
+    <p class="sub">Real tasks from my own week. The list keeps going.</p>
+  </div>
+  <div class="mq" role="list" aria-label="Things your assistant can do">
+<div class="mq-row" style="--d:60s"><ul class="mq-track"><li>📅 Book a call and send the invite</li><li>💬 Text a client back from your phone</li><li>🧹 Clear 12,000 junk emails</li><li>🌅 Brief you every morning at 7</li><li>📄 Turn notes into a polished PDF</li><li>🛍️ Build a product listing, photos and all</li><li>🔍 Research a competitor's prices</li><li>🔔 Flag a deadline before it's missed</li><li>📦 Track a package to your door</li><li>✍️ Write a blog post in your voice</li></ul><ul class="mq-track" aria-hidden="true"><li>📅 Book a call and send the invite</li><li>💬 Text a client back from your phone</li><li>🧹 Clear 12,000 junk emails</li><li>🌅 Brief you every morning at 7</li><li>📄 Turn notes into a polished PDF</li><li>🛍️ Build a product listing, photos and all</li><li>🔍 Research a competitor's prices</li><li>🔔 Flag a deadline before it's missed</li><li>📦 Track a package to your door</li><li>✍️ Write a blog post in your voice</li></ul></div>
+<div class="mq-row rev" style="--d:70s"><ul class="mq-track"><li>🎬 Cut a one-hour video into clips</li><li>🖥️ Hide your desktop before a demo</li><li>📸 Resize 40 photos for printing</li><li>🎨 Design a social post</li><li>📊 Log new leads in your CRM</li><li>💾 Back up your laptop</li><li>🧾 Prep an invoice for your OK</li><li>🗣️ Answer you out loud</li><li>🌐 Update your website</li><li>😴 Put your Mac to sleep at 2 AM</li></ul><ul class="mq-track" aria-hidden="true"><li>🎬 Cut a one-hour video into clips</li><li>🖥️ Hide your desktop before a demo</li><li>📸 Resize 40 photos for printing</li><li>🎨 Design a social post</li><li>📊 Log new leads in your CRM</li><li>💾 Back up your laptop</li><li>🧾 Prep an invoice for your OK</li><li>🗣️ Answer you out loud</li><li>🌐 Update your website</li><li>😴 Put your Mac to sleep at 2 AM</li></ul></div>
   </div>
 </section>
 
@@ -339,19 +369,14 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   <div class="wrap">
     <p class="eyebrow">Exactly what you get</p>
     <h2 id="visits-title">Step by step, in person.</h2>
-    <p class="sub">I come to your office or home. Each visit runs about two to three hours, and you leave every one of them with something working. Your quote tells you how many visits your setup needs.</p>
+    <p class="sub">I come to you. Each visit is about 2 to 3 hours, and you leave with something working.</p>
 
     <div class="visit-list">
       <article class="visit">
         <div class="num">1<small>Step 1</small></div>
         <div>
           <h3>Get Comfortable</h3>
-          <dl>
-            <div><dt>What I install</dt><dd>Claude on your computer, plus voice dictation and a talk-back voice.</dd></div>
-            <div><dt>Why</dt><dd>So you can run your assistant by talking, not typing. This is the part people love most.</dd></div>
-            <div><dt>What it does</dt><dd>You ask for something real from your business and watch it get done, out loud.</dd></div>
-            <div><dt>Time</dt><dd>About 2 to 3 hours together.</dd></div>
-          </dl>
+          <p class="vline">Claude, voice and a talk-back voice. You ask, she answers out loud.</p>
         </div>
       </article>
 
@@ -359,12 +384,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <div class="num">2<small>Step 2</small></div>
         <div>
           <h3>Meet Your Assistant</h3>
-          <dl>
-            <div><dt>What I set up</dt><dd>Your assistant's name, personality and memory of your business.</dd></div>
-            <div><dt>Why</dt><dd>An assistant who knows your clients, your services and your voice gets it right the first time.</dd></div>
-            <div><dt>What it does</dt><dd>She knows who you are every time you talk to her, and she writes like you do.</dd></div>
-            <div><dt>Time</dt><dd>About 2 to 3 hours together.</dd></div>
-          </dl>
+          <p class="vline">Her name, personality and memory of your business.</p>
         </div>
       </article>
 
@@ -372,12 +392,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <div class="num">3<small>Step 3</small></div>
         <div>
           <h3>Put Her to Work</h3>
-          <dl>
-            <div><dt>What I install</dt><dd>Skills and connections for your email, calendar, reminders, a morning briefing, client messages and paperwork.</dd></div>
-            <div><dt>Why</dt><dd>We start with the three tasks you hate most, so you feel the difference right away.</dd></div>
-            <div><dt>What it does</dt><dd>She drafts, schedules, reminds and organizes. You approve.</dd></div>
-            <div><dt>Time</dt><dd>About 2 to 3 hours together.</dd></div>
-          </dl>
+          <p class="vline">Email, calendar, reminders and the three tasks you hate most.</p>
         </div>
       </article>
 
@@ -385,12 +400,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <div class="num">4<small>Step 4</small></div>
         <div>
           <h3>The Keys</h3>
-          <dl>
-            <div><dt>What I teach</dt><dd>How to give your assistant new skills on your own.</dd></div>
-            <div><dt>Why</dt><dd>So you never depend on me to grow. When a new task shows up, you just ask her.</dd></div>
-            <div><dt>What it does</dt><dd>You leave as the person who runs the company, not the person doing all of it.</dd></div>
-            <div><dt>Time</dt><dd>About 2 to 3 hours together.</dd></div>
-          </dl>
+          <p class="vline">How to give her new skills on your own.</p>
         </div>
       </article>
     </div>
@@ -402,14 +412,14 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   <div class="wrap">
     <p class="eyebrow">Custom pricing</p>
     <h2 id="pricing-title">Built for how your business runs</h2>
-    <p class="sub">No two businesses run the same way, so I quote every setup for you. Here's where it starts and what shapes your price.</p>
+    <p class="sub">Every business is different, so every setup is quoted for you.</p>
 
     <div class="price-grid">
       <div class="plan main">
         <span class="tag">Start here</span>
         <h3>AI Executive Assistant</h3>
         <p class="amount"><small>starting at</small> $4,000</p>
-        <p class="ways">Or $3,500 when you pay upfront. Fill out the short form below and I'll send your exact price. Pay at each visit, pay upfront, or pay over time with Affirm or Klarna.</p>
+        <p class="ways">$3,500 if you pay upfront, or pay over time with Affirm or Klarna.</p>
         <ul>
           <li>In-person visits, as many as your setup needs</li>
           <li>Voice in, voice out</li>
@@ -425,11 +435,11 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       <div class="plan">
         <h3>What shapes your quote</h3>
         <ul>
-          <li><strong>Your devices.</strong> A Mac and an iPhone are the simplest. A tablet or Windows computer may need a small cloud computer, and I'll set that up too.</li>
-          <li><strong>The apps she connects to.</strong> Some apps, like scheduling or payroll tools, take extra work to connect.</li>
-          <li><strong>How much you hand off.</strong> More tasks and more specialists mean more building.</li>
-          <li><strong>Working while you sleep.</strong> Scheduled jobs that run overnight, on a computer that stays on.</li>
-          <li><strong>Your team and locations.</strong> More people and places to keep track of take more setup.</li>
+          <li>Your devices</li>
+          <li>The apps she connects to</li>
+          <li>How much you hand off</li>
+          <li>Overnight work while you sleep</li>
+          <li>Your team and locations</li>
         </ul>
         <div class="spacer"></div>
         <a class="btn btn-quiet" href="#quote">Get your quote</a>
@@ -440,24 +450,24 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       <div class="addon">
         <h4>Another specialist</h4>
         <p class="amt">Quoted for you</p>
-        <p>Add a marketing, strategy or operations agent now or later.</p>
+        <p>Marketing, strategy or operations.</p>
       </div>
       <div class="addon">
         <h4>Care and follow-up visits</h4>
         <p class="amt">Quoted for you</p>
-        <p>Need me back to fine-tune things or add something new? I'll quote it for what you need. Optional.</p>
+        <p>Optional tune-ups and new skills.</p>
       </div>
       <div class="addon">
         <h4>Your AI plan</h4>
         <p class="amt">Paid to them, not me</p>
-        <p>You pay for Claude or ChatGPT directly. I'll help you pick the right plan, and your quote lists any app upgrades you'd need.</p>
+        <p>Paid directly to Claude or ChatGPT.</p>
       </div>
     </div>
 
     <div class="mcmp" id="monthly">
       <p class="eyebrow">Month by month</p>
       <h3>One payment ends. The other never does.</h3>
-      <p class="lede">Here's what you'd pay each month for two years: a part-time virtual assistant, or me, paid over 12 months with Affirm or Klarna.</p>
+      <p class="lede">Two years of a part-time virtual assistant vs. your setup paid over 12 months.</p>
       <div class="ticker" aria-hidden="true"><span class="tm">Month <b id="tm">24</b> of 24</span><button class="replay" type="button" id="replay">↻ Play it again</button></div>
 
       <div class="sum">
@@ -481,7 +491,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <p class="legend"><span><i class="dot g"></i>Virtual assistant</span><span><i class="dot p"></i>AI assistant</span><span><i class="dot l"></i>AI plan only ($20)</span></p>
       </div>
 
-      <div class="math">
+      <details class="math-toggle"><summary>See the math</summary><div class="math">
         <div>
           <h5>The virtual assistant math</h5>
           <ol>
@@ -502,7 +512,8 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         </div>
       </div>
 
-      <p class="keep">$26,000 − $4,480 = <span id="keepAmt">$21,520</span> <span>you keep</span> in the first two years.</p>
+      </details>
+<p class="keep">$26,000 − $4,480 = <span id="keepAmt">$21,520</span> <span>you keep</span> in the first two years.</p>
       <p class="fine">Based on a $4,000 setup and a virtual assistant at about $25 an hour for 10 hours a week. Your quote may be different. Affirm and Klarna set your actual monthly payment when you're approved, and it may include interest. Your AI plan is paid to Claude or ChatGPT, not to me.</p>
     </div>
 
