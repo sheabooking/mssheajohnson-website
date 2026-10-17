@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Media Release | Shea Johnson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: "Alta"; src: url("assets/fonts/Alta_regular.otf") format("opentype"); font-display: swap; }
+
+:root {
+  --ink: #0C0C10;
+  --page: #FCFBFE;
+  --mat: #FFFFFF;
+  --violet: #9830FF;
+  --violet-dark: #7f1ee6;
+  --lilac: #5E5670;
+  --muted: #6F6781;
+  --line: #E7E2EE;
+  --wash: #F4EEFD;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--page); color: var(--ink); font: 400 17px/1.65 "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { width: min(640px, 100% - 32px); margin: 0 auto; padding: 48px 0 72px; }
+a { color: inherit; }
+.brand { font-family: "Alta", Georgia, serif; font-size: 20px; letter-spacing: .04em; text-decoration: none; }
+h1 { font-family: "Alta", Georgia, serif; font-weight: 400; font-size: clamp(34px, 7vw, 48px); line-height: 1.05; margin-top: 36px; }
+.sub { margin-top: 12px; color: var(--lilac); }
+
+.terms { margin-top: 28px; background: var(--wash); border-radius: 14px; padding: 22px 24px; font-size: 15px; color: var(--lilac); }
+.terms p + p { margin-top: 10px; }
+.terms strong { color: var(--ink); }
+
+.rform { margin-top: 24px; background: var(--mat); border: 1px solid var(--line); border-radius: 18px; padding: clamp(22px, 5vw, 36px); display: grid; gap: 20px; }
+.rform label, .rform legend { display: block; font: 600 15px/1.4 "Inter", sans-serif; margin-bottom: 8px; }
+.rform label span { font-weight: 400; color: var(--muted); }
+.rform input[type=text], .rform input[type=email] { width: 100%; font: 400 16px/1.4 "Inter", sans-serif; color: var(--ink); background: var(--page); border: 1.5px solid var(--line); border-radius: 10px; padding: 13px 14px; }
+.rform input:focus { outline: none; border-color: var(--violet); }
+.rform fieldset { border: 0; }
+.rform .opt { display: flex; align-items: flex-start; gap: 10px; font-weight: 400; margin: 0 0 8px; cursor: pointer; }
+.rform .opt input, .rform .agree input { accent-color: var(--violet); margin-top: 5px; flex: none; }
+.rform .agree { display: flex; align-items: flex-start; gap: 10px; font-weight: 500; cursor: pointer; margin: 0; }
+.sig { font-family: "Alta", Georgia, serif !important; font-size: 22px !important; }
+.rform .fine { font-size: 14px; color: var(--muted); }
+.btn { display: inline-block; background: var(--violet); color: #fff; font: 600 16px/1 "Inter", sans-serif; padding: 16px 28px; border-radius: 999px; border: 0; cursor: pointer; justify-self: start; }
+.btn:hover { background: var(--violet-dark); }
+.honey { position: absolute; left: -9999px; }
+
+.thanks { display: none; margin-top: 28px; background: var(--mat); border: 2px solid var(--violet); border-radius: 18px; padding: 32px; }
+.thanks h2 { font-family: "Alta", Georgia, serif; font-weight: 400; font-size: 32px; line-height: 1.1; }
+.thanks p { margin-top: 10px; color: var(--lilac); }
+body:has(#thanks:target) .rform, body:has(#thanks:target) .terms { display: none; }
+body:has(#thanks:target) .thanks { display: block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span id="thanks"></span>
+  <a class="brand" href="https://mssheajohnson.com/">SHEA JOHNSON</a>
+  <h1>Media Release</h1>
+  <p class="sub">Quick and easy. A copy will be emailed to you.</p>
+
+  <div class="terms">
+    <p>I'm OK with Shea Johnson LLC using photos, video and audio of me in its marketing. Nothing private will ever be shown.</p>
+  </div>
+
+  <form class="rform" action="https://formsubmit.co/sheabooking@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="Signed media release">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_autoresponse" value="Thank you! Here's a copy of your signed media release. — Shea Johnson, mssheajohnson.com">
+    <input type="hidden" name="_next" value="https://mssheajohnson.com/media-release#thanks">
+    <input type="hidden" name="Release" value="I'm OK with Shea Johnson LLC using photos, video and audio of me in its marketing. Nothing private will ever be shown.">
+    <input type="hidden" name="Date signed" id="signed-date" value="">
+    <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <div><label for="r-name">Full name</label><input id="r-name" type="text" name="Full name" autocomplete="name" required></div>
+    <div><label for="r-email">Email</label><input id="r-email" type="email" name="email" autocomplete="email" required></div>
+    <label class="agree"><input type="checkbox" name="I agree" value="Yes" required> I agree</label>
+    <div><label for="r-sig">Signature <span>(type your name)</span></label><input id="r-sig" class="sig" type="text" name="Signature" required></div>
+
+    <button class="btn" type="submit">Sign and submit</button>
+  </form>
+
+  <div class="thanks" role="status">
+    <h2>Thank you. You're all set!</h2>
+    <p>A copy will be emailed to you.</p>
+  </div>
+</div>
+<script>
+document.getElementById("signed-date").value = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+</script>
+</body>
+</html>
