@@ -282,6 +282,18 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 @media (max-width:640px){.mq-track li{font-size:14px;padding:10px 16px}}
 .vline{margin:6px 0 0;color:var(--lilac);font-size:17px}
 .math-toggle{margin-top:18px}.math-toggle summary{cursor:pointer;color:var(--violet);font-weight:600;font-size:15px;text-align:center;list-style:none}.math-toggle summary::-webkit-details-marker{display:none}.math-toggle summary::after{content:" ▾"}.math-toggle[open] summary::after{content:" ▴"}
+
+.copy { margin-top: 20px; }
+.copy dl { margin-top: 16px; display: grid; gap: 10px; font-size: 15px; }
+.copy dt { font-weight: 600; }
+.copy dd { margin: 2px 0 0; color: var(--lilac, #5E5670); }
+.copy-btn { margin-top: 4px; }
+@media print {
+  body * { visibility: hidden; }
+  .thanks, .thanks * { visibility: visible; }
+  .thanks { position: absolute; left: 0; top: 0; width: 100%; border: 0; }
+  .copy-btn { display: none; }
+}
 </style>
 </head>
 <body>
@@ -711,6 +723,34 @@ document.querySelector(".qform").addEventListener("submit", function () {
   var picked = Array.from(document.querySelectorAll("[data-computer]:checked")).map(function (c) { return c.value; });
   document.getElementById("q-computer-all").value = picked.join(", ");
 });
+</script>
+<script>
+(function () {
+  var KEY = "quote_copy", SKIP = ["access_key","subject","from_name","redirect","botcheck"];
+  var form = document.querySelector(".qform");
+  form.addEventListener("submit", function () {
+    var rows = [];
+    new FormData(form).forEach(function (v, k) {
+      if (SKIP.indexOf(k) === -1 && String(v).trim()) rows.push([k, String(v)]);
+    });
+    try { sessionStorage.setItem(KEY, JSON.stringify(rows)); } catch (e) {}
+  });
+  if (location.hash !== "#thanks") return;
+  var rows = null;
+  try { rows = JSON.parse(sessionStorage.getItem(KEY)); } catch (e) {}
+  if (!rows || !rows.length) return;
+  var box = document.createElement("div");
+  box.className = "copy";
+  box.innerHTML = '<p><strong>Your answers</strong></p><dl></dl><button type="button" class="btn copy-btn">Save a copy (PDF)</button>';
+  var dl = box.querySelector("dl");
+  rows.forEach(function (r) {
+    var dt = document.createElement("dt"); dt.textContent = r[0].charAt(0).toUpperCase() + r[0].slice(1);
+    var dd = document.createElement("dd"); dd.textContent = r[1];
+    dl.appendChild(dt); dl.appendChild(dd);
+  });
+  box.querySelector(".copy-btn").addEventListener("click", function () { window.print(); });
+  document.querySelector(".thanks").appendChild(box);
+})();
 </script>
 </body>
 </html>
