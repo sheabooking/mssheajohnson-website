@@ -70,14 +70,14 @@ body:has(#thanks:target) .thanks { display: block; }
     <p>I'm OK with Shea Johnson LLC using photos, video and audio of me in its marketing. Nothing private will ever be shown.</p>
   </div>
 
-  <form class="rform" action="https://formsubmit.co/405118d24d681e4cbca2f8d89cc0c92a" method="POST">
-    <input type="hidden" name="_subject" value="Signed media release">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_autoresponse" value="Thank you! Here's a copy of your signed media release. — Shea Johnson, mssheajohnson.com">
-    <input type="hidden" name="_next" value="https://mssheajohnson.com/media-release#thanks">
+  <form class="rform" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="f73c8907-2717-4c14-8801-99a584678196">
+    <input type="hidden" name="subject" value="Signed media release">
+    <input type="hidden" name="from_name" value="mssheajohnson.com">
+    <input type="hidden" name="redirect" value="https://mssheajohnson.com/media-release#thanks">
     <input type="hidden" name="Release" value="I'm OK with Shea Johnson LLC using photos, video and audio of me in its marketing. Nothing private will ever be shown.">
     <input type="hidden" name="Date signed" id="signed-date" value="">
-    <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input class="honey" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 
     <div><label for="r-name">Full name</label><input id="r-name" type="text" name="Full name" autocomplete="name" required></div>
     <div><label for="r-email">Email</label><input id="r-email" type="email" name="email" autocomplete="email" required></div>
@@ -89,7 +89,7 @@ body:has(#thanks:target) .thanks { display: block; }
 
   <div class="thanks" role="status">
     <h2>Thank you. You're all set!</h2>
-    <p>A copy will be emailed to you.</p>
+    <p>Your signed release was sent to Shea.</p>
   </div>
 </div>
 <script>
