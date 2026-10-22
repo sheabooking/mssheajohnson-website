@@ -529,12 +529,13 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     <h2 id="quote-title">Tell me about your business</h2>
     <p class="sub">It takes about three minutes. A copy of your answers will be emailed to you, and we'll usually get back to you within 48 to 72 hours with your quote, or to set up a quick call.</p>
 
-    <form class="qform" action="https://formsubmit.co/405118d24d681e4cbca2f8d89cc0c92a" method="POST">
-      <input type="hidden" name="_subject" value="New AI assistant quote request">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_autoresponse" value="Thank you for reaching out! Your answers are below for your records. Keep an eye on your phone and email. We should be able to get back to you within 48 to 72 hours. — Shea Johnson, mssheajohnson.com">
-      <input type="hidden" name="_next" value="https://mssheajohnson.com/ai-assistant#thanks">
-      <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <form class="qform" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="f73c8907-2717-4c14-8801-99a584678196">
+      <input type="hidden" name="subject" value="New AI assistant quote request">
+      <input type="hidden" name="from_name" value="mssheajohnson.com">
+      <input type="hidden" name="redirect" value="https://mssheajohnson.com/ai-assistant#thanks">
+      <input type="hidden" name="Computer" id="q-computer-all" value="">
+      <input class="honey" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <div><label for="q-name">Your name</label><input id="q-name" type="text" name="Name" autocomplete="name" required></div>
       <div><label for="q-biz">Business name</label><input id="q-biz" type="text" name="Business" autocomplete="organization" required></div>
@@ -548,11 +549,11 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       <fieldset class="full">
         <legend>What computer do you use for work? <span>(pick all that apply)</span></legend>
         <div class="checks">
-          <label><input type="checkbox" name="Computer" value="Mac laptop"> Mac laptop</label>
-          <label><input type="checkbox" name="Computer" value="Mac desktop"> Mac desktop</label>
-          <label><input type="checkbox" name="Computer" value="Windows"> Windows</label>
-          <label><input type="checkbox" name="Computer" value="Tablet"> Tablet</label>
-          <label><input type="checkbox" name="Computer" value="No computer"> No computer</label>
+          <label><input type="checkbox" data-computer value="Mac laptop"> Mac laptop</label>
+          <label><input type="checkbox" data-computer value="Mac desktop"> Mac desktop</label>
+          <label><input type="checkbox" data-computer value="Windows"> Windows</label>
+          <label><input type="checkbox" data-computer value="Tablet"> Tablet</label>
+          <label><input type="checkbox" data-computer value="No computer"> No computer</label>
         </div>
       </fieldset>
 
@@ -584,7 +585,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 
     <div class="thanks" role="status">
       <h3>Thank you. You're on my list.</h3>
-      <p>A copy of your answers will be emailed to you. Keep an eye on your phone and email. We should be able to get back to you within 48 to 72 hours with your custom quote, or to set up a quick call.</p>
+      <p>Keep an eye on your phone and email. We should be able to get back to you within 48 to 72 hours with your custom quote, or to set up a quick call.</p>
     </div>
   </div>
 </section>
@@ -704,6 +705,12 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   io.observe(el);
   document.getElementById("replay").addEventListener("click",play);
 })();
+</script>
+<script>
+document.querySelector(".qform").addEventListener("submit", function () {
+  var picked = Array.from(document.querySelectorAll("[data-computer]:checked")).map(function (c) { return c.value; });
+  document.getElementById("q-computer-all").value = picked.join(", ");
+});
 </script>
 </body>
 </html>
