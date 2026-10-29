@@ -207,6 +207,7 @@ section { padding: 96px 0; }
 .qform input[type=text], .qform input[type=email], .qform input[type=tel], .qform select, .qform textarea { width: 100%; font: 400 16px/1.4 "Inter", sans-serif; color: var(--ink); background: var(--page); border: 1.5px solid var(--line); border-radius: 10px; padding: 13px 14px; }
 .qform textarea { min-height: 110px; resize: vertical; }
 .qform input:focus, .qform select:focus, .qform textarea:focus { outline: none; border-color: var(--violet); }
+.qform select + input { margin-top: 8px; }
 .qform fieldset { border: 0; }
 .qform .checks { display: flex; flex-wrap: wrap; gap: 10px; }
 .qform .checks label { display: inline-flex; align-items: center; gap: 8px; font-weight: 400; margin: 0; padding: 10px 14px; border: 1.5px solid var(--line); border-radius: 999px; cursor: pointer; background: var(--page); }
@@ -590,9 +591,12 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
           <option>Call me</option><option>Text me</option><option>Email me</option>
         </select></div>
 
-      <div class="full"><label for="q-heard">How did you first hear about me? <span>(optional, be as specific as you like)</span></label><input id="q-heard" type="text" name="First heard about Shea from"></div>
+      <div class="full"><label for="q-heard">How did you first hear about me? <span>(optional)</span></label>
+        <select id="q-heard" name="First heard about Shea from" data-other="q-heard-other">
+          <option value="">Choose one</option><option>Instagram</option><option>Facebook</option><option>YouTube</option><option>Google search</option><option>Someone I know</option><option>A talk or event</option><option>Other</option>
+        </select>
+        <input id="q-heard-other" type="text" name="First heard (other)" placeholder="Where did you hear about me?" aria-label="Where did you hear about me?" hidden></div>
 
-      <div class="full"><label for="q-why-now">What made you reach out today? <span>(optional)</span></label><input id="q-why-now" type="text" name="Why they reached out today"></div>
 
       <div class="full"><button class="btn" type="submit">Send my quote request</button></div>
       <p class="full fine">No spam and no pressure. Your answers only go to me.</p>
@@ -725,6 +729,13 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 document.querySelector(".qform").addEventListener("submit", function () {
   var picked = Array.from(document.querySelectorAll("[data-computer]:checked")).map(function (c) { return c.value; });
   document.getElementById("q-computer-all").value = picked.join(", ");
+});
+document.querySelectorAll("select[data-other]").forEach(function (sel) {
+  var box = document.getElementById(sel.dataset.other);
+  sel.addEventListener("change", function () {
+    box.hidden = sel.value !== "Other";
+    if (box.hidden) box.value = "";
+  });
 });
 </script>
 <script>
