@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Your AI Executive Assistant | Shea Johnson</title>
-<meta name="description" content="Your first hire is an AI Executive Assistant. Shea Johnson sets it up in person, on your own computer. Custom setups starting at $4,000. Financing available.">
+<meta name="description" content="Your first hire is an AI Executive Assistant. Shea Johnson sets it up in person, on your own computer. Custom setups from $5,000, with flexible payment schedules.">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -67,6 +67,7 @@ h2 { font-size: clamp(34px, 4.6vw, 56px); }
 section { padding: 96px 0; }
 
 /* ---------- Top bar ---------- */
+[id] { scroll-margin-top: 84px; }
 .topbar { position: sticky; top: 0; z-index: 10; padding: 12px 0; background: rgba(252,251,254,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .topbar a { text-decoration: none; font-weight: 600; }
@@ -207,7 +208,6 @@ section { padding: 96px 0; }
 .qform input[type=text], .qform input[type=email], .qform input[type=tel], .qform select, .qform textarea { width: 100%; font: 400 16px/1.4 "Inter", sans-serif; color: var(--ink); background: var(--page); border: 1.5px solid var(--line); border-radius: 10px; padding: 13px 14px; }
 .qform textarea { min-height: 110px; resize: vertical; }
 .qform input:focus, .qform select:focus, .qform textarea:focus { outline: none; border-color: var(--violet); }
-.qform select + input { margin-top: 8px; }
 .qform fieldset { border: 0; }
 .qform .checks { display: flex; flex-wrap: wrap; gap: 10px; }
 .qform .checks label { display: inline-flex; align-items: center; gap: 8px; font-weight: 400; margin: 0; padding: 10px 14px; border: 1.5px solid var(--line); border-radius: 999px; cursor: pointer; background: var(--page); }
@@ -221,6 +221,63 @@ section { padding: 96px 0; }
 .quote-sec:has(#thanks:target) .qform { display: none; }
 .quote-sec:has(#thanks:target) .thanks { display: block; }
 @media (max-width: 860px) { .qform { grid-template-columns: 1fr; } }
+/* ---------- Build your agent ---------- */
+.ba-rec { position: absolute; top: -10px; right: 12px; background: var(--ink); color: #fff; font: 600 11px/1 "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; padding: 5px 9px; border-radius: 99px; }
+.ba-send { display: grid; gap: 10px; }
+.sr { position: absolute; left: -9999px; }
+.ba-step { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+.ba-step h3 { font: 600 20px/1.2 "Inter", sans-serif; }
+.ba-num { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--wash-line); color: var(--ink); font: 600 15px/32px "Inter", sans-serif; text-align: center; }
+.ba-packs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; width: min(1180px, 94vw); margin: 8px 0 8px calc(50% - min(590px, 47vw)); align-items: stretch; border: 0; padding: 0; }
+.qform .ba-packs .ba-pack { display: flex; flex-direction: column; background: #fff; border: 1.5px solid transparent; border-radius: 22px; padding: 30px 26px 28px; box-shadow: 0 16px 40px rgba(43,43,46,.08); transition: transform .2s, box-shadow .2s, background .2s, color .2s; }
+.qform .ba-packs .ba-pack:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(43,43,46,.14); }
+.ba-tier { display: block; font: 600 22px/1.2 "Inter", sans-serif; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.ba-packs .ba-price { display: block; font: 600 26px/1.15 "Inter", sans-serif; letter-spacing: -0.01em; color: var(--ink); margin: 12px 0 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.ba-packs .ba-inc { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font: 400 15px/1.35 "Inter", sans-serif; color: var(--ink); }
+.ba-packs .ba-inc li { display: flex; gap: 10px; align-items: flex-start; }
+.ba-packs .ba-inc li::before { content: "✓"; flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--wash); color: var(--ink); font: 600 11px/20px "Inter", sans-serif; text-align: center; margin-top: 1px; }
+.qform .ba-packs .ba-pack:has(input:checked) { background: var(--ink); color: #fff; box-shadow: 0 24px 54px rgba(43,43,46,.28); transform: translateY(-6px); }
+.ba-pack:has(input:checked) .ba-tier { color: #fff; border-bottom-color: rgba(255,255,255,.18); }
+.ba-pack:has(input:checked) .ba-price, .ba-pack:has(input:checked) .ba-inc { color: #fff; }
+.ba-pack:has(input:checked) .ba-price { border-bottom-color: rgba(255,255,255,.18); }
+.ba-pack:has(input:checked) .ba-inc li::before { background: var(--wash-line); color: var(--ink); }
+@media (max-width: 1100px) { .ba-packs { grid-template-columns: 1fr 1fr; } }
+.qform .ba-pack { position: relative; display: block; border: 1.5px solid var(--line); border-radius: 14px; padding: 16px 16px 14px; background: var(--page); cursor: pointer; transition: transform .15s, border-color .15s, box-shadow .15s; }
+.ba-pack:hover { transform: translateY(-2px); }
+.ba-pack input { position: absolute; opacity: 0; }
+.ba-pack b { display: block; font-size: 16px; }
+.ba-pack .ba-desc { display: block; font-weight: 400; font-size: 14px; color: var(--muted); margin-top: 4px; }
+.ba-emoji { font-size: 26px; line-height: 1; }
+.ba-pack:has(input:focus-visible) { outline: 2px solid var(--violet); outline-offset: 3px; }
+.ba-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.qform .ba-skill { display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--page); cursor: pointer; font-weight: 400 !important; margin: 0 !important; transition: border-color .15s, background .15s; }
+.qform .ba-skill input { accent-color: var(--violet); width: 18px; height: 18px; flex: none; }
+.ba-skill .ba-e { font-size: 20px; }
+.ba-price { display: block; font: 600 15px/1.2 "Inter", sans-serif; color: var(--violet); margin: 4px 0 6px; }
+.ba-inc { margin: 6px 0 0; padding-left: 18px; font-size: 13px; line-height: 1.45; color: var(--muted); }
+.ba-inc li { margin: 2px 0; }
+.ba-group { grid-column: 1 / -1; margin: 14px 0 2px; font: 600 15px/1.2 "Inter", sans-serif; color: var(--ink); }
+.ba-group:first-of-type { margin-top: 0; }
+.ba-skill .ba-t { flex: 1; line-height: 1.3; }
+.ba-skill .ba-p { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.ba-skill:has(input:checked) { border-color: var(--ink); background: #fff; }
+.ba-skill:has(input:checked) .ba-p { color: var(--ink); font-weight: 600; }
+.ba-bar { position: sticky; bottom: 12px; z-index: 5; margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; background: var(--ink); color: #fff; border-radius: 18px; padding: 16px 20px; box-shadow: 0 12px 30px rgba(43,43,46,.25); }
+.quote-sec:has(#thanks:target) .ba-bar { display: none; }
+.ba-card { display: flex; gap: 12px; align-items: center; min-width: 0; }
+.ba-card > div { min-width: 0; }
+.ba-avatar { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--wash-line); color: var(--ink); display: grid; place-items: center; font: 600 20px/1 "Inter", sans-serif; }
+.ba-agent { font-weight: 600; font-size: 17px; }
+.ba-tags { font-size: 13px; color: #D9D6D8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ba-label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #D9D6D8; }
+.ba-amt { font: 600 28px/1.1 "Inter", sans-serif; font-variant-numeric: tabular-nums; }
+.ba-amt.bump { animation: pop 450ms cubic-bezier(.2,.8,.25,1.5); }
+.ba-meter { height: 8px; border-radius: 99px; background: rgba(255,255,255,.18); margin: 8px 0 6px; overflow: hidden; }
+.ba-meter span { display: block; height: 100%; width: 25%; border-radius: 99px; background: var(--wash-line); transition: width .45s cubic-bezier(.2,.8,.25,1); }
+.ba-note { font-size: 12px; color: #D9D6D8; line-height: 1.4; }
+@media (max-width: 860px) { .ba-packs { width: auto; margin-left: 0; } .ba-packs, .ba-skills, .ba-bar { grid-template-columns: 1fr; } .ba-bar { position: static; gap: 10px; padding: 14px 16px; } .ba-card { display: none; } .ba-amt { font-size: 24px; } }
+@media (prefers-reduced-motion: reduce) { .ba-pack, .ba-meter span { transition: none; } .ba-amt.bump { animation: none; } }
+
 
 /* ---------- About ---------- */
 .about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: center; }
@@ -303,7 +360,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 <nav class="topbar" aria-label="Site">
   <div class="wrap">
     <a class="home" href="/">Shea Johnson</a>
-    <span style="display:flex;gap:16px;align-items:center"><a class="book hide-sm" href="#pricing">Pricing</a><a class="btn" style="padding:12px 18px;font-size:15px" href="#quote">Get a quote</a></span>
+    <span style="display:flex;gap:16px;align-items:center"><a class="book hide-sm" href="#pricing">Pricing</a><a class="btn" style="padding:12px 18px;font-size:15px" href="#quote">Build your agent</a></span>
   </div>
 </nav>
 
@@ -313,15 +370,15 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     <div>
       <p class="eyebrow">AI Executive Assistant Setup</p>
       <h1>Your first hire is an <span>AI assistant.</span></h1>
-      <p class="lede">You talk. She does the work. I come to you and set it up in person, step by step.</p>
+      <p class="lede">You talk. Your agent does the work. I come to you and set it up in person, step by step.</p>
       <div class="ctas">
-        <a class="btn" href="#quote">Get your custom quote</a>
+        <a class="btn" href="#quote">Build your agent</a>
         <a class="btn btn-quiet" href="#pricing">How pricing works</a>
       </div>
-      <p class="note">Every setup is custom, starting at $4,000. I take two clients at a time.</p>
+      <p class="note">Setups from $5,000. Every setup is quoted for you.</p>
     </div>
     <div class="portrait">
-      <img src="assets/shea_hero-960.webp" srcset="assets/shea_hero-480.webp 480w, assets/shea_hero-960.webp 960w" sizes="(max-width: 820px) 340px, 460px" width="960" height="1200" fetchpriority="high" alt="Shea Johnson in her studio">
+      <picture><source type="image/webp" srcset="assets/shea_hero-480.webp 480w, assets/shea_hero-960.webp 960w" sizes="(max-width: 820px) 340px, 460px"><img src="assets/shea_hero.jpg" width="960" height="1200" fetchpriority="high" alt="Shea Johnson in her studio"></picture>
     </div>
   </div>
 </header>
@@ -332,11 +389,6 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     <p class="eyebrow" style="color:#F4C7CB">The real problem</p>
     <h2 id="problem-title">You started a business. Somehow you became its assistant.</h2>
     <p class="sub">The inbox, the reminders, the client messages, the paperwork. It all lands on you, and the work that grows your business waits until tomorrow.</p>
-    <div class="stats">
-      <div class="stat"><strong>11 hrs</strong><p>a week, roughly what a small business owner spends on admin, according to a survey of 1,000 owners.</p></div>
-      <div class="stat"><strong>#1</strong><p>Email and the inbox top the list of admin work that eats owners' time.</p></div>
-      <div class="stat"><strong>$500+</strong><p>a month is what a part-time US virtual assistant usually costs. Often a lot more.</p></div>
-    </div>
   </div>
 </section>
 
@@ -348,19 +400,19 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     <p class="sub">The setup I run my own business on, every day.</p>
     <div class="shift-grid">
       <div class="card">
-        <h3>You talk, she talks back</h3>
-        <p>Speak naturally. She answers out loud.</p>
+        <h3>You talk, it talks back</h3>
+        <p>Speak naturally. It answers out loud.</p>
       </div>
       <div class="card">
-        <h3>She works behind the scenes</h3>
+        <h3>It works behind the scenes</h3>
         <p>Emails, calendar, reminders, paperwork and research, handled.</p>
       </div>
       <div class="card">
-        <h3>She learns you</h3>
-        <p>She remembers your business. Nothing goes out without your yes.</p>
+        <h3>It learns you</h3>
+        <p>It remembers your business. Nothing goes out without your yes.</p>
       </div>
     </div>
-    <p class="quote">"I always ask, <em>can you do this?</em> And almost every time, the answer is yes. The only thing she can't do is show up in person. That's my job."</p>
+    <p class="quote">"I always ask, <em>can you do this?</em> And almost every time, the answer is yes. The only thing it can't do is show up in person. That's my job."</p>
   </div>
 </section>
 
@@ -390,7 +442,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <div class="num">1<small>Step 1</small></div>
         <div>
           <h3>Get Comfortable</h3>
-          <p class="vline">Claude, voice and a talk-back voice. You ask, she answers out loud.</p>
+          <p class="vline">Your AI account, voice and a talk-back voice. You ask, it answers out loud.</p>
         </div>
       </article>
 
@@ -398,14 +450,14 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <div class="num">2<small>Step 2</small></div>
         <div>
           <h3>Meet Your Assistant</h3>
-          <p class="vline">Her name, personality and memory of your business.</p>
+          <p class="vline">Its memory of your business, your brand voice and your brand kit.</p>
         </div>
       </article>
 
       <article class="visit">
         <div class="num">3<small>Step 3</small></div>
         <div>
-          <h3>Put Her to Work</h3>
+          <h3>Put It to Work</h3>
           <p class="vline">Email, calendar, reminders and the three tasks you hate most.</p>
         </div>
       </article>
@@ -414,7 +466,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <div class="num">4<small>Step 4</small></div>
         <div>
           <h3>The Keys</h3>
-          <p class="vline">How to give her new skills on your own.</p>
+          <p class="vline">How to give it new skills on your own.</p>
         </div>
       </article>
     </div>
@@ -427,56 +479,6 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     <p class="eyebrow">Custom pricing</p>
     <h2 id="pricing-title">Built for how your business runs</h2>
     <p class="sub">Every business is different, so every setup is quoted for you.</p>
-
-    <div class="price-grid">
-      <div class="plan main">
-        <span class="tag">Start here</span>
-        <h3>AI Executive Assistant</h3>
-        <p class="amount"><small>starting at</small> $4,000</p>
-        <p class="ways">Financing available.</p>
-        <ul>
-          <li>In-person visits, as many as your setup needs</li>
-          <li>Voice in, voice out</li>
-          <li>Your assistant, with a name and personality</li>
-          <li>Email, calendar, reminders, briefings, client messages and paperwork</li>
-          <li>Connected to the apps you already use</li>
-          <li>You learn to add new skills yourself</li>
-        </ul>
-        <div class="spacer"></div>
-        <a class="btn" href="#quote">Get your custom quote</a>
-      </div>
-
-      <div class="plan">
-        <h3>What shapes your quote</h3>
-        <ul>
-          <li>Your devices</li>
-          <li>The apps she connects to</li>
-          <li>How much you hand off</li>
-          <li>Overnight work while you sleep</li>
-          <li>Your team and locations</li>
-        </ul>
-        <div class="spacer"></div>
-        <a class="btn btn-quiet" href="#quote">Get your quote</a>
-      </div>
-    </div>
-
-    <div class="addons">
-      <div class="addon">
-        <h4>Another specialist</h4>
-        <p class="amt">Quoted for you</p>
-        <p>Marketing, strategy or operations.</p>
-      </div>
-      <div class="addon">
-        <h4>Care and follow-up visits</h4>
-        <p class="amt">Quoted for you</p>
-        <p>Optional tune-ups and new skills.</p>
-      </div>
-      <div class="addon">
-        <h4>Your AI plan</h4>
-        <p class="amt">Paid to them, not me</p>
-        <p>Paid directly to Claude or ChatGPT.</p>
-      </div>
-    </div>
 
     <div class="mcmp" id="monthly">
       <p class="eyebrow">Month by month</p>
@@ -493,14 +495,14 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         </div>
         <div class="card ai">
           <p class="who"><i class="dot"></i>Your AI assistant <span class="badge paid show" id="paid">Paid off ✓</span></p>
-          <p class="per">$353<small> / month</small></p>
-          <p class="note">For 12 months. Then just $20 a month for your AI plan.</p>
-          <p class="sofar">Paid so far: <b id="aiTot">$4,480</b></p>
+          <p class="per">$437<small> / month</small></p>
+          <p class="note">Spread over 12 months to compare. Then just $20 a month for your AI plan.</p>
+          <p class="sofar">Paid so far: <b id="aiTot">$5,480</b></p>
         </div>
       </div>
 
-      <div class="chart" role="img" aria-label="Month by month for 24 months: the virtual assistant costs about $1,083 every month. The AI assistant costs about $353 a month for 12 months, then $20 a month.">
-        <div class="bars"><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:32.6%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div></div>
+      <div class="chart" role="img" aria-label="Month by month for 24 months: the virtual assistant costs about $1,083 every month. The AI assistant costs about $437 a month for 12 months, then $20 a month.">
+        <div class="bars"><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div></div>
         <div class="months"><span>Month 1</span><span>Month 12</span><span>Month 24</span></div>
         <p class="legend"><span><i class="dot g"></i>Virtual assistant</span><span><i class="dot p"></i>AI assistant</span><span><i class="dot l"></i>AI plan only ($20)</span></p>
       </div>
@@ -518,59 +520,95 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <div>
           <h5>The AI assistant math</h5>
           <ol>
-            <li>$4,000 setup ÷ 12 months = <b>about $333 a month</b></li>
-            <li>$333 + $20 AI plan = <b>about $353 a month</b> for months 1 to 12</li>
+            <li>$5,000 setup ÷ 12 months = <b>about $417 a month</b></li>
+            <li>$417 + $20 AI plan = <b>about $437 a month</b> for months 1 to 12</li>
             <li>Months 13 and on: <b>$20 a month</b>, just the AI plan</li>
-            <li>Two years: $4,000 + ($20 × 24) = <b>$4,480</b></li>
+            <li>Two years: $5,000 + ($20 × 24) = <b>$5,480</b></li>
           </ol>
         </div>
       </div>
 
       </details>
-<p class="keep">$26,000 − $4,480 = <span id="keepAmt">$21,520</span> <span>you keep</span> in the first two years.</p>
-      <p class="fine">Based on a $4,000 setup and a virtual assistant at about $25 an hour for 10 hours a week. Your quote may be different. Affirm and Klarna set your actual monthly payment when you're approved, and it may include interest. Your AI plan is paid to Claude or ChatGPT, not to me.</p>
+<p class="keep">$26,000 − $5,480 = <span id="keepAmt">$20,520</span> <span>you keep</span> in the first two years.</p>
+      <p class="fine">Based on a $5,000 setup and a virtual assistant at about $25 an hour for 10 hours a week. Your quote may be different. This is a budgeting comparison, not a payment plan. Your AI plan is paid to the AI company directly, not to me.</p>
     </div>
 
-    <p class="promise">I only work with two clients at a time, because I set everything up in person. If you handle patient or client health information, your assistant stays away from it, and I'll show you how.</p>
+    <p class="promise">I set everything up with you, in person. If you handle patient or client health information, your assistant stays away from it, and I'll show you how.</p>
   </div>
 </section>
 
-<!-- 5b. Quote form -->
+<!-- 5b. Build your agent (quote form) -->
 <section id="quote" class="quote-sec" aria-labelledby="quote-title">
   <div class="wrap narrow">
     <span id="thanks"></span>
-    <p class="eyebrow">Get your custom quote</p>
-    <h2 id="quote-title">Tell me about your business</h2>
-    <p class="sub">It takes about three minutes. A copy of your answers will be emailed to you, and we'll usually get back to you within 48 to 72 hours with your quote, or to set up a quick call.</p>
+    <p class="eyebrow">Build your agent</p>
+    <h2 id="quote-title">Build your AI assistant</h2>
+    <p class="sub">Pick a plan and tell me about your setup. It takes about three minutes, and a copy of your answers is emailed to you.</p>
 
-    <form class="qform" action="https://api.web3forms.com/submit" method="POST">
+    <form class="qform ba" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="f73c8907-2717-4c14-8801-99a584678196">
-      <input type="hidden" name="subject" value="New AI assistant quote request">
+      <input type="hidden" name="subject" value="New Build Your Agent request">
       <input type="hidden" name="from_name" value="mssheajohnson.com">
       <input type="hidden" name="redirect" value="https://mssheajohnson.com/ai-assistant#thanks">
       <input type="hidden" name="Computer" id="q-computer-all" value="">
+      <input type="hidden" name="Package" id="ba-package-out" value="">
+      <input type="hidden" name="Skills picked" id="ba-skills-out" value="">
+      <input type="hidden" name="Estimate shown" id="ba-estimate-out" value="">
       <input class="honey" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 
+
+      <!-- Step 1 -->
+      <div class="full ba-step"><span class="ba-num">1</span><h3>Pick your plan</h3></div>
+      <fieldset class="full ba-packs">
+        <legend class="sr">Pick a plan</legend>
+        <label class="ba-pack"><input type="radio" name="ba-pack" value="install"><span class="ba-tier">I'll take it from here</span>
+          <ul class="ba-inc"><li>Set up in person</li><li>Text it from your phone</li><li>Runs around the clock</li><li>You train it yourself</li></ul></label>
+        <label class="ba-pack"><input type="radio" name="ba-pack" value="build" checked><span class="ba-tier">Let's build it together</span>
+          <ul class="ba-inc"><li>Everything in setup</li><li>Daily briefings + inbox help</li><li>Trained on your business</li><li>Connected to your apps</li></ul></label>
+        <label class="ba-pack"><input type="radio" name="ba-pack" value="full"><span class="ba-tier">Do it all for me</span>
+          <ul class="ba-inc"><li>Everything in Build</li><li>A team of agents</li><li>Social posts + reels</li><li>Automated workflows</li></ul></label>
+        <label class="ba-pack"><input type="radio" name="ba-pack" value="enterprise"><span class="ba-tier">Bigger business</span>
+          <ul class="ba-inc"><li>Several computers or locations</li><li>Larger teams</li><li>Quoted after a quick call</li></ul></label>
+      </fieldset>
+
+      <!-- Step 2 -->
+      <div class="full ba-step"><span class="ba-num">2</span><h3>About you and your business</h3></div>
       <div><label for="q-name">Your name</label><input id="q-name" type="text" name="Name" autocomplete="name" required></div>
       <div><label for="q-biz">Business name</label><input id="q-biz" type="text" name="Business" autocomplete="organization" required></div>
       <div><label for="q-email">Email</label><input id="q-email" type="email" name="email" autocomplete="email" required></div>
       <div><label for="q-phone">Phone</label><input id="q-phone" type="tel" name="Phone" autocomplete="tel" required></div>
-
       <div class="full"><label for="q-what">What does your business do? <span>(and where are you located?)</span></label><input id="q-what" type="text" name="What the business does" required></div>
+      <div><label for="q-team">How many people on your team?</label>
+        <select id="q-team" name="Team size">
+          <option>Just me</option><option>2 to 5</option><option>6 to 15</option><option>16 or more</option>
+        </select></div>
+      <div><label for="q-when">When would you like to start?</label>
+        <select id="q-when" name="Start">
+          <option>As soon as possible</option><option>In the next month</option><option>In 2 to 3 months</option><option>Just exploring</option>
+        </select></div>
 
-      <div class="full"><label for="q-tasks">What are the three tasks you'd hand off first?</label><textarea id="q-tasks" name="Top 3 tasks" placeholder="For example: answering client emails, scheduling, payroll prep" required></textarea></div>
-
+      <!-- Step 3 -->
+      <div class="full ba-step"><span class="ba-num">3</span><h3>Your devices</h3></div>
       <fieldset class="full">
         <legend>What computer do you use for work? <span>(pick all that apply)</span></legend>
         <div class="checks">
           <label><input type="checkbox" data-computer value="Mac laptop"> Mac laptop</label>
-          <label><input type="checkbox" data-computer value="Mac desktop"> Mac desktop</label>
+          <label><input type="checkbox" data-computer value="Mac desktop (iMac)"> iMac</label>
+          <label><input type="checkbox" data-computer value="Mac mini"> Mac mini</label>
           <label><input type="checkbox" data-computer value="Windows"> Windows</label>
           <label><input type="checkbox" data-computer value="Tablet"> Tablet</label>
           <label><input type="checkbox" data-computer value="No computer"> No computer</label>
         </div>
       </fieldset>
-
+      <div><label for="q-make">Computer make</label>
+        <select id="q-make" name="Computer make" required>
+          <option value="">Choose one</option><option>Apple</option><option>Dell</option><option>HP</option><option>Lenovo</option><option>Microsoft Surface</option><option>Other</option><option>Not sure</option>
+        </select></div>
+      <div><label for="q-year">Computer year</label>
+        <select id="q-year" name="Computer year" required>
+          <option value="">Choose one</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019 or older</option><option>Not sure</option>
+        </select></div>
+      <div class="full"><label for="q-model">Computer model <span>(for example: MacBook Air M2, or Dell XPS 13)</span></label><input id="q-model" type="text" name="Computer model"></div>
       <div><label for="q-phone-type">What phone do you have?</label>
         <select id="q-phone-type" name="Phone type" required>
           <option value="">Choose one</option><option>iPhone</option><option>Android</option><option>Other</option>
@@ -579,31 +617,47 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <select id="q-ai" name="AI now" required>
           <option value="">Choose one</option><option>ChatGPT</option><option>Claude</option><option>Something else</option><option>Not yet</option>
         </select></div>
-
-      <div class="full"><label for="q-apps">What apps run your business? <span>(scheduling, payroll, email, booking, anything)</span></label><input id="q-apps" type="text" name="Apps" placeholder="For example: Acuity, Homebase, Gmail, QuickBooks"></div>
-
-      <div><label for="q-team">How many people on your team?</label>
-        <select id="q-team" name="Team size">
-          <option>Just me</option><option>2 to 5</option><option>6 to 15</option><option>16 or more</option>
+      <div class="full"><label for="ba-talk">How do you want to talk to your agent?</label>
+        <select id="ba-talk" name="How you'll talk to your agent">
+          <option>By text and out loud</option><option>By text only</option>
         </select></div>
+
+      <!-- Step 4 -->
+      <div class="full ba-step"><span class="ba-num">4</span><h3>Your websites and tools</h3></div>
+      <div class="full"><label for="q-apps">List every website and tool you use for work <span>(one per line, so I can plan your connections)</span></label><textarea id="q-apps" name="Websites and tools" rows="5" placeholder="Gmail&#10;Google Calendar&#10;Square&#10;QuickBooks&#10;Instagram"></textarea></div>
+
+      <!-- Step 5 -->
+      <div class="full ba-step"><span class="ba-num">5</span><h3>Anything else?</h3></div>
+      <div class="full"><label for="q-notes">Please use this space to tell me anything that would help me set up your agent on installation day. <span>For example, walk me through what a day of work for your agent looks like.</span></label><textarea id="q-notes" name="Additional notes" rows="6"></textarea></div>
       <div><label for="q-contact">Best way to reach you</label>
         <select id="q-contact" name="Best way to reach">
           <option>Call me</option><option>Text me</option><option>Email me</option>
         </select></div>
-
       <div class="full"><label for="q-heard">How did you first hear about me? <span>(optional)</span></label>
         <select id="q-heard" name="First heard about Shea from" data-other="q-heard-other">
           <option value="">Choose one</option><option>Instagram</option><option>Facebook</option><option>YouTube</option><option>Google search</option><option>Someone I know</option><option>A talk or event</option><option>Other</option>
         </select>
         <input id="q-heard-other" type="text" name="First heard (other)" placeholder="Where did you hear about me?" aria-label="Where did you hear about me?" hidden></div>
 
-
-      <div class="full"><button class="btn" type="submit">Send my quote request</button></div>
-      <p class="full fine">No spam and no pressure. Your answers only go to me.</p>
+      <div class="full ba-send"><button class="btn" type="submit">Send me my agent plan</button><p class="fine">No payment now. You get your custom quote and a quick call, and you decide from there. No spam, and your answers only go to me.</p></div>
     </form>
 
+    <!-- Live agent card + estimate bar -->
+    <aside class="ba-bar" id="ba-bar" aria-live="polite">
+      <div class="ba-card">
+        <span class="ba-avatar" id="ba-avatar">AI</span>
+        <div><p class="ba-agent" id="ba-agent">Your assistant</p><p class="ba-tags" id="ba-tags">Ready to be built</p></div>
+      </div>
+      <div class="ba-est">
+        <p class="ba-label">Your plan</p>
+        <p class="ba-amt" id="ba-amt">Let's build it together</p>
+        <div class="ba-meter"><span id="ba-fill"></span></div>
+        <p class="ba-note">Setups start at $5,000. Your exact quote comes after a quick call. Flexible payment schedules are available.</p>
+      </div>
+    </aside>
+
     <div class="thanks" role="status">
-      <h3>Thank you. You're on my list.</h3>
+      <h3>Your agent is on its way!</h3>
       <p>Keep an eye on your phone and email. We should be able to get back to you within 48 to 72 hours with your custom quote, or to set up a quick call.</p>
     </div>
   </div>
@@ -612,7 +666,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 <!-- 6. About -->
 <section class="about visits" aria-labelledby="about-title">
   <div class="wrap about-grid">
-    <img src="assets/shea_hero-960.webp" srcset="assets/shea_hero-480.webp 480w, assets/shea_hero-960.webp 960w" sizes="(max-width: 820px) 90vw, 420px" width="960" height="1200" loading="lazy" decoding="async" alt="Shea Johnson">
+    <picture><source type="image/webp" srcset="assets/shea_hero-480.webp 480w, assets/shea_hero-960.webp 960w" sizes="(max-width: 820px) 90vw, 420px"><img src="assets/shea_hero.jpg" width="960" height="1200" loading="lazy" decoding="async" alt="Shea Johnson"></picture>
     <div>
       <p class="eyebrow">Who's coming to your office</p>
       <h2 id="about-title">Hi, I'm Shea.</h2>
@@ -639,12 +693,12 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <p>A Mac you use for work is the simplest, since that's what I run my own business on. On Windows or a tablet? I can usually make it work, sometimes with a small cloud computer. That's part of your quote.</p>
       </details>
       <details>
-        <summary>Will she send emails without asking me?</summary>
-        <p>No. She drafts, and you approve. Nothing goes out until you've read it and said yes.</p>
+        <summary>Will it send emails without asking me?</summary>
+        <p>No. It drafts, and you approve. Nothing goes out until you've read it and said yes.</p>
       </details>
       <details>
         <summary>Is my information safe?</summary>
-        <p>Yes. Your assistant lives on your own computer, not on mine. It only connects to the apps you choose, and it asks you before it sends, deletes or buys anything. Your AI plan (Anthropic or OpenAI) processes what you ask it, under their privacy rules. I also set up a backup drive, so your files always have a second home.</p>
+        <p>Yes. Your assistant lives on your own computer, not on mine. It only connects to the apps you choose, and it asks you before it sends, deletes or buys anything. Your AI plan processes what you ask it, under their privacy rules. I also set up a backup drive, so your files always have a second home.</p>
       </details>
       <details>
         <summary>What happens if something goes wrong?</summary>
@@ -652,11 +706,11 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       </details>
       <details>
         <summary>Is there a monthly cost?</summary>
-        <p>Only your AI plan, which you pay to Anthropic or OpenAI directly, plus any app upgrades your setup needs. I list those in your quote, so nothing is a surprise. Follow-up visits with me are optional.</p>
+        <p>Only your AI plan, which you pay to the AI company directly, plus any app upgrades your setup needs. I list those in your quote, so nothing is a surprise. Follow-up visits with me are optional.</p>
       </details>
       <details>
         <summary>Can I pay over time?</summary>
-        <p>Yes! Financing is available.</p>
+        <p>Yes. You can split it into 2 or 3 payments with a deposit, no interest, paid in full before installation.</p>
       </details>
       <details>
         <summary>Where do you travel?</summary>
@@ -664,7 +718,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       </details>
       <details>
         <summary>What if I want more than an assistant?</summary>
-        <p>Once she's running, you can add specialists, like a marketing or strategy agent, priced as part of your quote.</p>
+        <p>Once it's running, you can add specialists, like a marketing or strategy agent, priced as part of your quote.</p>
       </details>
     </div>
   </div>
@@ -676,7 +730,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     <h2 id="final-title">Stop doing the work. Start running the company.</h2>
     <p class="sub">Fill out the short form. Tell me the three tasks you'd hand off first, and my team will be in touch with your custom quote.</p>
     <div class="ctas">
-      <a class="btn" href="#quote">Get your custom quote</a>
+      <a class="btn" href="#quote">Build your agent</a>
     </div>
   </div>
 </section>
@@ -712,7 +766,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     var m=0, v=0, a=0;
     timer=setInterval(function(){
       va[m].classList.add("on"); ai[m].classList.add("on");
-      v+=13000/12; a+= m<12 ? 4000/12+20 : 20; m++;
+      v+=13000/12; a+= m<12 ? 5000/12+20 : 20; m++;
       tm.textContent=m; vaT.textContent=money(v); aiT.textContent=money(a);
       keepAmt.textContent=money(v-a);
       if(m===12) paid.classList.add("show");
@@ -729,13 +783,6 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 document.querySelector(".qform").addEventListener("submit", function () {
   var picked = Array.from(document.querySelectorAll("[data-computer]:checked")).map(function (c) { return c.value; });
   document.getElementById("q-computer-all").value = picked.join(", ");
-});
-document.querySelectorAll("select[data-other]").forEach(function (sel) {
-  var box = document.getElementById(sel.dataset.other);
-  sel.addEventListener("change", function () {
-    box.hidden = sel.value !== "Other";
-    if (box.hidden) box.value = "";
-  });
 });
 </script>
 <script>
@@ -765,6 +812,39 @@ document.querySelectorAll("select[data-other]").forEach(function (sel) {
   box.querySelector(".copy-btn").addEventListener("click", function () { window.print(); });
   document.querySelector(".thanks").appendChild(box);
 })();
+</script>
+<script>
+(function () {
+  // Prices stay off the page (Shea, 11/8). The exact quote comes after the call.
+  var METER = { install: 30, build: 55, full: 85, enterprise: 100 };
+  var LABEL = { install: "I'll take it from here", build: "Let's build it together", full: "Do it all for me", enterprise: "Bigger business" };
+  var form = document.querySelector(".ba"), amt = document.getElementById("ba-amt"), fill = document.getElementById("ba-fill"),
+      agent = document.getElementById("ba-agent"), tags = document.getElementById("ba-tags");
+  function pack() { return form.querySelector('input[name="ba-pack"]:checked').value; }
+  var last = "";
+  function update() {
+    var p = pack(), text = LABEL[p];
+    amt.textContent = text; fill.style.width = METER[p] + "%";
+    if (text !== last) { amt.classList.remove("bump"); void amt.offsetWidth; amt.classList.add("bump"); last = text; }
+    agent.textContent = "Your agent";
+    tags.textContent = "Ready to be built";
+    var inc = [].slice.call(form.querySelectorAll('input[value="' + p + '"] ~ .ba-inc li')).map(function (li) { return li.textContent; });
+    document.getElementById("ba-package-out").value = LABEL[p];
+    document.getElementById("ba-skills-out").value = inc.join(" | ");
+    document.getElementById("ba-estimate-out").value = text;
+  }
+  form.addEventListener("change", update);
+  update();
+})();
+</script>
+<script>
+document.querySelectorAll("select[data-other]").forEach(function (sel) {
+  var box = document.getElementById(sel.dataset.other);
+  sel.addEventListener("change", function () {
+    box.hidden = sel.value !== "Other";
+    if (box.hidden) box.value = "";
+  });
+});
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c6c1c1c4514467994a7167d63d522a3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
