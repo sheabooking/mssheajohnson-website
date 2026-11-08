@@ -543,7 +543,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     <span id="thanks"></span>
     <p class="eyebrow">Build your agent</p>
     <h2 id="quote-title">Build your AI assistant</h2>
-    <p class="sub">Pick a plan and tell me about your setup. It takes about three minutes, and a copy of your answers is emailed to you.</p>
+    <p class="sub">Pick a plan and tell me about your setup. It takes about three minutes, and you'll see a copy of your answers when you're done.</p>
 
     <form class="qform ba" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="f73c8907-2717-4c14-8801-99a584678196">
@@ -553,7 +553,6 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       <input type="hidden" name="Computer" id="q-computer-all" value="">
       <input type="hidden" name="Package" id="ba-package-out" value="">
       <input type="hidden" name="Skills picked" id="ba-skills-out" value="">
-      <input type="hidden" name="Estimate shown" id="ba-estimate-out" value="">
       <input class="honey" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 
 
@@ -787,15 +786,18 @@ document.querySelector(".qform").addEventListener("submit", function () {
 </script>
 <script>
 (function () {
-  var KEY = "quote_copy", SKIP = ["access_key","subject","from_name","redirect","botcheck"];
+  var KEY = "quote_copy", SKIP = ["access_key","subject","from_name","redirect","botcheck","ba-pack"];
   var form = document.querySelector(".qform");
   form.addEventListener("submit", function () {
+    // The plan radios only drive the page; "Package" already carries the plan name.
+    form.querySelectorAll('input[name="ba-pack"]').forEach(function (r) { r.disabled = true; });
     var rows = [];
     new FormData(form).forEach(function (v, k) {
       if (SKIP.indexOf(k) === -1 && String(v).trim()) rows.push([k, String(v)]);
     });
     try { sessionStorage.setItem(KEY, JSON.stringify(rows)); } catch (e) {}
   });
+  window.addEventListener("pageshow", function () { form.querySelectorAll('input[name="ba-pack"]').forEach(function (r) { r.disabled = false; }); });
   if (location.hash !== "#thanks") return;
   var rows = null;
   try { rows = JSON.parse(sessionStorage.getItem(KEY)); } catch (e) {}
@@ -831,7 +833,6 @@ document.querySelector(".qform").addEventListener("submit", function () {
     var inc = [].slice.call(form.querySelectorAll('input[value="' + p + '"] ~ .ba-inc li')).map(function (li) { return li.textContent; });
     document.getElementById("ba-package-out").value = LABEL[p];
     document.getElementById("ba-skills-out").value = inc.join(" | ");
-    document.getElementById("ba-estimate-out").value = text;
   }
   form.addEventListener("change", update);
   update();
