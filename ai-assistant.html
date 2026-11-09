@@ -480,31 +480,24 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     <h2 id="pricing-title">Built for how your business runs</h2>
     <p class="sub">Every business is different, so every setup is quoted for you.</p>
 
-    <div class="mcmp" id="monthly">
-      <p class="eyebrow">Month by month</p>
+    <div class="mcmp" id="compare">
+      <p class="eyebrow">Over two years</p>
       <h3>One payment ends. The other never does.</h3>
-      <p class="lede">Two years of a part-time virtual assistant vs. your setup paid over 12 months.</p>
-      <div class="ticker" aria-hidden="true"><span class="tm">Month <b id="tm">24</b> of 24</span><button class="replay" type="button" id="replay">↻ Play it again</button></div>
+      <p class="lede">A part-time virtual assistant vs. your one-time setup.</p>
 
       <div class="sum">
         <div class="card va">
           <p class="who"><i class="dot"></i>Virtual assistant <span class="badge still show" id="still">Still paying</span></p>
           <p class="per">$1,083<small> / month</small></p>
           <p class="note">Every month. It never stops.</p>
-          <p class="sofar">Paid so far: <b id="vaTot">$26,000</b></p>
+          <p class="sofar">Two years: <b>$26,000</b></p>
         </div>
         <div class="card ai">
           <p class="who"><i class="dot"></i>Your AI assistant <span class="badge paid show" id="paid">Paid off ✓</span></p>
-          <p class="per">$437<small> / month</small></p>
-          <p class="note">Spread over 12 months to compare. Then just $20 a month for your AI plan.</p>
-          <p class="sofar">Paid so far: <b id="aiTot">$5,480</b></p>
+          <p class="per">$5,000<small> one time</small></p>
+          <p class="note">Then just $20 a month for your AI plan.</p>
+          <p class="sofar">Two years: <b>$5,480</b></p>
         </div>
-      </div>
-
-      <div class="chart" role="img" aria-label="Month by month for 24 months: the virtual assistant costs about $1,083 every month. The AI assistant costs about $437 a month for 12 months, then $20 a month.">
-        <div class="bars"><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a" style="--h:40.4%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div><div class="col"><span class="v" style="--h:100%"></span><span class="a after" style="--h:2.5%"></span></div></div>
-        <div class="months"><span>Month 1</span><span>Month 12</span><span>Month 24</span></div>
-        <p class="legend"><span><i class="dot g"></i>Virtual assistant</span><span><i class="dot p"></i>AI assistant</span><span><i class="dot l"></i>AI plan only ($20)</span></p>
       </div>
 
       <details class="math-toggle"><summary>See the math</summary><div class="math">
@@ -520,9 +513,8 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <div>
           <h5>The AI assistant math</h5>
           <ol>
-            <li>$5,000 setup ÷ 12 months = <b>about $417 a month</b></li>
-            <li>$417 + $20 AI plan = <b>about $437 a month</b> for months 1 to 12</li>
-            <li>Months 13 and on: <b>$20 a month</b>, just the AI plan</li>
+            <li>Setup: <b>$5,000</b>, one time</li>
+            <li>AI plan: $20 × 24 months = <b>$480</b></li>
             <li>Two years: $5,000 + ($20 × 24) = <b>$5,480</b></li>
           </ol>
         </div>
@@ -530,7 +522,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 
       </details>
 <p class="keep">$26,000 − $5,480 = <span id="keepAmt">$20,520</span> <span>you keep</span> in the first two years.</p>
-      <p class="fine">Based on a $5,000 setup and a virtual assistant at about $25 an hour for 10 hours a week. Your quote may be different. This is a budgeting comparison, not a payment plan. Your AI plan is paid to the AI company directly, not to me.</p>
+      <p class="fine">Based on a $5,000 setup and a virtual assistant at about $25 an hour for 10 hours a week. Your quote may be different. Your AI plan is paid to the AI company directly, not to me.</p>
     </div>
 
     <p class="promise">If you handle patient or client health information, your assistant stays away from it, and I'll show you how.</p>
