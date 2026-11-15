@@ -575,6 +575,11 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       <input type="hidden" name="subject" value="New Build Your Agent request">
       <input type="hidden" name="from_name" value="mssheajohnson.com">
       <input type="hidden" name="redirect" value="https://mssheajohnson.com/ai-assistant#thanks">
+      <!-- Ad tracking (Shea 11/14): filled only when the visitor arrived from a tagged ad link. No cookies, nothing stored. -->
+      <input type="hidden" name="Ad source" data-utm="utm_source" disabled>
+      <input type="hidden" name="Ad medium" data-utm="utm_medium" disabled>
+      <input type="hidden" name="Ad campaign" data-utm="utm_campaign" disabled>
+      <input type="hidden" name="Ad name" data-utm="utm_content" disabled>
       <input type="hidden" name="Computer" id="q-computer-all" value="">
       <input type="hidden" name="Package" id="ba-package-out" value="">
       <input type="hidden" name="Skills picked" id="ba-skills-out" value="">
@@ -871,6 +876,10 @@ document.querySelectorAll("select[data-other]").forEach(function (sel) {
     if (box.hidden) box.value = "";
   });
 });
+</script>
+<script>
+/* Ad tracking: copy utm_ tags from the ad link into the quote form's hidden fields. Reads the page address only; stores nothing. */
+(function(){var q=new URLSearchParams(location.search);document.querySelectorAll('input[data-utm]').forEach(function(i){var v=q.get(i.dataset.utm);if(v){i.value=v.slice(0,100);i.disabled=false;}});})();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c6c1c1c4514467994a7167d63d522a3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
