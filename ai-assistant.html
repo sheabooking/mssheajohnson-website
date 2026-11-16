@@ -212,6 +212,11 @@ section { padding: 96px 0; }
 .shot { break-inside: avoid; margin: 0 0 16px; background: #fff; border: 1px solid var(--line, #eee); border-radius: 16px; padding: 10px; }
 .shot img { width: 100%; height: auto; border-radius: 10px; display: block; }
 .shot figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; text-align: center; }
+.action { display: grid; grid-template-columns: 1.6fr 1fr; gap: 16px; margin-top: 24px; align-items: start; }
+.action figure { margin: 0; }
+.action img { width: 100%; height: auto; border-radius: 16px; display: block; }
+.action figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; text-align: center; }
+@media (max-width: 700px) { .action { grid-template-columns: 1fr; } }
 .proof-stars { margin-top: 18px; font-size: 14px; color: var(--muted); text-align: center; }
 .proof-stars a { color: var(--ink); }
 @media (max-width: 820px) { .proof-grid { grid-template-columns: 1fr; } }
@@ -445,6 +450,11 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <blockquote>"I came into the meeting not knowing much and left with more than a handful of information… anyone can learn from her."</blockquote>
         <figcaption class="who">Tiquan<span>Trustpilot · July 2025</span></figcaption>
       </figure>
+    </div>
+    <p class="proof-sub">Caught in action</p>
+    <div class="action">
+      <figure><img src="assets/proof/action-tamicka-laughing.jpg" loading="lazy" alt="Shea and Tamicka laughing together at a laptop during an AI assistant setup"><figcaption>Tamicka · House of Seven Café</figcaption></figure>
+      <figure><img src="assets/proof/action-diana-setup.jpg" loading="lazy" alt="Shea working with Diana at her shop, Lady &amp; the Leash, during an AI assistant setup"><figcaption>Diana · Lady &amp; the Leash</figcaption></figure>
     </div>
     <p class="proof-sub">Straight from their texts</p>
     <div class="shots">
@@ -719,7 +729,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 
     <div class="thanks" role="status">
       <h3>Your agent is on its way!</h3>
-      <p>Keep an eye on your phone and email. We should be able to get back to you within 48 to 72 hours with your custom quote, or to set up a quick call.</p>
+      <p>Keep an eye on your phone and email. We'll get back to you within one business day with your custom quote, or to set up a quick call.</p>
     </div>
   </div>
 </section>
@@ -734,7 +744,6 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       <p>I wanted assistants who never sleep. So I spent sleepless nights and one full week of trial and error teaching myself to build them, one skill at a time.</p>
       <p>Now I run my business mostly by voice. I talk to my laptop, it talks back, and the work gets done. I even run it from my phone when I'm out.</p>
       <p>I set it up for you so you can skip the week I spent figuring it out. You get the setup that works, built around your business.</p>
-      <p class="proof">Rated five stars in all 56 reviews on <a href="https://www.trustpilot.com/review/mssheajohnson.com">Trustpilot</a>.</p>
     </div>
   </div>
 </section>
