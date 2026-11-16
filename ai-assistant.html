@@ -240,6 +240,9 @@ section { padding: 96px 0; }
 .thanks { display: none; margin-top: 40px; background: var(--mat); border: 2px solid var(--violet); border-radius: 18px; padding: 36px; }
 .thanks h3 { font-family: "Inter", system-ui, sans-serif; font-weight: 600; font-size: clamp(30px, 4vw, 42px); line-height: 1.05; letter-spacing: -0.01em; }
 .thanks p { margin-top: 10px; color: var(--lilac); }
+.book-now { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--line, #eee); }
+.book-now strong { color: var(--ink); }
+.book-now .btn { margin-top: 16px; display: inline-block; }
 .quote-sec:has(#thanks:target) .qform { display: none; }
 .quote-sec:has(#thanks:target) .thanks { display: block; }
 @media (max-width: 860px) { .qform { grid-template-columns: 1fr; } }
@@ -730,6 +733,10 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     <div class="thanks" role="status">
       <h3>Your agent is on its way!</h3>
       <p>Keep an eye on your phone and email. We'll get back to you within one business day with your custom quote, or to set up a quick call.</p>
+      <div class="book-now">
+        <p><strong>Want to talk sooner?</strong> Book your 30-minute AI Setup Consultation with me now. It's $49, and if you hire me, the $49 comes off your setup.</p>
+        <a class="btn" id="book-now" href="https://cal.com/mssheajohnson/ai-setup-consultation" target="_blank" rel="noopener">Pick your call time</a>
+      </div>
     </div>
   </div>
 </section>
@@ -872,12 +879,22 @@ document.querySelector(".qform").addEventListener("submit", function () {
   if (location.hash !== "#thanks") return;
   var rows = null;
   try { rows = JSON.parse(sessionStorage.getItem(KEY)); } catch (e) {}
+  // Carry the ad tags to the booking link so a booked consult keeps its source (no personal details in the URL).
+  var bk = document.getElementById("book-now"), MAP = {"Ad source":"utm_source","Ad medium":"utm_medium","Ad campaign":"utm_campaign","Ad name":"utm_content"};
+  if (bk && rows) {
+    var u = new URL(bk.href);
+    rows.forEach(function (r) { if (MAP[r[0]]) u.searchParams.set(MAP[r[0]], r[1]); });
+    if (!u.searchParams.has("utm_source")) u.searchParams.set("utm_source", "website");
+    if (!u.searchParams.has("utm_medium")) u.searchParams.set("utm_medium", "quote-form");
+    bk.href = u.toString();
+  }
   if (!rows || !rows.length) return;
   var box = document.createElement("div");
   box.className = "copy";
   box.innerHTML = '<p><strong>Your answers</strong></p><dl></dl><button type="button" class="btn copy-btn">Save a copy (PDF)</button>';
   var dl = box.querySelector("dl");
   rows.forEach(function (r) {
+    if (MAP[r[0]]) return; // ad tags are for tracking, not for the visitor's copy
     var dt = document.createElement("dt"); dt.textContent = r[0].charAt(0).toUpperCase() + r[0].slice(1);
     var dd = document.createElement("dd"); dd.textContent = r[1];
     dl.appendChild(dt); dl.appendChild(dd);
