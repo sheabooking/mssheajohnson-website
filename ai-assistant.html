@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Your AI Executive Assistant | Shea Johnson</title>
-<meta name="description" content="Your first hire is an AI Executive Assistant. You talk, and the work gets done. Custom setups from $5,000, with flexible payment schedules.">
+<meta name="description" content="Your first hire is an AI Executive Assistant. You talk, and the work gets done. Get your AI assistant three ways: a $79 do-it-yourself guide, a $750 Remote Install over Zoom, or a custom setup quoted for you.">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -378,6 +378,51 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   .thanks { position: absolute; left: 0; top: 0; width: 100%; border: 0; }
   .copy-btn { display: none; }
 }
+
+/* Three ways (Shea 11/19) */
+.ways .ways-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+.way { display: flex; flex-direction: column; background: #fff; border-radius: 22px; padding: 30px 26px 28px; box-shadow: 0 16px 40px rgba(43,43,46,.08); }
+.way.featured { background: var(--ink); color: #fff; }
+.way { border: 2px solid transparent; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.way:hover, .way:focus-within { transform: translateY(-6px); border-color: #F4C7CB; box-shadow: 0 24px 54px rgba(43,43,46,.16); }
+@media (prefers-reduced-motion: reduce) { .way, .way:hover { transition: none; transform: none; } }
+.way .way-tag { font: 600 12px/1 "Inter", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.way.featured .way-tag { color: var(--wash-line); }
+.way h3 { font: 600 24px/1.2 "Inter", sans-serif; margin: 12px 0 6px; }
+.way .way-price { font: 600 34px/1.1 "Inter", sans-serif; margin: 6px 0 16px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.way.featured .way-price { border-bottom-color: rgba(255,255,255,.18); }
+.way .way-price small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.way.featured .way-price small { color: #d9d9de; }
+.way ul { list-style: none; display: grid; gap: 8px; margin-bottom: 18px; }
+.way ul { flex: 1; align-content: start; }
+.way li::before { content: "✓  "; color: var(--wash-line); font-weight: 700; }
+.way .way-h { font: 600 12px/1 "Inter", sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.way.featured .way-h { color: #d9d9de; }
+.way ul.no { margin-bottom: 24px; }
+.way ul.no li::before { content: "✕  "; color: var(--muted); font-weight: 700; }
+.way.featured ul.no li::before { color: #9a9aa2; }
+.way ul.no li { color: var(--muted); font-size: 15px; }
+.way.featured ul.no li { color: #d9d9de; }
+.cmp { margin-top: 56px; overflow-x: auto; }
+.cmp h3 { font: 600 24px/1.2 "Inter", sans-serif; margin-bottom: 18px; }
+.cmp table { width: 100%; border-collapse: collapse; min-width: 560px; background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 16px 40px rgba(43,43,46,.06); }
+.cmp th, .cmp td { padding: 14px 16px; text-align: center; border-bottom: 1px solid var(--line); font-size: 16px; }
+.cmp th:first-child, .cmp td:first-child { text-align: left; }
+.cmp thead th { font: 600 15px/1.3 "Inter", sans-serif; background: var(--wash); }
+.cmp thead th small { display: block; font-weight: 500; color: var(--muted); }
+.cmp thead th.hl { background: var(--ink); color: #fff; }
+.cmp thead th.hl small { color: #d9d9de; }
+.cmp td.hl { background: #faf6f6; }
+.cmp .y { color: var(--ink); font-weight: 700; }
+.cmp .n { color: #c9c9cf; }
+.cmp tr:last-child td { border-bottom: 0; }
+.cmp .fine { margin-top: 12px; font-size: 13px; color: var(--muted); }
+.way .btn { text-align: center; }
+.way.featured .btn { background: var(--wash-line); color: var(--ink); }
+.way .btn-soon { background: var(--wash); color: var(--ink); }
+.way .fine { margin-top: 12px; font-size: 13px; color: var(--muted); }
+.way.featured .fine { color: #d9d9de; }
+@media (max-width: 860px) { .ways .ways-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -400,7 +445,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <a class="btn" href="#quote">Build your agent</a>
         <a class="btn btn-quiet" href="#pricing">How pricing works</a>
       </div>
-      <p class="note">Setups from $5,000. Every setup is quoted for you.</p>
+      <p class="note">From $79 to fully custom. <a href="#ways">See the three ways</a>.</p>
     </div>
     <div class="portrait">
       <picture><source type="image/webp" srcset="assets/shea_hero-480.webp 480w, assets/shea_hero-960.webp 960w" sizes="(max-width: 820px) 340px, 460px"><img src="assets/shea_hero.jpg" width="960" height="1200" fetchpriority="high" alt="Shea Johnson in her studio"></picture>
@@ -426,10 +471,6 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       <figure class="pcard">
         <blockquote>"Wow, this is so great… I've been trying to work on this for weeks."</blockquote>
         <figcaption class="who">Tamicka, House of Seven Café<span>Complimentary setup</span></figcaption>
-      </figure>
-      <figure class="pcard">
-        <blockquote>"This is revolutionary."</blockquote>
-        <figcaption class="who">Angelica Cabrera, CEO<span>Complimentary setup</span></figcaption>
       </figure>
       <figure class="pcard">
         <blockquote>"I'm going to be talking to my laptop. … Yay! I cannot wait. I love it."</blockquote>
@@ -463,11 +504,64 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     <div class="shots">
       <figure class="shot"><img src="assets/proof/text-setup-obsessed.jpg" loading="lazy" alt="Text message from a client thanking Shea"><figcaption>AI setup client · by text</figcaption></figure>
       <figure class="shot"><img src="assets/proof/text-setup-thankful.jpg" loading="lazy" alt="Text message from a client thanking Shea"><figcaption>AI setup client · by text</figcaption></figure>
-      <figure class="shot"><img src="assets/proof/text-angelica-invaluable.jpg" loading="lazy" alt="Text message from a client thanking Shea"><figcaption>Angelica · coaching · by text</figcaption></figure>
       <figure class="shot"><img src="assets/proof/text-implemented.jpg" loading="lazy" alt="Text message from a client thanking Shea"><figcaption>Coaching client · by text</figcaption></figure>
       <figure class="shot"><img src="assets/proof/text-impeccable.jpg" loading="lazy" alt="Text message from a client thanking Shea"><figcaption>Coaching client · by text</figcaption></figure>
     </div>
     <p class="proof-stars">Rated five stars in all 56 reviews on <a href="https://www.trustpilot.com/review/mssheajohnson.com">Trustpilot</a> for my coaching and AI training.</p>
+  </div>
+</section>
+
+
+<!-- 2b. Three ways (Shea 11/19) -->
+<section id="ways" class="ways" aria-labelledby="ways-title">
+  <div class="wrap">
+    <p class="eyebrow">Pick what fits</p>
+    <h2 id="ways-title">Three ways to get your AI assistant</h2>
+    <p class="sub">Build it yourself with my guide, let me install it with you over Zoom, or have me build a whole team around your business.</p>
+    <div class="ways-grid">
+      <div class="way">
+        <span class="way-tag">Do it yourself</span>
+        <h3>The setup guide</h3>
+        <p class="way-price">$79<small> one time</small></p>
+        <ul><li>Step-by-step guide</li><li>Executive Assistant skill</li><li>Go at your own pace</li></ul>
+        <a class="btn btn-soon" href="/#letter-title">Coming soon · Get notified</a>
+        <p class="fine">An instant download.</p>
+      </div>
+      <div class="way featured">
+        <span class="way-tag">Done with you</span>
+        <h3>Remote Install</h3>
+        <p class="way-price">$750<small> one time</small></p>
+        <ul><li>90 minutes on Zoom</li><li>Installed while you watch</li><li>Working the same day</li></ul>
+        <a class="btn" href="#quote" data-pick="remote">Request a Remote Install</a>
+        <p class="fine">One live session.</p>
+      </div>
+      <div class="way">
+        <span class="way-tag">Done for you</span>
+        <h3>Custom setup</h3>
+        <p class="way-price">Quoted<small> for you</small></p>
+        <ul><li>Trained on your business</li><li>Custom-built agents</li><li>Agents that work together</li><li>30 days of fixes</li></ul>
+        <a class="btn" href="#quote" data-pick="build">Get your custom quote</a>
+        <p class="fine">Your exact quote comes after a quick call.</p>
+      </div>
+    </div>
+    <div class="cmp">
+      <h3>Compare what's included</h3>
+      <table>
+        <thead><tr><th scope="col"></th><th scope="col">Setup guide<small>$79</small></th><th scope="col" class="hl">Remote Install<small>$750</small></th><th scope="col">Custom setup<small>Quoted</small></th></tr></thead>
+        <tbody>
+        <tr><td>Step-by-step setup guide, an instant download</td><td><span class="y" aria-label="Included">✓</span></td><td class="hl"><span class="y" aria-label="Included">✓</span></td><td><span class="y" aria-label="Included">✓</span></td></tr>
+        <tr><td>My Executive Assistant skill, ready to drop in</td><td><span class="y" aria-label="Included">✓</span></td><td class="hl"><span class="y" aria-label="Included">✓</span></td><td><span class="y" aria-label="Included">✓</span></td></tr>
+        <tr><td>Installed for you while you watch</td><td><span class="n" aria-label="Not included">—</span></td><td class="hl"><span class="y" aria-label="Included">✓</span></td><td><span class="y" aria-label="Included">✓</span></td></tr>
+        <tr><td>Live help while it's set up (about 90 minutes on Zoom for a Remote Install)</td><td><span class="n" aria-label="Not included">—</span></td><td class="hl"><span class="y" aria-label="Included">✓</span></td><td><span class="y" aria-label="Included">✓</span></td></tr>
+        <tr><td>Trained on your business: your services, your tone, your rules</td><td><span class="n" aria-label="Not included">—</span></td><td class="hl"><span class="n" aria-label="Not included">—</span></td><td><span class="y" aria-label="Included">✓</span></td></tr>
+        <tr><td>Connected to the apps you already use</td><td><span class="n" aria-label="Not included">—</span></td><td class="hl"><span class="n" aria-label="Not included">—</span></td><td><span class="y" aria-label="Included">✓</span></td></tr>
+        <tr><td>Custom-built agents for the jobs you want off your plate</td><td><span class="n" aria-label="Not included">—</span></td><td class="hl"><span class="n" aria-label="Not included">—</span></td><td><span class="y" aria-label="Included">✓</span></td></tr>
+        <tr><td>A team of agents trained to know each other and work together</td><td><span class="n" aria-label="Not included">—</span></td><td class="hl"><span class="n" aria-label="Not included">—</span></td><td><span class="y" aria-label="Included">✓</span></td></tr>
+        <tr><td>30 days of bug fixes after setup</td><td><span class="n" aria-label="Not included">—</span></td><td class="hl"><span class="n" aria-label="Not included">—</span></td><td><span class="y" aria-label="Included">✓</span></td></tr>
+        </tbody>
+      </table>
+      <p class="fine">With every option, your AI plan and any app upgrades are paid directly to those companies.</p>
+    </div>
   </div>
 </section>
 
@@ -635,8 +729,8 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       <div class="full ba-step"><span class="ba-num">1</span><h3>Pick your plan</h3></div>
       <fieldset class="full ba-packs">
         <legend class="sr">Pick a plan</legend>
-        <label class="ba-pack"><input type="radio" name="ba-pack" value="install"><span class="ba-tier">I'll take it from here</span>
-          <ul class="ba-inc"><li>Set up for you</li><li>Text it from your phone</li><li>Runs around the clock</li><li>You train it yourself</li></ul></label>
+        <label class="ba-pack"><input type="radio" name="ba-pack" value="remote"><span class="ba-tier">Remote Install</span>
+          <ul class="ba-inc"><li>$750, about 90 minutes</li><li>Installed with you over Zoom</li><li>Text it from your phone</li><li>You train it yourself</li></ul></label>
         <label class="ba-pack"><input type="radio" name="ba-pack" value="build" checked><span class="ba-tier">Let's build it together</span>
           <ul class="ba-inc"><li>Everything in setup</li><li>Daily briefings + inbox help</li><li>Trained on your business</li><li>Connected to your apps</li></ul></label>
         <label class="ba-pack"><input type="radio" name="ba-pack" value="full"><span class="ba-tier">Do it all for me</span>
@@ -726,7 +820,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <p class="ba-label">Your plan</p>
         <p class="ba-amt" id="ba-amt">Let's build it together</p>
         <div class="ba-meter"><span id="ba-fill"></span></div>
-        <p class="ba-note">Setups start at $5,000. Your exact quote comes after a quick call. Flexible payment schedules are available.</p>
+        <p class="ba-note">Remote Install is $750. Custom setups are quoted after a quick call.</p>
       </div>
     </aside>
 
@@ -779,15 +873,15 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       </details>
       <details>
         <summary>What happens if something goes wrong?</summary>
-        <p>Your assistant checks with you before anything big, so mistakes are easy to catch. Your files are backed up, so nothing is lost. And if you ever want hands-on help, follow-up visits are available.</p>
+        <p>Your assistant checks with you before anything big, so mistakes are easy to catch. Your files are backed up, so nothing is lost. With a custom setup, I fix any bugs for 30 days after setup, so start using your agent right away.</p>
       </details>
       <details>
         <summary>Is there a monthly cost?</summary>
-        <p>Only your AI plan, which you pay to the AI company directly, plus any app upgrades your setup needs. I list those in your quote, so nothing is a surprise. Follow-up visits with me are optional.</p>
+        <p>Only your AI plan, which you pay to the AI company directly, plus any app upgrades your setup needs. I list those in your quote, so nothing is a surprise.</p>
       </details>
       <details>
-        <summary>Can I pay over time?</summary>
-        <p>Yes. You can split it into 2 or 3 payments with a deposit, no interest, paid in full before installation.</p>
+        <summary>What's included in a Remote Install?</summary>
+        <p>One session of about 90 minutes over Zoom. I install your assistant with you while you watch, and you type your own passwords. You leave with it working. Ongoing support isn't included. If you want more help later, a custom setup is quoted for you.</p>
       </details>
       <details>
         <summary>Where do you travel?</summary>
@@ -906,8 +1000,8 @@ document.querySelector(".qform").addEventListener("submit", function () {
 <script>
 (function () {
   // Prices stay off the page (Shea, 11/8). The exact quote comes after the call.
-  var METER = { install: 30, build: 55, full: 85, enterprise: 100 };
-  var LABEL = { install: "I'll take it from here", build: "Let's build it together", full: "Do it all for me", enterprise: "Bigger business" };
+  var METER = { remote: 30, build: 55, full: 85, enterprise: 100 };
+  var LABEL = { remote: "Remote Install", build: "Let's build it together", full: "Do it all for me", enterprise: "Bigger business" };
   var form = document.querySelector(".ba"), amt = document.getElementById("ba-amt"), fill = document.getElementById("ba-fill"),
       agent = document.getElementById("ba-agent"), tags = document.getElementById("ba-tags");
   function pack() { return form.querySelector('input[name="ba-pack"]:checked').value; }
@@ -938,6 +1032,9 @@ document.querySelectorAll("select[data-other]").forEach(function (sel) {
 <script>
 /* Ad tracking: copy utm_ tags from the ad link into the quote form's hidden fields. Reads the page address only; stores nothing. */
 (function(){var q=new URLSearchParams(location.search);document.querySelectorAll('input[data-utm]').forEach(function(i){var v=q.get(i.dataset.utm);if(v){i.value=v.slice(0,100);i.disabled=false;}});})();
+</script>
+<script>
+document.querySelectorAll("[data-pick]").forEach(function(a){a.addEventListener("click",function(){var r=document.querySelector('input[name="ba-pack"][value="'+a.dataset.pick+'"]');if(r){r.checked=true;r.dispatchEvent(new Event("change",{bubbles:true}));}});});
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c6c1c1c4514467994a7167d63d522a3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
