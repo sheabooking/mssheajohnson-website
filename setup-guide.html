@@ -129,9 +129,10 @@ a { color: inherit; }
 .phq-sub h3 { font: 600 13px/1.4 "Inter", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; padding-bottom: 14px; border-bottom: 1px solid var(--ink); }
 .phq-sub > p { margin-top: 12px; font-size: 14px; color: var(--muted); }
 /* Text-message screenshots: add a <figure> per screenshot once the sender has said yes in writing. Hidden until it has at least one. */
-.phq-texts { margin-top: 32px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-@media (min-width: 900px) { .phq-texts { grid-template-columns: repeat(4, 1fr); } }
-.phq-texts-wrap:not(:has(figure)) { display: none; }
+.phq-texts { margin-top: 32px; display: grid; gap: 28px; justify-items: center; align-items: start; }
+@media (min-width: 700px) { .phq-texts { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .phq-texts { grid-template-columns: repeat(4, 1fr); } }
+.phq-texts figure { width: min(380px, 100%); }
 .phq-texts img { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line); }
 .phq-texts figcaption { margin-top: 8px; font-size: 13px; color: var(--muted); }
 
@@ -267,14 +268,14 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       </div>
     </div>
 
-    <!-- TEXT-MESSAGE SCREENSHOTS (not live yet). Add one <figure> per screenshot ONLY after that sender has said yes in writing.
-         Crop out phone numbers, last names and anything private. The block stays hidden until it holds at least one figure.
-         Template:
-         <figure><img src="assets/proof/text-FIRSTNAME.jpg" width="" height="" loading="lazy" decoding="async" alt="Text message from FIRSTNAME about their AI setup"><figcaption>FIRSTNAME · shared with permission</figcaption></figure>
-    -->
-    <div class="phq-sub phq-texts-wrap">
+    <div class="phq-sub">
+      <h3>Texts from early testers of my AI agent</h3>
+      <p>Sent to me after their setups. Shared with permission; names removed.</p>
       <div class="phq-texts">
-        <!-- slot 1 --><!-- slot 2 --><!-- slot 3 --><!-- slot 4 -->
+        <figure><img src="assets/proof/tester-text-a.jpg" width="600" height="824" loading="lazy" decoding="async" alt="Text messages: This is getting real. I'm obsessed. I'm literally almost done setting this up and you're right the more you use it the less you really do need to do anything. I'm handing everything off to them. Thank you for sharing and thanks for setting it up for me. I'm super grateful. If only people knew man..."></figure>
+        <figure><img src="assets/proof/tester-text-b.jpg" width="600" height="621" loading="lazy" decoding="async" alt="Text messages: Yay! Can't wait! I'm floored, (assistant name hidden) is incredible. You the GOAT of 2026, followed by a mind-blown emoji"></figure>
+        <figure><img src="assets/proof/tester-text-c.jpg" width="600" height="686" loading="lazy" decoding="async" alt="Text messages: Oh wow that's fire. Now for this setup I can only imagine. That's amazing girl. I'm so thankful for you and how you've truly helped me. Thank you always"></figure>
+        <figure><img src="assets/proof/tester-text-d.jpg" width="600" height="502" loading="lazy" decoding="async" alt="Text messages: OBSESSEDDDDDD. I LOVE YOU YO. IM SO THANKFUL FOR THIS. I AM HAVING SO MUCH FUNNNN"></figure>
       </div>
     </div>
   </div>
