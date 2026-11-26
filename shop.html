@@ -15,6 +15,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Alta_regular.otf" as="font" type="font/otf" crossorigin>
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
@@ -82,6 +83,7 @@ a { color: inherit; }
 /* ---------- Student Edition ---------- */
 .phq-free { background: var(--wash); }
 .phq-free-grid { display: grid; gap: 32px; padding: 72px 0; align-items: center; }
+picture { display: block; }
 .phq-free img { width: min(420px, 100%); border-radius: 18px; box-shadow: 0 30px 60px -45px rgba(43,43,46,.5); }
 .phq-free h2 { margin-top: 16px; font-size: clamp(38px, 5vw, 64px); max-width: 12ch; }
 .phq-free p.body { margin-top: 16px; font-size: 18px; color: #55555C; max-width: 40ch; }
@@ -166,25 +168,25 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <a class="phq-btn" href="https://www.etsy.com/listing/4594099032" target="_blank" rel="noopener">Get it on Etsy · $79<span class="phq-sr"> : Build Your AI Executive Assistant</span></a>
         <a class="phq-link" href="/setup-guide#inside">See what's inside</a>
       </div>
-      <p class="phq-fine">An instant download. Checkout is on Etsy. You'll need a Mac running macOS 13 or newer and a paid Claude plan.</p>
-      <p class="phq-fine">My coaching and AI training are rated Excellent on Trustpilot. <a href="https://www.trustpilot.com/review/mssheajohnson.com" target="_blank" rel="noopener">Read the reviews</a></p>
+      <p class="phq-fine">Instant download on Etsy. Needs a Mac (macOS 13 or newer) and a paid Claude plan.</p>
+      <p class="phq-fine">Rated Excellent on Trustpilot for my coaching and AI training. <a href="https://www.trustpilot.com/review/mssheajohnson.com" target="_blank" rel="noopener">Read the reviews</a></p>
     </div>
     <a class="phq-hero-img" href="/setup-guide" tabindex="-1" aria-hidden="true">
-      <img src="assets/shop/guide-desk-1000.jpg" srcset="assets/shop/guide-desk-600.jpg 604w, assets/shop/guide-desk-1000.jpg 999w" sizes="(max-width: 899px) 440px, 520px" width="999" height="1240" fetchpriority="high" alt="">
+      <picture><source type="image/webp" srcset="assets/shop/guide-desk-600.webp 604w, assets/shop/guide-desk-1000.webp 999w" sizes="(max-width: 899px) 440px, 520px"><img src="assets/shop/guide-desk-1000.jpg" srcset="assets/shop/guide-desk-600.jpg 604w, assets/shop/guide-desk-1000.jpg 999w" sizes="(max-width: 899px) 440px, 520px" width="999" height="1240" fetchpriority="high" alt=""></picture>
     </a>
   </div>
 </header>
 
 <section class="phq-free" id="student-edition" aria-labelledby="free-title">
   <div class="wrap phq-free-grid">
-    <img src="assets/shop/student.jpg" width="700" height="700" loading="lazy" decoding="async" alt="">
+    <picture><source type="image/webp" srcset="assets/shop/student.webp"><img src="assets/shop/student.jpg" width="700" height="700" loading="lazy" decoding="async" alt=""></picture>
     <div>
       <p class="phq-kicker">Free · Powerhouse Student Edition</p>
       <h2 id="free-title" class="phq-display">Meet your study buddy.</h2>
-      <p class="body">My free study partner skill for Claude. It keeps your course files in order, helps you build your own study plan and helps you learn it yourself, the ethical way.</p>
+      <p class="body">My free study skill for Claude. It keeps your course files in order and helps you learn it yourself, the ethical way.</p>
       <div class="phq-buy"><span class="phq-price">Free</span></div>
       <div class="signup-embed" aria-label="Get the Powerhouse Student Edition free">
-        <script src="https://cdn.sendfox.com/js/embed.js" data-form="1yxdoe" data-api="https://sendfox.com" async></script>
+        <div class="phq-sf" data-sf-form="1yxdoe"></div>
       </div>
       <p class="phq-fine">Enter your email and it comes straight to your inbox.</p>
     </div>
@@ -238,13 +240,13 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     </div>
     <ul class="phq-shelf two">
       <li class="phq-piece">
-        <a class="ph" href="https://www.etsy.com/listing/4405779196" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/shop/assess.jpg" width="700" height="700" loading="lazy" decoding="async" alt=""></a>
+        <a class="ph" href="https://www.etsy.com/listing/4405779196" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/shop/assess.webp"><img src="assets/shop/assess.jpg" width="700" height="700" loading="lazy" decoding="async" alt=""></picture></a>
         <h3>Entrepreneur Self Assessment</h3>
         <p>A workbook to see where you are and where to go next.</p>
         <div class="meta"><span class="amt">$11.11</span><a class="get" href="https://www.etsy.com/listing/4405779196" target="_blank" rel="noopener">Get it on Etsy<span class="phq-sr"> : Entrepreneur Self Assessment</span></a></div>
       </li>
       <li class="phq-piece">
-        <a class="ph contain" href="https://www.etsy.com/listing/4411015542" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/shop/excel.jpg" width="700" height="583" loading="lazy" decoding="async" alt=""></a>
+        <a class="ph contain" href="https://www.etsy.com/listing/4411015542" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/shop/excel.webp"><img src="assets/shop/excel.jpg" width="700" height="583" loading="lazy" decoding="async" alt=""></picture></a>
         <h3>Small Business Info Tracker</h3>
         <p>An Excel template that keeps your company details in one place.</p>
         <div class="meta"><span class="amt">$11.11</span><a class="get" href="https://www.etsy.com/listing/4411015542" target="_blank" rel="noopener">Get it on Etsy<span class="phq-sr"> : Small Business Info Tracker</span></a></div>
@@ -256,9 +258,8 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 <section class="phq-close" aria-labelledby="close-title">
   <div class="wrap">
     <h2 id="close-title" class="phq-display">Made in my studio.</h2>
-    <p>The tools and Claude skills I made for myself first. Every one is an instant digital download.</p>
+    <p>Everything here is an instant download. Buttons open the item on Etsy.</p>
     <img src="assets/signature-380.webp" width="380" height="141" loading="lazy" decoding="async" alt="Shea Johnson">
-    <p class="phq-fine">Checkout is through my Etsy shop for now. Buttons open the item on Etsy. The free Student Edition comes by email.</p>
   </div>
 </section>
 </main>
@@ -270,6 +271,11 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   </div>
 </footer>
 
+<script>
+/* Load the SendFox form only when it is close to the screen (speed). */
+(function(){var els=document.querySelectorAll('[data-sf-form]');function load(el){if(el.dataset.sfDone)return;el.dataset.sfDone='1';var s=document.createElement('script');s.src='https://cdn.sendfox.com/js/embed.js';s.async=true;s.setAttribute('data-form',el.dataset.sfForm);s.setAttribute('data-api','https://sendfox.com');el.appendChild(s);}
+if(!('IntersectionObserver' in window)){els.forEach(load);return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){load(e.target);io.unobserve(e.target);}});},{rootMargin:'600px 0px'});els.forEach(function(el){io.observe(el);});})();
+</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3c6c1c1c4514467994a7167d63d522a3"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
