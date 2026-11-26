@@ -396,12 +396,8 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <legend class="sr">Pick a plan</legend>
         <label class="ba-pack"><input type="radio" name="ba-pack" value="remote"><span class="ba-tier">Remote Install</span>
           <ul class="ba-inc"><li>$750, about 90 minutes</li><li>Installed with you over Zoom</li><li>Text it from your phone</li><li>You train it yourself</li></ul></label>
-        <label class="ba-pack"><input type="radio" name="ba-pack" value="build" checked><span class="ba-tier">Let's build it together</span>
-          <ul class="ba-inc"><li>Everything in setup</li><li>Daily briefings + inbox help</li><li>Trained on your business</li><li>Connected to your apps</li></ul></label>
-        <label class="ba-pack"><input type="radio" name="ba-pack" value="full"><span class="ba-tier">Do it all for me</span>
-          <ul class="ba-inc"><li>Everything in Build</li><li>A team of agents</li><li>Social posts + reels</li><li>Automated workflows</li></ul></label>
-        <label class="ba-pack"><input type="radio" name="ba-pack" value="enterprise"><span class="ba-tier">Bigger business</span>
-          <ul class="ba-inc"><li>Several computers or locations</li><li>Larger teams</li><li>Quoted after a quick call</li></ul></label>
+        <label class="ba-pack"><input type="radio" name="ba-pack" value="build" checked><span class="ba-tier">Custom setup</span>
+          <ul class="ba-inc"><li>Trained on your services, tone and rules</li><li>Custom-built agents that work together</li><li>Safety settings set up and checked</li><li>Quoted after a quick call</li></ul></label>
       </fieldset>
 
       <!-- Step 2 -->
@@ -575,7 +571,7 @@ document.querySelector(".qform").addEventListener("submit", function () {
 <script>
 (function () {
   // The plan radios only fill the hidden Package fields; prices stay off the form (Shea, 11/8).
-  var LABEL = { remote: "Remote Install", build: "Let's build it together", full: "Do it all for me", enterprise: "Bigger business" };
+  var LABEL = { remote: "Remote Install", build: "Custom setup" };
   var form = document.querySelector(".ba");
   function update() {
     var p = form.querySelector('input[name="ba-pack"]:checked').value;
