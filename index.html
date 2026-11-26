@@ -15,255 +15,133 @@
 
 :root {
   --ink: #2B2B2E;
+  --ink-soft: #46464B;
   --page: #FFFDFC;
-  --mat: #FFFFFF;
-  --violet: #2B2B2E;
-  --plum: #2B2B2E;
-  --lilac: #6B6B72;
-  --paper: #2B2B2E;
-  --lime: #2B2B2E;
   --muted: #6B6B72;
+  --line: #EFE3E4;
+  --wash: #FCEBED;
+  --blush: #F4C7CB;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body {
-  background: var(--page);
-  color: var(--ink);
-  font: 400 17px/1.65 "Inter", system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+body { background: var(--page); color: var(--ink); font: 400 17px/1.65 "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: clip; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
-:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+.wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+@media (min-width: 700px) { .wrap { width: min(1120px, 100% - clamp(48px, 10vw, 160px)); } }
 
-.wrap { width: min(1080px, 100% - clamp(40px, 12vw, 160px)); margin-inline: auto; }
+/* ---------- Top bar ---------- */
+.topbar { position: sticky; top: 0; z-index: 10; padding: 12px 0; background: rgba(255,253,252,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.topbar .home { font-family: "Alta", Georgia, serif; font-size: 24px; text-decoration: none; white-space: nowrap; }
+.topbar .nav-right { display: flex; align-items: center; gap: 20px; }
+.topbar .nav-link { font: 600 15px/1 "Inter", sans-serif; text-decoration: none; padding: 10px 2px; }
+.topbar .nav-link:hover { text-decoration: underline; text-decoration-color: var(--blush); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.topbar .phq-btn { padding: 12px 20px; font-size: 15px; }
+@media (max-width: 480px) { .topbar .home { font-size: 20px; } .topbar .nav-right { gap: 12px; } .topbar .phq-btn { padding: 11px 16px; font-size: 14px; } }
 
-/* ---------- Sticky top bar ---------- */
-.topbar { position: sticky; top: 0; z-index: 10; background: rgba(252,251,254,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #F1E6E7; }
-.topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; }
-.topbar .home { font-family: "Alta", Georgia, serif; font-size: 22px; text-decoration: none; color: var(--ink); }
-.topbar .go { padding: 12px 18px; font-size: 15px; }
-.topbar .home { white-space: nowrap; }
-.topbar .nav-right { display: flex; align-items: center; gap: 18px; }
-.topbar .nav-link { font: 600 15px/1 "Inter", sans-serif; color: var(--ink); text-decoration: none; padding: 10px 2px; }
-.topbar .nav-link:hover { text-decoration: underline; }
-@media (max-width: 400px) { .topbar .wrap { gap: 8px; } .topbar .home { font-size: 18px; } .topbar .nav-right { gap: 10px; } .topbar .nav-link { font-size: 14px; } .topbar .go { padding: 11px 10px; font-size: 14px; } }
+/* ---------- Shared pieces (same as /shop) ---------- */
+.phq-kicker { font: 600 12px/1 "Inter", sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.phq-display { font-family: "Alta", Georgia, serif; font-weight: 400; line-height: 0.98; letter-spacing: 0.01em; }
+.phq-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 600 16px/1 "Inter", sans-serif; padding: 18px 28px; border-radius: 999px; background: var(--ink); color: #fff; text-decoration: none; white-space: nowrap; transition: background .2s ease, transform .2s ease; }
+.phq-btn:hover { background: var(--ink-soft); transform: translateY(-1px); }
+.phq-link { font: 600 15px/1.4 "Inter", sans-serif; color: var(--ink); text-decoration: underline; text-decoration-color: var(--blush); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.phq-link:hover { text-decoration-color: var(--ink); }
+.phq-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.phq-benefits { list-style: none; margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.phq-benefits li { position: relative; padding-left: 18px; font-size: 16px; }
+.phq-benefits li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 9px; height: 2px; border-radius: 2px; background: var(--blush); }
+.phq-buy { margin-top: 34px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 26px; }
+.phq-price { font: 600 34px/1 "Inter", sans-serif; letter-spacing: -0.02em; }
+.phq-price small { font-size: 15px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+.phq-fine { margin-top: 18px; font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 46ch; }
 
-/* ---------- Hero ---------- */
-.hero { padding: 40px 0 0; }
-.hero .shelf-note { margin: 22px 0 56px; }
-.benefits { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; }
-.benefits li { position: relative; padding-left: 22px; font: 400 18px/1.4 "Inter", sans-serif; color: #55555C; }
-.benefits li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 10px; height: 2px; border-radius: 2px; background: #F4C7CB; }
-.hero .hero-ctas { margin-top: 34px; margin-bottom: 56px; }
-.foot-link { color: inherit; text-decoration: none; opacity: 0.75; }
-.foot-link:hover { text-decoration: underline; opacity: 1; }
-/* Desktop: offer leads, wordmark supports */
-@media (min-width: 821px) {
-  .hero { padding: 64px 0 72px; }
-  .hero-grid { align-items: center; gap: 56px; grid-template-columns: 1.15fr 0.85fr; }
-  .hero .wordmark { font-size: clamp(40px, 4.2vw, 60px); line-height: 0.92; }
-  .hero .wordmark { white-space: nowrap; }
-  .hero .wordmark span { display: inline; padding-left: 0.25em; }
-  .hero .hero-line { margin-top: 30px; font-size: clamp(44px, 4.5vw, 58px); line-height: 1.06; letter-spacing: -0.028em; max-width: none; }
-  .hero .benefits { margin-top: 32px; gap: 12px; }
-  .hero .benefits li { font-size: 21px; }
-  .hero .hero-ctas { margin-top: 40px; }
-  .hero .hero-ctas .go { font-size: 18px; padding: 21px 32px; }
-  .hero .shelf-note { margin: 22px 0 0; font-size: 16px; }
-  .portrait { width: min(420px, 100%); }
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: end;
-  gap: 32px;
-}
-.wordmark {
-  font-family: "Alta", Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(64px, 10vw, 148px);
-  line-height: 0.88;
-  letter-spacing: 0.01em;
-  color: var(--paper);
-}
-.wordmark span { display: block; color: var(--violet); padding-left: 0.5em; }
-.lede {
-  margin-top: 28px;
-  max-width: 34ch;
-  font-size: 19px;
-  color: var(--lilac);
-}
-.signature { width: 190px; margin: 26px 0 48px; opacity: 0.9; }
-
-.portrait { position: relative; justify-self: end; width: min(460px, 100%); margin-bottom: 0; }
-.portrait img { position: relative; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 999px 999px 0 0; border: 10px solid #FCEBED; border-bottom: 0; }
-
-/* ---------- Hero offer ---------- */
-.kicker-top { margin-top: 28px; font: 600 13px/1 "Inter", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet); }
-.hero .lede { margin-top: 12px; }
-.hero-line { margin: 28px 0 0; font: 600 clamp(26px, 3.4vw, 38px)/1.2 "Inter", sans-serif; letter-spacing: -0.015em; color: var(--ink); max-width: 20ch; }
-.shelf-note { margin: 18px 0 0; font: 500 15px/1.5 "Inter", sans-serif; color: var(--ink); }
-.shelf-note a { color: var(--ink); font-weight: 600; text-underline-offset: 3px; text-decoration-color: #F4C7CB; text-decoration-thickness: 2px; }
-.hero-ctas { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
-.go { font: 600 16px/1 "Inter", sans-serif; padding: 17px 24px; border-radius: 10px; background: var(--violet); color: #FFFFFF; text-decoration: none; white-space: nowrap; }
-.go:hover { background: #46464B; }
-.go.quiet { background: transparent; color: var(--ink); border: 1.5px solid #EFE3E4; }
-.go.quiet:hover { background: #FCEBED; }
-
-/* ---------- Studio letter (main offer) ---------- */
-/* ---------- Student Edition banner (same pattern as the Nov 4 workshop banner; delete this block + the <section class="event"> to remove) ---------- */
-.event { background: #F4C7CB; }
-.event .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px 32px; flex-wrap: wrap; padding: 28px 0; }
-.event .tag { font: 600 12px/1 "Inter", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
-.event h2 { margin-top: 10px; font: 600 clamp(22px, 2.6vw, 28px)/1.2 "Inter", sans-serif; letter-spacing: -0.01em; color: var(--ink); }
-.event p { margin-top: 6px; font-size: 15px; color: var(--ink); }
+/* ---------- Student Edition banner (approved 11/25; delete this block + the <section class="event"> to remove) ---------- */
+.event { background: var(--blush); }
+.event .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px 32px; flex-wrap: wrap; padding: 26px 0; }
+.event .tag { font: 600 12px/1 "Inter", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; }
+.event h2 { margin-top: 10px; font: 600 clamp(20px, 2.4vw, 26px)/1.25 "Inter", sans-serif; letter-spacing: -0.01em; }
+.event p { margin-top: 6px; font-size: 15px; }
+.event .phq-btn { padding: 15px 26px; }
 @media (max-width: 820px) { .event .wrap { padding: 20px 0; gap: 14px; } }
 
-.letter {
-  margin-top: 0;
-  background: var(--ink);
-  color: #FBEFF0;
+/* ---------- Hero: Shea + the guide ---------- */
+.phq-hero { padding: 40px 0 80px; }
+.phq-hero-grid { display: grid; gap: 36px; }
+.phq-hero h1 { margin-top: 18px; font-size: clamp(44px, 6.2vw, 84px); max-width: 13ch; text-wrap: balance; }
+.phq-hero .phq-lede { margin-top: 24px; font-size: 20px; line-height: 1.5; color: #55555C; max-width: 30ch; }
+.phq-portrait { position: relative; }
+.phq-portrait::before { content: ""; position: absolute; inset: 7% -6% 5% 16%; background: var(--wash); border-radius: 999px 999px 0 0; z-index: -1; }
+.phq-portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 999px 999px 18px 18px; box-shadow: 0 40px 80px -50px rgba(43,43,46,.45); }
+@media (min-width: 900px) {
+  .phq-hero { padding: 72px 0 120px; }
+  .phq-hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 72px; align-items: center; }
+  .phq-portrait { width: min(460px, 100%); justify-self: end; }
 }
-.letter .wrap {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 32px;
-  padding: 44px 0;
-  align-items: center;
+@media (max-width: 899px) {
+  .phq-portrait { width: min(320px, 82%); justify-self: center; }
+  .phq-hero .phq-buy .phq-btn { flex: 1 1 100%; }
 }
-.letter h2 {
-  font-family: "Inter", system-ui, sans-serif;
-  font-weight: 600;
-  font-size: clamp(34px, 4.4vw, 52px);
-  line-height: 1.02; letter-spacing: -0.01em; }
-.letter p { margin-top: 10px; max-width: 42ch; color: #E2D2D4; }
-.signup { display: flex; gap: 10px; flex-wrap: wrap; }
-.signup label { flex-basis: 100%; font-size: 14px; font-weight: 600; color: #FBEFF0; }
-.signup input {
-  flex: 1 1 240px;
-  font: inherit;
-  padding: 14px 16px;
-  border: 1.5px solid #E2D2D4;
-  border-radius: 10px;
-  background: #fff;
-  color: var(--ink);
-}
-.signup button {
-  font: 600 16px/1 "Inter", sans-serif;
-  padding: 15px 22px;
-  border: 0;
-  border-radius: 10px;
-  background: var(--violet);
-  color: #fff;
-  cursor: pointer;
-}
-.signup button:hover { background: #46464B; }
-.fine { flex-basis: 100%; font-size: 13px; color: #6B6B72; }
 
-.signup-embed { min-height: 60px; }
-.signup-embed .fine { margin-top: 8px; }
-
-/* ---------- Gallery wall ---------- */
-.wall { padding: 112px 0 56px; }
-.wall-intro { max-width: 46ch; margin-bottom: 40px; }
-.wall-intro h2 {
-  font-family: "Inter", system-ui, sans-serif;
-  font-weight: 600;
-  font-size: clamp(36px, 5vw, 60px);
-  line-height: 1; letter-spacing: -0.01em; }
-.wall-intro p { margin-top: 12px; color: var(--lilac); }
-
-.hang {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: minmax(0, auto);
-  gap: 28px;
-  align-items: start;
+/* ---------- The guide (blush wash) ---------- */
+.phq-guide { background: var(--wash); }
+.phq-guide-grid { display: grid; gap: 36px; padding: 72px 0; align-items: center; }
+.phq-guide img { width: min(460px, 100%); border-radius: 999px 999px 18px 18px; box-shadow: 0 30px 60px -45px rgba(43,43,46,.5); }
+.phq-guide h2 { margin-top: 16px; font-size: clamp(38px, 5vw, 66px); max-width: 11ch; }
+.phq-guide p.body { margin-top: 18px; font-size: 18px; color: #55555C; max-width: 38ch; }
+.phq-guide .phq-buy { margin-top: 30px; }
+.phq-guide .phq-price { font-size: 28px; }
+@media (min-width: 900px) {
+  .phq-guide-grid { grid-template-columns: 0.9fr 1.1fr; gap: 88px; padding: 112px 0; }
+  .phq-guide-grid > :first-child { justify-self: end; }
 }
-.piece { text-decoration: none; display: block; }
-.frame {
-  background: var(--mat);
-  padding: 18px;
-  border: 1px solid #EFE3E4;
-  box-shadow: 0 28px 50px -34px rgba(43,43,46,0.25);
-}
-.frame img { width: 100%; height: 100%; object-fit: cover; }
-.plaque { margin-top: 14px; padding-left: 2px; }
-.plaque h3 { font: 600 18px/1.3 "Inter", sans-serif; color: var(--paper); }
-.plaque p { font-size: 15px; color: var(--muted); max-width: 40ch; }
-.piece:hover .plaque h3, .piece:focus-visible .plaque h3 { color: var(--lilac); text-decoration: underline; text-underline-offset: 4px; }
 
-.p-shop   { grid-column: 1 / span 6; grid-row: span 2; }
-.p-shop .frame { aspect-ratio: 1 / 1; padding: 26px; }
-.p-skills { grid-column: 7 / span 6; margin-top: 40px; }
-.p-skills .frame { aspect-ratio: 1200 / 630; }
-.p-blog   { grid-column: 7 / span 4; }
-.p-blog .frame { aspect-ratio: 1200 / 630; }
-.p-call   { grid-column: 3 / span 8; margin-top: 12px; }
-.p-call .frame {
-  padding: 34px 38px;
-  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
-  background: #FCEBED;
-  border-color: #F4C7CB;
-}
-.p-call .frame span { font-family: "Inter", system-ui, sans-serif; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; font-weight: 600; letter-spacing: -0.01em; }
-.p-call .frame em { font-style: normal; font-weight: 600; color: var(--violet); white-space: nowrap; }
+/* ---------- Around the studio ---------- */
+.phq-around { padding: 104px 0 24px; }
+.phq-around-head h2 { margin-top: 12px; font-size: clamp(34px, 4.4vw, 56px); }
+.phq-around-head p { margin-top: 12px; color: var(--muted); max-width: 46ch; }
+.phq-pair { margin-top: 44px; display: grid; gap: 44px 32px; list-style: none; }
+@media (min-width: 700px) { .phq-pair { grid-template-columns: 1fr 1fr; } .phq-pair li:last-child { margin-top: 72px; } }
+.phq-pair a.ph { display: block; overflow: hidden; border-radius: 14px; }
+.phq-pair img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.phq-pair li:hover img { transform: scale(1.03); }
+.phq-pair h3 { margin-top: 18px; font: 600 20px/1.3 "Inter", sans-serif; letter-spacing: -0.005em; }
+.phq-pair p { margin-top: 6px; font-size: 15px; color: var(--muted); max-width: 40ch; }
+.phq-pair .phq-link { display: inline-block; margin-top: 12px; }
 
-/* ---------- Reviews ---------- */
-.reviews { padding: 96px 0 112px; }
-.reviews blockquote {
-  max-width: 32ch;
-  font: 500 clamp(26px, 3.2vw, 38px)/1.3 "Inter", sans-serif;
-  letter-spacing: -0.01em;
-  color: var(--paper);
-}
-.reviews cite { display: block; margin-top: 14px; font: 500 15px "Inter", sans-serif; font-style: normal; color: var(--muted); }
-.reviews .proof { font: 500 clamp(24px, 3vw, 34px)/1.3 "Inter", sans-serif; letter-spacing: -0.01em; color: var(--ink); max-width: 30ch; }
-.reviews .proof a { color: var(--paper); text-underline-offset: 4px; }
+/* ---------- Studio letter ---------- */
+.phq-letter { padding: 104px 0 0; }
+.phq-letter-grid { display: grid; gap: 28px; padding-top: 56px; border-top: 1px solid var(--line); align-items: center; }
+.phq-letter h2 { margin-top: 12px; font-size: clamp(32px, 4vw, 50px); }
+.phq-letter p { margin-top: 12px; color: var(--muted); max-width: 42ch; }
+.phq-letter .signup-embed { min-height: 60px; }
+.phq-letter .signup-embed .phq-fine { margin-top: 10px; }
+@media (min-width: 900px) { .phq-letter-grid { grid-template-columns: 1fr 1.1fr; gap: 72px; } }
 
-
-/* ---------- Find me ---------- */
-.findme { padding: 0 0 96px; }
-.findme h2 { font-family: "Inter", system-ui, sans-serif; font-weight: 600; font-size: clamp(30px, 3.6vw, 44px); line-height: 1.05; letter-spacing: -0.01em; }
-.findme p { margin-top: 8px; color: var(--lilac); }
-.socials { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 14px; list-style: none; }
-.socials a {
-  display: grid; place-items: center; width: 56px; height: 56px;
-  border: 1px solid #EFE3E4; border-radius: 50%; background: #fff;
-}
-.socials a:hover { border-color: var(--violet); background: #FCEBED; }
-.socials svg { width: 24px; height: 24px; display: block; }
+/* ---------- Sign-off ---------- */
+.phq-close { padding: 104px 0 88px; text-align: center; }
+.phq-close h2 { font-size: clamp(34px, 4.6vw, 56px); }
+.phq-close img.sig { width: 170px; margin: 22px auto 0; opacity: .9; }
+.phq-close .proof { margin: 26px auto 0; font-size: 15px; color: var(--muted); }
+.phq-close .proof a { color: var(--ink); text-decoration-color: var(--blush); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.socials { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; list-style: none; }
+.socials a { display: grid; place-items: center; width: 50px; height: 50px; border: 1px solid var(--line); border-radius: 50%; background: #fff; transition: background .2s, border-color .2s; }
+.socials a:hover { border-color: var(--blush); background: var(--wash); }
+.socials svg { width: 21px; height: 21px; display: block; fill: var(--ink); }
 
 /* ---------- Footer ---------- */
 footer { border-top: 1px solid #F1E6E7; padding: 32px 0 48px; color: var(--muted); font-size: 15px; }
 footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
-footer a { text-decoration: none; color: var(--lilac); }
-footer a:hover { color: var(--paper); text-decoration: underline; }
+footer a { text-decoration: none; color: var(--muted); }
+footer a:hover { color: var(--ink); text-decoration: underline; }
 
-/* ---------- One entrance moment ---------- */
 @media (prefers-reduced-motion: no-preference) {
-  .wordmark, .portrait { animation: rise 900ms cubic-bezier(.2,.7,.2,1) both; }
-  .portrait { animation-delay: 150ms; }
-  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  .phq-hero h1, .phq-portrait { animation: phq-rise 900ms cubic-bezier(.2,.7,.2,1) both; }
+  .phq-portrait { animation-delay: 140ms; }
+  @keyframes phq-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 }
-
-/* ---------- Mobile ---------- */
-@media (max-width: 820px) {
-  .hero { padding-top: 32px; }
-  .hero-grid, .letter .wrap { grid-template-columns: 1fr; }
-  .portrait { width: min(200px, 56%); order: -1; justify-self: center; }
-  .hero .wordmark { margin-top: 28px; font-size: clamp(38px, 11.4vw, 48px); line-height: 1.02; letter-spacing: 0.02em; white-space: nowrap; }
-  .hero .wordmark span { display: block; margin-top: 0.3em; padding-left: 0; font-size: 0.34em; letter-spacing: 0.42em; line-height: 1; }
-  .hero-line { margin-top: 34px; font-size: 25px; line-height: 1.34; max-width: none; text-wrap: balance; }
-  .hero .benefits { margin-top: 26px; gap: 14px; }
-  .hero .hero-ctas .go { display: block; width: 100%; text-align: center; padding: 19px 20px; }
-  .hero .shelf-note { text-align: center; }
-  .hang { grid-template-columns: 1fr; gap: 36px; }
-  .p-shop, .p-skills, .p-blog, .p-call { grid-column: auto; grid-row: auto; margin-top: 0; }
-}
+@media (prefers-reduced-motion: reduce) { .phq-btn, .phq-pair img { transition: none; } .phq-pair li:hover img, .phq-btn:hover { transform: none; } }
 </style>
 </head>
 <body>
@@ -271,7 +149,7 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
 <nav class="topbar" aria-label="Site">
   <div class="wrap">
     <a class="home" href="/">Shea Johnson</a>
-    <span class="nav-right"><a class="nav-link" href="/blog">Blog</a><a class="go" href="/shop">Shop</a></span>
+    <span class="nav-right"><a class="nav-link" href="/blog">Blog</a><a class="phq-btn" href="/shop">Shop</a></span>
   </div>
 </nav>
 
@@ -282,94 +160,92 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
       <h2 id="event-title">Back in school? My Powerhouse Student Edition is free.</h2>
       <p>A Claude skill that helps you study and learn it yourself, the ethical way.</p>
     </div>
-    <a class="go" href="/shop#student-edition">Get it</a>
+    <a class="phq-btn" href="/shop#student-edition">Get it</a>
   </div>
 </section>
 
-<header class="hero">
-  <div class="wrap hero-grid">
+<main>
+<header class="phq-hero">
+  <div class="wrap phq-hero-grid">
     <div>
-      <h1 class="wordmark">Shea Johnson <span>Studio</span></h1>
-      <p class="hero-line">Your own AI executive assistant, built on your Mac.</p>
-      <ul class="benefits">
+      <p class="phq-kicker">Shea Johnson Studio</p>
+      <h1 class="phq-display">An agent that works while you sleep.</h1>
+      <p class="phq-lede">Your own AI executive assistant, built on your Mac.</p>
+      <ul class="phq-benefits">
         <li>Sorts your inbox</li>
         <li>Guards your calendar</li>
         <li>Works while you sleep</li>
       </ul>
-      <div class="hero-ctas">
-        <a class="go" href="/setup-guide">Get the step-by-step guide · $79</a>
+      <div class="phq-buy">
+        <span class="phq-price">$79<small> one time</small></span>
+        <a class="phq-btn" href="/setup-guide">Get the step-by-step guide</a>
       </div>
+      <p class="phq-fine">An instant download. You'll need a Mac running macOS 13 or newer and a paid Claude plan.</p>
     </div>
-    <div class="portrait">
-      <img src="assets/shea_hero-960.webp" srcset="assets/shea_hero-480.webp 480w, assets/shea_hero-960.webp 960w" sizes="(max-width: 820px) 340px, 460px" width="960" height="1200" fetchpriority="high" alt="Shea Johnson in her studio">
+    <div class="phq-portrait">
+      <img src="assets/shea_hero-960.webp" srcset="assets/shea_hero-480.webp 480w, assets/shea_hero-960.webp 960w" sizes="(max-width: 899px) 300px, 460px" width="960" height="1200" fetchpriority="high" alt="Shea Johnson in her studio">
     </div>
   </div>
 </header>
 
-<section class="letter" aria-labelledby="letter-title">
-  <div class="wrap">
+<section class="phq-guide" aria-labelledby="guide-title">
+  <div class="wrap phq-guide-grid">
+    <a href="/setup-guide" tabindex="-1" aria-hidden="true"><img src="assets/shop/guide-desk-1000.jpg" srcset="assets/shop/guide-desk-600.jpg 604w, assets/shop/guide-desk-1000.jpg 999w" sizes="(max-width: 899px) 90vw, 460px" width="999" height="1240" loading="lazy" decoding="async" alt=""></a>
     <div>
-      <h2 id="letter-title">Get the studio letter</h2>
+      <p class="phq-kicker">The guide · Mac edition</p>
+      <h2 id="guide-title" class="phq-display">Build your own AI assistant.</h2>
+      <p class="body">My step-by-step guide plus my Executive Assistant skill for Claude. Set it up yourself, at your own pace.</p>
+      <div class="phq-buy">
+        <span class="phq-price">$79</span>
+        <a class="phq-btn" href="/setup-guide">Get the guide</a>
+        <a class="phq-link" href="/setup-guide#inside">See what's inside</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="phq-around" aria-labelledby="around-title">
+  <div class="wrap">
+    <div class="phq-around-head">
+      <p class="phq-kicker">Around the studio</p>
+      <h2 id="around-title" class="phq-display">Take what helps.</h2>
+      <p>I also make art and coaching skills for Claude, and I share the AI tools I build for myself.</p>
+    </div>
+    <ul class="phq-pair">
+      <li>
+        <a class="ph" href="/shop" tabindex="-1" aria-hidden="true"><img src="assets/art-1000.webp" srcset="assets/art-600.webp 600w, assets/art-1000.webp 1000w" sizes="(max-width: 699px) 90vw, 520px" width="1000" height="1000" loading="lazy" decoding="async" alt=""></a>
+        <h3>Shop the studio</h3>
+        <p>Coaching skills for Claude, my AI assistant guide and small business tools.</p>
+        <a class="phq-link" href="/shop">Visit the shop</a>
+      </li>
+      <li>
+        <a class="ph" href="/blog/" tabindex="-1" aria-hidden="true"><img src="assets/blog-900.webp" srcset="assets/blog-450.webp 450w, assets/blog-900.webp 900w" sizes="(max-width: 699px) 90vw, 520px" width="900" height="472" loading="lazy" decoding="async" alt=""></a>
+        <h3>Read the blog</h3>
+        <p>Stories about AI, creativity, and building something real.</p>
+        <a class="phq-link" href="/blog/">Start reading</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="phq-letter" aria-labelledby="letter-title">
+  <div class="wrap phq-letter-grid">
+    <div>
+      <p class="phq-kicker">Subscribe</p>
+      <h2 id="letter-title" class="phq-display">Get the studio letter.</h2>
       <p>New art, free tools, and honest notes on what I'm learning, sent whenever I make something worth sharing.</p>
     </div>
     <div class="signup-embed">
       <script src="https://cdn.sendfox.com/js/embed.js" data-form="1xvqkn" data-api="https://sendfox.com" async></script>
-      <p class="fine">No spam. Unsubscribe anytime.</p>
+      <p class="phq-fine">No spam. Unsubscribe anytime.</p>
     </div>
   </div>
 </section>
 
-<main class="wall">
+<section class="phq-close" aria-labelledby="findme-title">
   <div class="wrap">
-    <div class="wall-intro">
-      <h2>Walk around the studio</h2>
-      <p>I also make art and coaching skills for Claude, and I share the AI tools I build for myself. Take what helps. Stay as long as you like.</p>
-    </div>
-
-    <div class="hang">
-      <a class="piece p-shop" href="/shop">
-        <div class="frame"><img src="assets/art-1000.webp" srcset="assets/art-600.webp 600w, assets/art-1000.webp 1000w" sizes="(max-width: 820px) 90vw, 500px" width="1000" height="1000" loading="lazy" decoding="async" alt="Original AI artwork: a moon rising over deep plum waves"></div>
-        <div class="plaque">
-          <h3>Shop the studio</h3>
-          <p>Coaching skills for Claude, my AI assistant guide and small business tools.</p>
-        </div>
-      </a>
-
-      <a class="piece p-skills" href="https://www.etsy.com/shop/MsSheaJohnsonStudio?search_query=powerhouse">
-        <div class="frame"><img src="assets/skills-1200.webp" srcset="assets/skills-600.webp 600w, assets/skills-1200.webp 1200w" sizes="(max-width: 820px) 90vw, 520px" width="1200" height="630" loading="lazy" decoding="async" alt="I built Claude skills for me. Now they're yours."></div>
-        <div class="plaque">
-          <h3>Powerhouse coaching tools</h3>
-          <p>The coaching tools I built for myself, now on Etsy.</p>
-        </div>
-      </a>
-
-      <a class="piece p-blog" href="/blog/">
-        <div class="frame"><img src="assets/blog-900.webp" srcset="assets/blog-450.webp 450w, assets/blog-900.webp 900w" sizes="(max-width: 820px) 90vw, 340px" width="900" height="472" loading="lazy" decoding="async" alt="Original AI artwork: an abstract portrait of a woman in pink and violet"></div>
-        <div class="plaque">
-          <h3>Read the blog</h3>
-          <p>Stories about AI, creativity, and building something real.</p>
-        </div>
-      </a>
-
-      <a class="piece p-call" href="https://cal.com/mssheajohnson">
-        <div class="frame">
-          <span>Want to talk through what you're building?</span>
-          <em>Book a call with me</em>
-        </div>
-      </a>
-    </div>
-  </div>
-</main>
-
-<section class="reviews" aria-label="Reviews">
-  <div class="wrap">
-    <p class="proof">Rated Excellent on <a href="https://www.trustpilot.com/review/mssheajohnson.com">Trustpilot</a>.</p>
-  </div>
-</section>
-
-<section class="findme" aria-labelledby="findme-title">
-  <div class="wrap">
-    <h2 id="findme-title">Let&rsquo;s stay connected</h2>
+    <h2 id="findme-title" class="phq-display">Let&rsquo;s stay connected.</h2>
+    <img class="sig" src="assets/signature-380.webp" width="380" height="141" decoding="async" alt="Shea Johnson">
     <ul class="socials">
       <li><a href="https://www.instagram.com/mssheajohnson/" aria-label="Instagram" title="Instagram"><svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a></li>
       <li><a href="https://www.tiktok.com/@msheajohnson" aria-label="TikTok" title="TikTok"><svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></li>
@@ -382,12 +258,15 @@ footer a:hover { color: var(--paper); text-decoration: underline; }
       <li><a href="https://www.trustpilot.com/review/mssheajohnson.com" aria-label="Trustpilot" title="Trustpilot"><svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.227 16.67l2.19 6.742-7.413-5.388 5.223-1.354zM24 9.31h-9.165L12.005.589l-2.84 8.723L0 9.3l7.422 5.397-2.84 8.714 7.422-5.388 4.583-3.326L24 9.311z"/></svg></a></li>
       <li><a href="https://linktr.ee/MsSheaJohnson" aria-label="Linktree" title="Linktree"><svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m13.73635 5.85251 4.00467-4.11665 2.3248 2.3808-4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766-2.3248 2.3338L12.0005 12.099l-5.74052 5.76852-2.3248-2.3248 4.22864-4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248-2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z"/></svg></a></li>
     </ul>
+    <p class="proof">My coaching and AI training are rated Excellent on <a href="https://www.trustpilot.com/review/mssheajohnson.com">Trustpilot</a>.</p>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap">
-    <span>© Shea Johnson LLC · <a class="foot-link" href="ai-assistant">Setup services</a></span>
+    <span>© Shea Johnson LLC · <a href="ai-assistant">Setup services</a></span>
+    <a href="/shop">Shop</a>
   </div>
 </footer>
 
