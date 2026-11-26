@@ -80,8 +80,18 @@ a { color: inherit; }
   .phq-portrait { width: min(460px, 100%); justify-self: end; }
 }
 @media (max-width: 899px) {
-  .phq-portrait { width: min(320px, 82%); justify-self: center; }
+  .phq-portrait { width: min(240px, 64%); justify-self: center; order: -1; }
+  .phq-hero { padding: 20px 0 56px; }
+  .phq-hero-grid { gap: 24px; }
+  .phq-hero h1 { margin-top: 10px; font-size: 40px; }
+  .phq-hero .phq-lede { margin-top: 14px; font-size: 18px; }
   .phq-hero .phq-buy .phq-btn { flex: 1 1 100%; }
+  .phq-guide-grid { gap: 24px; padding: 48px 0 56px; }
+  .phq-guide img { width: min(260px, 70%); margin: 0 auto; display: block; }
+  .phq-around { padding: 56px 0 8px; }
+  .phq-pair { gap: 36px; }
+  .phq-pair a.ph img { aspect-ratio: 4 / 3; object-fit: cover; }
+  .phq-pair li:first-child a.ph img { transform: scale(1.35); transform-origin: center 58%; }
 }
 
 /* ---------- The guide (blush wash) ---------- */
