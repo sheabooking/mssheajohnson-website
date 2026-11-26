@@ -86,9 +86,7 @@ a { color: inherit; }
   .phq-hero h1 { margin-top: 10px; font-size: 40px; }
   .phq-hero .phq-lede { margin-top: 14px; font-size: 18px; }
   .phq-hero .phq-buy .phq-btn { flex: 1 1 100%; }
-  .phq-guide-grid { gap: 24px; padding: 48px 0 56px; }
-  .phq-guide img { width: min(260px, 70%); margin: 0 auto; display: block; }
-  .phq-around { padding: 56px 0 8px; }
+
   .phq-pair { gap: 36px; }
   .phq-pair a.ph img { aspect-ratio: 4 / 3; object-fit: cover; }
   .phq-pair li:first-child a.ph img { transform: scale(1.35); transform-origin: center 58%; }
@@ -152,6 +150,12 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   @keyframes phq-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 }
 @media (prefers-reduced-motion: reduce) { .phq-btn, .phq-pair img { transition: none; } .phq-pair li:hover img, .phq-btn:hover { transform: none; } }
+@media (max-width: 899px) {
+  .phq-guide .phq-guide-grid { gap: 24px; padding: 48px 0 56px; }
+  .phq-guide .phq-guide-grid img { width: min(260px, 72%); margin: 0 auto; display: block; }
+  section.phq-around { padding: 56px 0 0; }
+  .phq-pair li:last-child { margin-bottom: 0; }
+}
 </style>
 </head>
 <body>
