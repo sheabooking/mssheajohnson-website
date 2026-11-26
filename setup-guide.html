@@ -14,442 +14,173 @@
 
 :root {
   --ink: #2B2B2E;
+  --ink-soft: #46464B;
   --page: #FFFDFC;
-  --mat: #FFFFFF;
-  --violet: #2B2B2E;
-  --violet-dark: #46464B;
-  --lilac: #6B6B72;
   --muted: #6B6B72;
+  --body: #55555C;
   --line: #EFE3E4;
   --wash: #FCEBED;
-  --wash-line: #F4C7CB;
+  --blush: #F4C7CB;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body {
-  background: var(--page);
-  color: var(--ink);
-  font: 400 17px/1.65 "Inter", system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+body { background: var(--page); color: var(--ink); font: 400 17px/1.65 "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: clip; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
-:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; border-radius: 4px; }
-
-.wrap { width: min(1080px, 100% - clamp(32px, 12vw, 160px)); margin-inline: auto; }
-.narrow { max-width: 720px; }
-
-h1, h2, .display {
-  font-family: "Inter", system-ui, sans-serif;
-  font-weight: 600;
-  line-height: 1.02;
-  letter-spacing: 0.005em;
-}
-h2 { font-size: clamp(34px, 4.6vw, 56px); }
-.eyebrow { font: 600 13px/1 "Inter", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet); margin-bottom: 14px; }
-.sub { margin-top: 14px; color: var(--lilac); max-width: 52ch; }
-
-.btn {
-  display: inline-block;
-  font: 600 16px/1 "Inter", sans-serif;
-  padding: 17px 26px;
-  border-radius: 10px;
-  background: var(--violet);
-  color: #fff;
-  text-decoration: none;
-}
-.btn:hover { background: var(--violet-dark); }
-.btn-quiet { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
-.btn-quiet:hover { background: var(--wash); border-color: var(--wash-line); }
-.ctas { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
-
-section { padding: 96px 0; }
-
-/* ---------- Top bar ---------- */
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
 [id] { scroll-margin-top: 84px; }
-.topbar { position: sticky; top: 0; z-index: 10; padding: 12px 0; background: rgba(252,251,254,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+@media (min-width: 700px) { .wrap { width: min(1120px, 100% - clamp(48px, 10vw, 160px)); } }
+
+/* ---------- Top bar (same markup as before) ---------- */
+.topbar { position: sticky; top: 0; z-index: 10; padding: 12px 0; background: rgba(255,253,252,0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
 .topbar a { text-decoration: none; font-weight: 600; }
-.topbar .home { font-family: "Alta", Georgia, serif; font-weight: 400; font-size: 24px; }
-.topbar .book { color: var(--violet); }
+.topbar .home { font-family: "Alta", Georgia, serif; font-weight: 400; font-size: 24px; white-space: nowrap; }
+.topbar .book { font-size: 15px; }
+.topbar .book:hover { text-decoration: underline; text-decoration-color: var(--blush); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.topbar .btn { display: inline-flex; align-items: center; border-radius: 999px; background: var(--ink); color: #fff; white-space: nowrap; line-height: 1; }
+.topbar .btn:hover { background: var(--ink-soft); }
+@media (max-width: 480px) { .hide-sm { display: none; } .topbar .home { font-size: 20px; } }
+
+/* ---------- Shared (phq-) ---------- */
+.phq-kicker { font: 600 12px/1 "Inter", sans-serif; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.phq-display { font-family: "Alta", Georgia, serif; font-weight: 400; line-height: 0.98; letter-spacing: 0.01em; text-wrap: balance; }
+.phq-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 600 16px/1 "Inter", sans-serif; padding: 18px 28px; border-radius: 999px; background: var(--ink); color: #fff; text-decoration: none; white-space: nowrap; transition: background .2s ease, transform .2s ease; }
+.phq-btn:hover { background: var(--ink-soft); transform: translateY(-1px); }
+.phq-link { font: 600 15px/1.4 "Inter", sans-serif; color: var(--ink); text-decoration: underline; text-decoration-color: var(--blush); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.phq-link:hover { text-decoration-color: var(--ink); }
+.phq-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.phq-buy { margin-top: 34px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 26px; }
+.phq-price { font: 600 34px/1 "Inter", sans-serif; letter-spacing: -0.02em; }
+.phq-price small { font-size: 15px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+.phq-fine { margin-top: 18px; font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 46ch; }
+.phq-sec { padding: 104px 0 0; }
+.phq-head h2 { margin-top: 14px; font-size: clamp(36px, 4.6vw, 58px); max-width: 20ch; }
+.phq-head p.body { margin-top: 14px; color: var(--body); max-width: 46ch; }
+.phq-dash { list-style: none; display: grid; gap: 10px; }
+.phq-dash li { position: relative; padding-left: 20px; }
+.phq-dash li::before { content: ""; position: absolute; left: 0; top: 0.78em; width: 9px; height: 2px; border-radius: 2px; background: var(--blush); }
 
 /* ---------- Hero ---------- */
-.hero { padding: 40px 0 0; }
-.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: end; gap: 40px; }
-.hero h1 { font-size: clamp(48px, 7vw, 96px); }
-.hero h1 span { color: var(--violet); }
-.hero .lede { margin-top: 24px; font-size: 20px; color: var(--lilac); max-width: 36ch; }
-.hero .note { margin: 18px 0 56px; font-size: 15px; color: var(--muted); }
-.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 999px 999px 0 0; border: 10px solid #FCEBED; border-bottom: 0; }
+.phq-hero { padding: 36px 0 72px; }
+.phq-hero-grid { display: grid; gap: 36px; }
+.phq-hero h1 { margin-top: 18px; font-size: clamp(44px, 6.4vw, 88px); max-width: 12ch; }
+.phq-hero .phq-lede { margin-top: 22px; font-size: 19px; line-height: 1.55; color: var(--body); max-width: 36ch; }
+.phq-benefits { list-style: none; margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.phq-benefits li { position: relative; padding-left: 18px; font-size: 16px; }
+.phq-benefits li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 9px; height: 2px; border-radius: 2px; background: var(--blush); }
+.phq-hero-img { position: relative; }
+.phq-hero-img::before { content: ""; position: absolute; inset: 6% -5% 6% 14%; background: var(--wash); border-radius: 999px 999px 0 0; z-index: -1; }
+.phq-hero-img img { width: 100%; border-radius: 999px 999px 18px 18px; box-shadow: 0 40px 80px -50px rgba(43,43,46,.45); }
+@media (min-width: 900px) {
+  .phq-hero { padding: 64px 0 112px; }
+  .phq-hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 72px; align-items: center; }
+  .phq-hero-img { width: min(480px, 100%); justify-self: end; }
+}
+@media (max-width: 899px) {
+  .phq-hero-img { width: min(300px, 80%); justify-self: center; }
+  .phq-hero { padding: 24px 0 64px; }
+  .phq-hero-grid { gap: 28px; }
+  .phq-hero h1 { margin-top: 12px; font-size: 42px; }
+  .phq-hero .phq-lede { font-size: 18px; margin-top: 16px; }
+  .phq-hero .phq-buy .phq-btn { flex: 1 1 100%; }
+}
 
-/* ---------- Problem (ink band) ---------- */
-.band { background: var(--ink); color: #FBEFF0; }
-.band h2 { color: #fff; }
-.band .sub { color: #E2D2D4; }
-.stats { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.stat { border: 1px solid #46464B; border-radius: 14px; padding: 26px; }
-.stat strong { display: block; font-family: "Inter", system-ui, sans-serif; font-weight: 600; font-size: clamp(38px, 4.4vw, 52px); line-height: 1; color: #F4C7CB; letter-spacing: -0.01em; }
-.stat p { margin-top: 10px; font-size: 15px; color: #E2D2D4; }
+/* ---------- When you're done ---------- */
+.phq-does { list-style: none; margin-top: 48px; display: grid; gap: 36px 48px; counter-reset: d; }
+@media (min-width: 700px) { .phq-does { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .phq-does { grid-template-columns: repeat(4, 1fr); } }
+.phq-does li { counter-increment: d; padding-top: 22px; border-top: 1px solid var(--ink); }
+.phq-does li::before { content: "0" counter(d); display: block; font: 600 12px/1 "Inter", sans-serif; letter-spacing: 0.16em; color: var(--muted); }
+.phq-does h3 { margin-top: 14px; font: 600 20px/1.3 "Inter", sans-serif; letter-spacing: -0.005em; }
+.phq-does p { margin-top: 6px; font-size: 16px; color: var(--muted); }
 
-/* ---------- The shift ---------- */
-.shift-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
-.card { background: var(--mat); border: 1px solid var(--line); border-radius: 16px; padding: 28px; box-shadow: 0 28px 50px -40px rgba(43,43,46,0.25); }
-.card h3 { font: 600 19px/1.3 "Inter", sans-serif; }
-.card p { margin-top: 8px; font-size: 16px; color: var(--lilac); }
-.quote { margin-top: 56px; font: 500 clamp(24px, 3vw, 34px)/1.3 "Inter", sans-serif; letter-spacing: -0.01em; max-width: 30ch; }
-.quote em { font-style: normal; color: var(--violet); }
+/* ---------- You decide (ink band) ---------- */
+.phq-band { margin-top: 104px; background: var(--ink); color: #F3ECEC; }
+.phq-band .wrap { padding: 88px 0; display: grid; gap: 20px; }
+.phq-band .phq-kicker { color: var(--blush); }
+.phq-band h2 { font-size: clamp(36px, 4.6vw, 58px); color: #fff; max-width: 16ch; }
+.phq-band p { color: #D9D3D4; max-width: 50ch; font-size: 18px; }
+@media (min-width: 900px) { .phq-band .wrap { grid-template-columns: 1.25fr 0.75fr; gap: 72px; align-items: end; } .phq-band .wrap > div:first-child h2 { margin-top: 16px; } }
+@media (max-width: 899px) { .phq-band .wrap > div:first-child h2 { margin-top: 14px; } }
 
-/* ---------- Visits ---------- */
-.visits { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.visit-list { margin-top: 48px; display: grid; gap: 22px; }
-.visit { display: grid; grid-template-columns: 120px 1fr; gap: 28px; padding: 30px; border: 1px solid var(--line); border-radius: 16px; background: var(--page); }
-.visit .num { font-family: "Inter", system-ui, sans-serif; font-size: 64px; line-height: 0.9; color: var(--violet); font-weight: 600; letter-spacing: -0.01em; }
-.visit .num small { display: block; margin-top: 10px; font: 600 13px/1.3 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.visit h3 { font-family: "Inter", system-ui, sans-serif; font-weight: 600; font-size: clamp(28px, 3vw, 36px); line-height: 1.05; letter-spacing: -0.01em; }
-.visit dl { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 28px; }
-.visit dt { font: 600 13px/1.3 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--violet); }
-.visit dd { margin-top: 4px; font-size: 16px; color: var(--lilac); }
+/* ---------- What's inside ---------- */
+.phq-inside { margin-top: 52px; display: grid; gap: 48px 72px; }
+@media (min-width: 860px) { .phq-inside { grid-template-columns: 1fr 1fr; } }
+.phq-item .num { font-family: "Alta", Georgia, serif; font-size: 64px; line-height: 1; color: var(--blush); }
+.phq-item h3 { margin-top: 10px; font: 600 24px/1.25 "Inter", sans-serif; letter-spacing: -0.01em; }
+.phq-item p { margin-top: 10px; color: var(--body); max-width: 44ch; }
+.phq-item .phq-dash { margin-top: 18px; font-size: 16px; }
 
-/* ---------- Pricing ---------- */
-.price-grid { margin-top: 48px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: stretch; }
-.plan { background: var(--mat); border: 1px solid var(--line); border-radius: 18px; padding: 34px; display: flex; flex-direction: column; }
-.plan.main { border: 2px solid var(--violet); box-shadow: 0 34px 60px -40px rgba(244,199,203,0.9); }
-.plan .tag { align-self: flex-start; font: 600 12px/1 "Inter", sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: var(--violet); padding: 7px 10px; border-radius: 999px; margin-bottom: 16px; }
-.plan h3 { font: 600 21px/1.3 "Inter", sans-serif; }
-.plan .amount { margin-top: 12px; font-family: "Inter", system-ui, sans-serif; font-size: clamp(52px, 6vw, 72px); line-height: 1; font-weight: 600; letter-spacing: -0.01em; }
-.plan .amount small { font: 500 16px "Inter", sans-serif; color: var(--muted); }
-.plan .ways { margin-top: 10px; font-size: 15px; color: var(--lilac); }
-.plan ul { margin-top: 20px; list-style: none; display: grid; gap: 10px; }
-.plan li { padding-left: 26px; position: relative; font-size: 16px; }
-.plan li::before { content: ""; position: absolute; left: 2px; top: 9px; width: 12px; height: 7px; border-left: 2px solid var(--violet); border-bottom: 2px solid var(--violet); transform: rotate(-45deg); }
-.plan .btn { margin-top: auto; text-align: center; }
-.plan .spacer { height: 26px; }
-.paylinks { margin-top: 14px; font-size: 15px; color: var(--muted); text-align: center; }
-.paylinks a { color: var(--violet); font-weight: 600; text-underline-offset: 3px; }
+/* ---------- How it works + what you'll need ---------- */
+.phq-how { display: grid; gap: 56px 80px; }
+@media (min-width: 900px) { .phq-how { grid-template-columns: 1.15fr 0.85fr; } }
+.phq-steps { list-style: none; counter-reset: s; margin-top: 36px; display: grid; gap: 24px; }
+.phq-steps li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start; }
+.phq-steps li::before { content: counter(s); width: 40px; height: 40px; border-radius: 999px 999px 6px 6px; background: var(--blush); font-weight: 600; display: grid; place-items: center; }
+.phq-steps b { display: block; font-size: 18px; font-weight: 600; }
+.phq-steps span { display: block; margin-top: 2px; color: var(--muted); font-size: 16px; }
+.phq-need { background: var(--wash); border-radius: 999px 999px 22px 22px; padding: 88px 36px 40px; align-self: start; }
+.phq-need h3 { margin-top: 12px; font-family: "Alta", Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1; }
+.phq-need .phq-dash { margin-top: 22px; font-size: 16px; }
+.phq-need .phq-fine { margin-top: 20px; }
+@media (max-width: 520px) { .phq-need { padding: 64px 24px 30px; border-radius: 200px 200px 18px 18px; } }
 
-.addons { margin-top: 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.addon { border: 1px solid var(--line); border-radius: 16px; padding: 24px; background: var(--mat); }
-.addon h4 { font: 600 17px/1.3 "Inter", sans-serif; }
-.addon .amt { margin-top: 6px; font: 600 22px "Inter", sans-serif; color: var(--violet); }
-.addon p { margin-top: 6px; font-size: 15px; color: var(--lilac); }
-
-
-.compare { margin-top: 22px; border: 1px dashed var(--wash-line); border-radius: 16px; padding: 24px 28px; color: var(--lilac); }
-.compare strong { color: var(--ink); }
-
-/* ---------- Monthly side-by-side ---------- */
-.mcmp { margin-top: 28px; border: 1px solid var(--wash-line); border-radius: 20px; background: var(--mat); padding: 32px; }
-.mcmp h3 { font-size: clamp(28px, 3.4vw, 40px); }
-.mcmp .lede { margin-top: 8px; color: var(--lilac); max-width: 62ch; }
-.sum { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.card { border-radius: 16px; padding: 20px 22px; border: 2px solid var(--line); }
-.card.va { background: #FBF4F4; border-color: #E9DCDD; }
-.card.ai { background: var(--wash); border-color: var(--violet); }
-.card .who { font: 600 16px/1.4 "Inter", sans-serif; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.card .per { margin-top: 6px; font: 600 clamp(30px, 4vw, 40px)/1.1 "Inter", sans-serif; font-variant-numeric: tabular-nums; }
-.card .per small { font-size: 16px; font-weight: 500; color: var(--muted); }
-.card.ai .per { color: var(--violet); }
-.card .note { margin-top: 4px; font-size: 15px; color: var(--lilac); }
-.dot { display: inline-block; width: 12px; height: 12px; border-radius: 3px; flex: none; }
-.card.va .dot, .dot.g { background: #CBB9BB; }
-.card.ai .dot, .dot.p { background: var(--violet); }
-.dot.l { background: #F4C7CB; }
-.chart { margin-top: 22px; }
-.bars { display: grid; grid-template-columns: repeat(24, 1fr); gap: 4px; align-items: end; height: 130px; border-bottom: 1px solid var(--line); }
-.col { display: flex; align-items: flex-end; gap: 2px; height: 100%; }
-.col span { flex: 1; display: block; border-radius: 3px 3px 0 0; height: var(--h); min-height: 3px; transform-origin: bottom; }
-.col .v { background: #CBB9BB; }
-.col .a { background: var(--violet); }
-.col .a.after { background: #F4C7CB; }
-.months { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-top: 6px; }
-.legend { margin-top: 10px; display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; color: var(--lilac); }
-.legend span { display: inline-flex; align-items: center; gap: 6px; }
-.mcmp-tag { margin-top: 8px; font-size: 15px; color: var(--lilac); }
-.mcmp-tag strong { color: var(--ink); }
-.math { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.math div { border-radius: 16px; padding: 20px 22px; background: var(--wash); }
-.math h5 { font: 600 15px/1.3 "Inter", sans-serif; margin-bottom: 8px; }
-.math ol { margin: 0; padding-left: 20px; font-size: 15px; color: var(--lilac); }
-.math ol li { margin: 4px 0; }
-.math b { color: var(--ink); }
-.keep { margin-top: 20px; text-align: center; font: 600 18px/1.5 "Inter", sans-serif; }
-.keep span { color: var(--violet); }
-.fine { margin-top: 12px; font-size: 13px; color: var(--muted); }
-.mcmp.js .bars .col span { transform: scaleY(0); transition: transform 420ms cubic-bezier(.2,.8,.25,1.15); }
-.mcmp.js .bars .col span.on { transform: scaleY(1); }
-.ticker { margin-top: 22px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.ticker .tm { font: 600 15px "Inter", sans-serif; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
-.ticker .tm b { display: inline-block; min-width: 2ch; color: var(--violet); font-size: 22px; }
-.replay { font: 600 14px "Inter", sans-serif; color: var(--violet); background: var(--wash); border: 1px solid var(--wash-line); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
-.mcmp:not(.js) .replay { display: none; }
-.replay:hover { background: #FCEBED; }
-.sofar { font-size: 14px; color: var(--muted); margin-top: 2px; }
-.sofar b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
-.ai .sofar b { color: var(--violet); }
-.badge { display: inline-block; font: 600 13px/1 "Inter", sans-serif; padding: 6px 10px; border-radius: 999px; vertical-align: middle; opacity: 0; transform: scale(.6); transition: opacity 300ms, transform 400ms cubic-bezier(.2,.8,.25,1.4); }
-.badge.show { opacity: 1; transform: scale(1); }
-.badge.paid { background: #E7F7EE; color: #17804A; }
-.badge.still { background: #FDECEC; color: #B4232A; }
-.badge.still.show { animation: pulse 1.6s ease-in-out infinite; }
-@keyframes pulse { 50% { box-shadow: 0 0 0 6px rgba(180,35,42,.12); } }
-.keep span { font-variant-numeric: tabular-nums; }
-.keep.pop span { display: inline-block; animation: pop 600ms cubic-bezier(.2,.8,.25,1.5); }
-@keyframes pop { 0% { transform: scale(.8); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
-@media (max-width: 860px) { .mcmp { padding: 22px 18px; } .math, .sum { grid-template-columns: 1fr; } .bars { height: 100px; gap: 2px; } .col { gap: 1px; } }
-.promise { margin-top: 28px; font-size: 15px; color: var(--muted); max-width: 70ch; }
-
-/* ---------- Client proof ---------- */
-.proof-sec { padding: 56px 0 8px; }
-.proof-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); margin-top: 24px; }
-.pcard { background: var(--wash); border: 1px solid var(--wash-line); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
-.pcard blockquote { font: 500 19px/1.4 "Inter", sans-serif; color: var(--ink); }
-.pcard .who { font-size: 14px; color: var(--ink); font-weight: 600; margin-top: auto; }
-.pcard .who span { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 2px; }
-.proof-sub { margin-top: 40px; font: 600 13px/1 "Inter", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-.pcard .stars { color: #00b67a; letter-spacing: 2px; font-size: 15px; margin-bottom: 8px; }
-.shots { columns: 3 260px; column-gap: 16px; margin-top: 24px; }
-.shot { break-inside: avoid; margin: 0 0 16px; background: #fff; border: 1px solid var(--line, #eee); border-radius: 16px; padding: 10px; }
-.shot img { width: 100%; height: auto; border-radius: 10px; display: block; }
-.shot figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; text-align: center; }
-.action { display: grid; grid-template-columns: 1.6fr 1fr; gap: 16px; margin-top: 24px; align-items: start; }
-.action figure { margin: 0; }
-.action img { width: 100%; height: auto; border-radius: 16px; display: block; }
-.action figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; text-align: center; }
-@media (max-width: 700px) { .action { grid-template-columns: 1fr; } }
-.proof-stars { margin-top: 18px; font-size: 14px; color: var(--muted); text-align: center; }
-.proof-stars a { color: var(--ink); }
-@media (max-width: 820px) { .proof-grid { grid-template-columns: 1fr; } }
-
-/* ---------- Quote form ---------- */
-.quote-sec { background: var(--wash); border-top: 1px solid var(--wash-line); border-bottom: 1px solid var(--wash-line); }
-.qform { margin-top: 40px; background: var(--mat); border: 1px solid var(--line); border-radius: 18px; padding: clamp(22px, 4vw, 40px); display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; }
-.qform .full { grid-column: 1 / -1; }
-.qform label, .qform legend { display: block; font: 600 15px/1.4 "Inter", sans-serif; margin-bottom: 8px; }
-.qform label span, .qform legend span { font-weight: 400; color: var(--muted); }
-.qform input[type=text], .qform input[type=email], .qform input[type=tel], .qform select, .qform textarea { width: 100%; font: 400 16px/1.4 "Inter", sans-serif; color: var(--ink); background: var(--page); border: 1.5px solid var(--line); border-radius: 10px; padding: 13px 14px; }
-.qform textarea { min-height: 110px; resize: vertical; }
-.qform input:focus, .qform select:focus, .qform textarea:focus { outline: none; border-color: var(--violet); }
-.qform fieldset { border: 0; }
-.qform .checks { display: flex; flex-wrap: wrap; gap: 10px; }
-.qform .checks label { display: inline-flex; align-items: center; gap: 8px; font-weight: 400; margin: 0; padding: 10px 14px; border: 1.5px solid var(--line); border-radius: 999px; cursor: pointer; background: var(--page); }
-.qform .checks input { accent-color: var(--violet); }
-.qform .btn { border: 0; cursor: pointer; justify-self: start; }
-.qform .fine { font-size: 14px; color: var(--muted); }
-.honey { position: absolute; left: -9999px; }
-.thanks { display: none; margin-top: 40px; background: var(--mat); border: 2px solid var(--violet); border-radius: 18px; padding: 36px; }
-.thanks h3 { font-family: "Inter", system-ui, sans-serif; font-weight: 600; font-size: clamp(30px, 4vw, 42px); line-height: 1.05; letter-spacing: -0.01em; }
-.thanks p { margin-top: 10px; color: var(--lilac); }
-.book-now { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--line, #eee); }
-.book-now strong { color: var(--ink); }
-.book-now .btn { margin-top: 16px; display: inline-block; }
-.quote-sec:has(#thanks:target) .qform { display: none; }
-.quote-sec:has(#thanks:target) .thanks { display: block; }
-@media (max-width: 860px) { .qform { grid-template-columns: 1fr; } }
-/* ---------- Build your agent ---------- */
-.ba-rec { position: absolute; top: -10px; right: 12px; background: var(--ink); color: #fff; font: 600 11px/1 "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; padding: 5px 9px; border-radius: 99px; }
-.ba-send { display: grid; gap: 10px; }
-.sr { position: absolute; left: -9999px; }
-.ba-step { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
-.ba-step h3 { font: 600 20px/1.2 "Inter", sans-serif; }
-.ba-num { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--wash-line); color: var(--ink); font: 600 15px/32px "Inter", sans-serif; text-align: center; }
-.ba-packs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; width: min(1180px, 94vw); margin: 8px 0 8px calc(50% - min(590px, 47vw)); align-items: stretch; border: 0; padding: 0; }
-.qform .ba-packs .ba-pack { display: flex; flex-direction: column; background: #fff; border: 1.5px solid transparent; border-radius: 22px; padding: 30px 26px 28px; box-shadow: 0 16px 40px rgba(43,43,46,.08); transition: transform .2s, box-shadow .2s, background .2s, color .2s; }
-.qform .ba-packs .ba-pack:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(43,43,46,.14); }
-.ba-tier { display: block; font: 600 22px/1.2 "Inter", sans-serif; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
-.ba-packs .ba-price { display: block; font: 600 26px/1.15 "Inter", sans-serif; letter-spacing: -0.01em; color: var(--ink); margin: 12px 0 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
-.ba-packs .ba-inc { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font: 400 15px/1.35 "Inter", sans-serif; color: var(--ink); }
-.ba-packs .ba-inc li { display: flex; gap: 10px; align-items: flex-start; }
-.ba-packs .ba-inc li::before { content: "✓"; flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--wash); color: var(--ink); font: 600 11px/20px "Inter", sans-serif; text-align: center; margin-top: 1px; }
-.qform .ba-packs .ba-pack:has(input:checked) { background: var(--ink); color: #fff; box-shadow: 0 24px 54px rgba(43,43,46,.28); transform: translateY(-6px); }
-.ba-pack:has(input:checked) .ba-tier { color: #fff; border-bottom-color: rgba(255,255,255,.18); }
-.ba-pack:has(input:checked) .ba-price, .ba-pack:has(input:checked) .ba-inc { color: #fff; }
-.ba-pack:has(input:checked) .ba-price { border-bottom-color: rgba(255,255,255,.18); }
-.ba-pack:has(input:checked) .ba-inc li::before { background: var(--wash-line); color: var(--ink); }
-@media (max-width: 1100px) { .ba-packs { grid-template-columns: 1fr 1fr; } }
-.qform .ba-pack { position: relative; display: block; border: 1.5px solid var(--line); border-radius: 14px; padding: 16px 16px 14px; background: var(--page); cursor: pointer; transition: transform .15s, border-color .15s, box-shadow .15s; }
-.ba-pack:hover { transform: translateY(-2px); }
-.ba-pack input { position: absolute; opacity: 0; }
-.ba-pack b { display: block; font-size: 16px; }
-.ba-pack .ba-desc { display: block; font-weight: 400; font-size: 14px; color: var(--muted); margin-top: 4px; }
-.ba-emoji { font-size: 26px; line-height: 1; }
-.ba-pack:has(input:focus-visible) { outline: 2px solid var(--violet); outline-offset: 3px; }
-.ba-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.qform .ba-skill { display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--page); cursor: pointer; font-weight: 400 !important; margin: 0 !important; transition: border-color .15s, background .15s; }
-.qform .ba-skill input { accent-color: var(--violet); width: 18px; height: 18px; flex: none; }
-.ba-skill .ba-e { font-size: 20px; }
-.ba-price { display: block; font: 600 15px/1.2 "Inter", sans-serif; color: var(--violet); margin: 4px 0 6px; }
-.ba-inc { margin: 6px 0 0; padding-left: 18px; font-size: 13px; line-height: 1.45; color: var(--muted); }
-.ba-inc li { margin: 2px 0; }
-.ba-group { grid-column: 1 / -1; margin: 14px 0 2px; font: 600 15px/1.2 "Inter", sans-serif; color: var(--ink); }
-.ba-group:first-of-type { margin-top: 0; }
-.ba-skill .ba-t { flex: 1; line-height: 1.3; }
-.ba-skill .ba-p { font-size: 13px; color: var(--muted); white-space: nowrap; }
-.ba-skill:has(input:checked) { border-color: var(--ink); background: #fff; }
-.ba-skill:has(input:checked) .ba-p { color: var(--ink); font-weight: 600; }
-.ba-bar { position: sticky; bottom: 12px; z-index: 5; margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; background: var(--ink); color: #fff; border-radius: 18px; padding: 16px 20px; box-shadow: 0 12px 30px rgba(43,43,46,.25); }
-.quote-sec:has(#thanks:target) .ba-bar { display: none; }
-.ba-card { display: flex; gap: 12px; align-items: center; min-width: 0; }
-.ba-card > div { min-width: 0; }
-.ba-avatar { flex: none; width: 46px; height: 46px; border-radius: 50%; background: var(--wash-line); color: var(--ink); display: grid; place-items: center; font: 600 20px/1 "Inter", sans-serif; }
-.ba-agent { font-weight: 600; font-size: 17px; }
-.ba-tags { font-size: 13px; color: #D9D6D8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ba-label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #D9D6D8; }
-.ba-amt { font: 600 28px/1.1 "Inter", sans-serif; font-variant-numeric: tabular-nums; }
-.ba-amt.bump { animation: pop 450ms cubic-bezier(.2,.8,.25,1.5); }
-.ba-meter { height: 8px; border-radius: 99px; background: rgba(255,255,255,.18); margin: 8px 0 6px; overflow: hidden; }
-.ba-meter span { display: block; height: 100%; width: 25%; border-radius: 99px; background: var(--wash-line); transition: width .45s cubic-bezier(.2,.8,.25,1); }
-.ba-note { font-size: 12px; color: #D9D6D8; line-height: 1.4; }
-@media (max-width: 860px) { .ba-packs { width: auto; margin-left: 0; } .ba-packs, .ba-skills, .ba-bar { grid-template-columns: 1fr; } .ba-bar { position: static; gap: 10px; padding: 14px 16px; } .ba-card { display: none; } .ba-amt { font-size: 24px; } }
-@media (prefers-reduced-motion: reduce) { .ba-pack, .ba-meter span { transition: none; } .ba-amt.bump { animation: none; } }
-
-
-/* ---------- About ---------- */
-.about-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; align-items: center; }
-.about-grid img { border-radius: 18px; aspect-ratio: 1 / 1; object-fit: cover; }
-.about p { margin-top: 16px; color: var(--lilac); max-width: 56ch; }
-.about p:first-of-type { margin-top: 20px; }
-.proof { margin-top: 24px; font-weight: 500; }
-.proof a { color: var(--violet); text-underline-offset: 4px; }
+/* ---------- Who it's for ---------- */
+.phq-fit { margin-top: 44px; display: grid; gap: 40px 72px; }
+@media (min-width: 760px) { .phq-fit { grid-template-columns: 1fr 1fr; } }
+.phq-fit h3 { font: 600 13px/1 "Inter", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; padding-bottom: 16px; border-bottom: 1px solid var(--ink); }
+.phq-fit ul { list-style: none; margin-top: 18px; display: grid; gap: 12px; }
+.phq-fit li { position: relative; padding-left: 28px; }
+.phq-fit .yes li::before { content: "✓"; position: absolute; left: 0; color: #D98C95; font-weight: 600; }
+.phq-fit .no li { color: var(--muted); }
+.phq-fit .no li::before { content: "✕"; position: absolute; left: 0; color: #A9A9B0; font-weight: 600; }
 
 /* ---------- FAQ ---------- */
-.faq-list { margin-top: 36px; border-top: 1px solid var(--line); }
-.faq-list details { border-bottom: 1px solid var(--line); padding: 22px 0; }
-.faq-list summary { cursor: pointer; list-style: none; font: 600 18px/1.4 "Inter", sans-serif; display: flex; justify-content: space-between; gap: 20px; }
-.faq-list summary::-webkit-details-marker { display: none; }
-.faq-list summary::after { content: "+"; color: var(--violet); font-size: 24px; line-height: 1; }
-.faq-list details[open] summary::after { content: "−"; }
-.faq-list details p { margin-top: 10px; color: var(--lilac); max-width: 64ch; }
+.phq-faq { margin-top: 36px; max-width: 780px; border-top: 1px solid var(--line); }
+.phq-faq details { border-bottom: 1px solid var(--line); padding: 22px 0; }
+.phq-faq summary { cursor: pointer; list-style: none; font: 600 18px/1.4 "Inter", sans-serif; display: flex; justify-content: space-between; gap: 20px; }
+.phq-faq summary::-webkit-details-marker { display: none; }
+.phq-faq summary::after { content: "+"; font-size: 24px; line-height: 1; color: #D98C95; }
+.phq-faq details[open] summary::after { content: "\2212"; }
+.phq-faq details p { margin-top: 10px; color: var(--body); max-width: 64ch; }
+.phq-faq a { text-decoration-color: var(--blush); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 
-/* ---------- Final CTA ---------- */
-.final { text-align: center; }
-.final h2 { margin-inline: auto; max-width: 16ch; }
-.final .sub { margin-inline: auto; }
-.final .ctas { justify-content: center; }
+/* ---------- Founder ---------- */
+.phq-me { display: grid; gap: 40px; align-items: center; }
+.phq-me .ph { position: relative; width: min(300px, 76%); justify-self: center; }
+.phq-me .ph::before { content: ""; position: absolute; inset: 8% 14% 4% -8%; background: var(--wash); border-radius: 999px 999px 0 0; z-index: -1; }
+.phq-me .ph img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 999px 999px 18px 18px; }
+.phq-me h2 { margin-top: 14px; font-size: clamp(36px, 4.6vw, 58px); }
+.phq-me p.body { margin-top: 18px; font-size: 18px; color: var(--body); max-width: 40ch; }
+.phq-me img.sig { width: 150px; margin-top: 22px; opacity: .9; }
+@media (min-width: 900px) { .phq-me { grid-template-columns: 0.8fr 1.2fr; gap: 88px; } .phq-me .ph { width: min(380px, 100%); justify-self: end; } }
+
+/* ---------- Get it ---------- */
+.phq-get { margin-top: 104px; background: var(--wash); text-align: center; }
+.phq-get .wrap { padding: 96px 0; display: grid; justify-items: center; }
+.phq-get h2 { margin-top: 16px; font-size: clamp(40px, 5.4vw, 68px); }
+.phq-get .what { margin-top: 14px; color: var(--body); }
+.phq-get .phq-kicker { line-height: 1.6; }
+.phq-get .phq-buy { justify-content: center; margin-top: 30px; }
+.phq-get .phq-fine { margin-inline: auto; max-width: 52ch; }
+.phq-get .after { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--blush); font-size: 15px; color: var(--body); max-width: 52ch; }
+.phq-get .indie { margin-top: 18px; font-size: 13px; color: var(--muted); }
+@media (max-width: 520px) { .phq-get .wrap { padding: 72px 0; } .phq-get .phq-buy .phq-btn { flex: 1 1 100%; } }
 
 footer { border-top: 1px solid #F1E6E7; padding: 32px 0 48px; color: var(--muted); font-size: 15px; }
 footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-footer a { text-decoration: none; color: var(--lilac); }
+footer a { text-decoration: none; color: var(--muted); }
 footer a:hover { color: var(--ink); text-decoration: underline; }
 
+@media (max-width: 699px) { .phq-sec { padding-top: 80px; } .phq-band, .phq-get { margin-top: 80px; } .phq-band .wrap { padding: 64px 0; } }
 @media (prefers-reduced-motion: no-preference) {
-  .hero h1, .portrait { animation: rise 900ms cubic-bezier(.2,.7,.2,1) both; }
-  .portrait { animation-delay: 150ms; }
-  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  .phq-hero h1, .phq-hero-img { animation: phq-rise 900ms cubic-bezier(.2,.7,.2,1) both; }
+  .phq-hero-img { animation-delay: 140ms; }
+  @keyframes phq-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 }
-
-.topbar .home, .topbar .btn { white-space: nowrap; }
-@media (max-width: 480px) { .hide-sm { display: none; } .topbar .home { font-size: 20px; } }
-
-@media (max-width: 860px) {
-  section { padding: 72px 0; }
-  .hero-grid, .price-grid, .about-grid { grid-template-columns: 1fr; }
-  .portrait { width: min(340px, 90%); order: -1; justify-self: center; }
-  .hero .note { margin-bottom: 40px; }
-  .stats, .shift-grid, .addons { grid-template-columns: 1fr; }
-  .visit { grid-template-columns: 1fr; gap: 12px; padding: 24px; }
-  .visit dl { grid-template-columns: 1fr; }
-}
-
-/* endless list */
-.mq-sec{padding-bottom:56px;overflow:hidden}
-.mq{display:flex;flex-direction:column;gap:14px;margin-top:28px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.mq-row{display:flex;width:max-content;animation:mq-scroll var(--d) linear infinite}
-.mq-row.rev{animation-direction:reverse}
-.mq:hover .mq-row{animation-play-state:paused}
-.mq-track{display:flex;gap:12px;list-style:none;margin:0;padding:0 12px 0 0}
-.mq-track li{white-space:nowrap;background:var(--mat);border:1px solid var(--wash-line);color:var(--ink);border-radius:999px;padding:12px 20px;font-size:16px;font-weight:500;box-shadow:0 2px 10px rgba(43,43,46,.06)}
-.mq-row:nth-child(2) .mq-track li,.mq-row:nth-child(4) .mq-track li{background:var(--wash)}
-.mq-note{text-align:center;color:var(--muted);margin-top:26px;font-size:15px}
-@keyframes mq-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.mq-row{animation:none;width:auto;flex-wrap:wrap;justify-content:center}.mq-row .mq-track[aria-hidden]{display:none}.mq-track{flex-wrap:wrap;justify-content:center;padding:0 16px}.mq{-webkit-mask-image:none;mask-image:none}}
-@media (max-width:640px){.mq-track li{font-size:14px;padding:10px 16px}}
-.vline{margin:6px 0 0;color:var(--lilac);font-size:17px}
-.math-toggle{margin-top:18px}.math-toggle summary{cursor:pointer;color:var(--violet);font-weight:600;font-size:15px;text-align:center;list-style:none}.math-toggle summary::-webkit-details-marker{display:none}.math-toggle summary::after{content:" ▾"}.math-toggle[open] summary::after{content:" ▴"}
-
-.copy { margin-top: 20px; }
-.copy dl { margin-top: 16px; display: grid; gap: 10px; font-size: 15px; }
-.copy dt { font-weight: 600; }
-.copy dd { margin: 2px 0 0; color: var(--lilac, #6B6B72); }
-.copy-btn { margin-top: 4px; }
-@media print {
-  body * { visibility: hidden; }
-  .thanks, .thanks * { visibility: visible; }
-  .thanks { position: absolute; left: 0; top: 0; width: 100%; border: 0; }
-  .copy-btn { display: none; }
-}
-
-/* Three ways (Shea 11/19) */
-.ways .ways-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
-.way { display: flex; flex-direction: column; background: #fff; border-radius: 22px; padding: 30px 26px 28px; box-shadow: 0 16px 40px rgba(43,43,46,.08); }
-.way.featured { background: var(--ink); color: #fff; }
-.way { border: 2px solid transparent; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
-.way:hover, .way:focus-within { transform: translateY(-6px); border-color: #F4C7CB; box-shadow: 0 24px 54px rgba(43,43,46,.16); }
-@media (prefers-reduced-motion: reduce) { .way, .way:hover { transition: none; transform: none; } }
-.way .way-tag { font: 600 12px/1 "Inter", sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-.way.featured .way-tag { color: var(--wash-line); }
-.way h3 { font: 600 24px/1.2 "Inter", sans-serif; margin: 12px 0 6px; }
-.way .way-price { font: 600 34px/1.1 "Inter", sans-serif; margin: 6px 0 16px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
-.way.featured .way-price { border-bottom-color: rgba(255,255,255,.18); }
-.way .way-price small { font-size: 15px; font-weight: 500; color: var(--muted); }
-.way.featured .way-price small { color: #d9d9de; }
-.way ul { list-style: none; display: grid; gap: 8px; margin-bottom: 18px; }
-.way ul { flex: 1; align-content: start; }
-.way li::before { content: "✓  "; color: var(--wash-line); font-weight: 700; }
-.way .way-h { font: 600 12px/1 "Inter", sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
-.way.featured .way-h { color: #d9d9de; }
-.way ul.no { margin-bottom: 24px; }
-.way ul.no li::before { content: "✕  "; color: var(--muted); font-weight: 700; }
-.way.featured ul.no li::before { color: #9a9aa2; }
-.way ul.no li { color: var(--muted); font-size: 15px; }
-.way.featured ul.no li { color: #d9d9de; }
-.cmp { margin-top: 56px; overflow-x: auto; }
-.cmp h3 { font: 600 24px/1.2 "Inter", sans-serif; margin-bottom: 18px; }
-.cmp table { width: 100%; border-collapse: collapse; min-width: 560px; background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 16px 40px rgba(43,43,46,.06); }
-.cmp th, .cmp td { padding: 14px 16px; text-align: center; border-bottom: 1px solid var(--line); font-size: 16px; }
-.cmp th:first-child, .cmp td:first-child { text-align: left; }
-.cmp thead th { font: 600 15px/1.3 "Inter", sans-serif; background: var(--wash); }
-.cmp thead th small { display: block; font-weight: 500; color: var(--muted); }
-.cmp thead th.hl { background: var(--ink); color: #fff; }
-.cmp thead th.hl small { color: #d9d9de; }
-.cmp td.hl { background: #faf6f6; }
-.cmp .y { color: var(--ink); font-weight: 700; }
-.cmp .n { color: #c9c9cf; }
-.cmp tr:last-child td { border-bottom: 0; }
-.cmp .fine { margin-top: 12px; font-size: 13px; color: var(--muted); }
-.way .btn { text-align: center; }
-.way.featured .btn { background: var(--wash-line); color: var(--ink); }
-.way .btn-soon { background: var(--wash); color: var(--ink); }
-.way .fine { margin-top: 12px; font-size: 13px; color: var(--muted); }
-.way.featured .fine { color: #d9d9de; }
-@media (max-width: 860px) { .ways .ways-grid { grid-template-columns: 1fr; } }
-
-.g-two { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 40px; }
-.g-four { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 40px; }
-.gcard { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 28px 26px; box-shadow: 0 14px 36px rgba(43,43,46,.06); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
-.gcard:hover { transform: translateY(-5px); border-color: #F4C7CB; box-shadow: 0 22px 48px rgba(43,43,46,.12); }
-.gcard .ic { font-size: 30px; line-height: 1; }
-.gcard h3 { font: 600 21px/1.25 "Inter", sans-serif; margin: 14px 0 8px; }
-.gcard p { color: var(--lilac); font-size: 16px; }
-.gcard ul { list-style: none; margin-top: 12px; display: grid; gap: 6px; font-size: 16px; }
-.gcard li::before { content: "✓ "; color: #E9A3AA; font-weight: 600; }
-.steps { list-style: none; counter-reset: s; display: grid; gap: 16px; margin-top: 36px; max-width: 720px; }
-.steps li { counter-increment: s; display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: start; }
-.steps li::before { content: counter(s); width: 40px; height: 40px; border-radius: 50%; background: #F4C7CB; color: var(--ink); font-weight: 600; display: grid; place-items: center; }
-.steps b { display: block; font-size: 18px; }
-.steps span { color: var(--lilac); font-size: 16px; }
-.need { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 28px; margin-top: 30px; max-width: 860px; }
-.need li { padding-left: 28px; position: relative; }
-.need li::before { content: "✓"; position: absolute; left: 0; color: #E9A3AA; font-weight: 600; }
-.buybox { background: var(--wash); border: 1px solid var(--wash-line); border-radius: 24px; padding: 34px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
-.buybox .big { font: 600 44px/1 "Inter", sans-serif; }
-.buybox .big small { font-size: 16px; font-weight: 500; color: var(--muted); }
-.faq-g details { border-bottom: 1px solid var(--line); padding: 18px 0; max-width: 760px; }
-.faq-g summary { font-weight: 600; font-size: 18px; cursor: pointer; }
-.faq-g p { margin-top: 10px; color: var(--lilac); }
-@media (max-width: 900px) { .g-four { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 680px) { .g-two, .g-four, .need { grid-template-columns: 1fr; } .buybox { padding: 26px; } }
-@media (prefers-reduced-motion: reduce) { .gcard, .gcard:hover { transition: none; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .phq-btn { transition: none; } .phq-btn:hover { transform: none; } }
 </style>
 </head>
 <body>
@@ -461,122 +192,183 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   </div>
 </nav>
 
-<header class="hero">
-  <div class="wrap hero-grid">
+<main>
+<header class="phq-hero">
+  <div class="wrap phq-hero-grid">
     <div>
-      <p class="eyebrow">The setup guide · Mac edition</p>
-      <h1>Build your own <span>AI assistant.</span></h1>
-      <p class="lede">My step-by-step guide plus my Executive Assistant skill for Claude. Set it up yourself, at your own pace.</p>
-      <div class="ctas">
-        <a class="btn" href="#get">Get the guide</a>
-        <a class="btn btn-quiet" href="#inside">See what's inside</a>
+      <p class="phq-kicker">The setup guide · Mac edition</p>
+      <h1 class="phq-display">An agent that works while you sleep.</h1>
+      <p class="phq-lede">Build your own AI executive assistant on your Mac. My step-by-step guide plus my Executive Assistant skill for Claude. Set it up yourself, at your own pace.</p>
+      <ul class="phq-benefits">
+        <li>Sorts your inbox</li>
+        <li>Guards your calendar</li>
+        <li>Drafts replies in your voice</li>
+      </ul>
+      <div class="phq-buy">
+        <span class="phq-price">$79<small> one time</small></span>
+        <a class="phq-btn" href="https://www.etsy.com/listing/4594099032" target="_blank" rel="noopener">Get it on Etsy · $79</a>
+        <a class="phq-link" href="#inside">See what's inside</a>
       </div>
-      <p class="note">$79 one time · An instant download</p>
+      <p class="phq-fine">An instant download. You'll need a Mac running macOS 13 or newer and a paid Claude plan (Pro or higher).</p>
     </div>
-    <div class="portrait">
-      <picture><source type="image/webp" srcset="assets/shea_hero-480.webp 480w, assets/shea_hero-960.webp 960w" sizes="(max-width: 820px) 340px, 460px"><img src="assets/shea_hero.jpg" width="960" height="1200" fetchpriority="high" alt="Shea Johnson in her studio"></picture>
+    <div class="phq-hero-img">
+      <img src="assets/shop/guide-desk-1000.jpg" srcset="assets/shop/guide-desk-600.jpg 604w, assets/shop/guide-desk-1000.jpg 999w" sizes="(max-width: 899px) 320px, 480px" width="999" height="1240" fetchpriority="high" alt="The Powerhouse Entrepreneur Executive Assistant setup guide on an iPad">
     </div>
   </div>
 </header>
 
-<section class="band" style="margin-top:-2px">
+<section class="phq-sec" style="padding-top:0" aria-labelledby="done-title">
   <div class="wrap">
-    <p class="eyebrow" style="color:#F4C7CB">Why I made this</p>
-    <h2>I run my business with an AI assistant. Now you can build yours.</h2>
-    <p class="sub">She lives on my laptop, talks to me out loud, and answers when I text her from my phone. I built her one step at a time, and this guide walks you through the same path.</p>
-  </div>
-</section>
-
-<section id="inside" aria-labelledby="inside-title">
-  <div class="wrap">
-    <p class="eyebrow">What's inside</p>
-    <h2 id="inside-title">Two things, one download.</h2>
-    <div class="g-two">
-      <div class="gcard"><div class="ic">📘</div><h3>The setup guide</h3><p>Four short steps get you to the starting line. Then a setup guide I built inside Claude takes over and walks you through the rest, one step at a time.</p>
-        <ul><li>Copy and paste, no typing code</li><li>Plain words, no jargon</li><li>Stop any time, pick up where you left off</li><li>A "when things break" page with easy fixes</li></ul></div>
-      <div class="gcard"><div class="ic">💼</div><h3>The Executive Assistant skill</h3><p>The file that gives your assistant its job. It interviews you first, so it learns your name, your hours and how you like things done.</p>
-        <ul><li>Sorts your inbox</li><li>Guards your calendar and sets reminders</li><li>Drafts replies in your voice</li><li>Morning briefing and evening wrap-up</li></ul></div>
+    <div class="phq-head">
+      <p class="phq-kicker">When you're done</p>
+      <h2 id="done-title" class="phq-display">Your assistant, ready to work.</h2>
     </div>
-  </div>
-</section>
-
-<section style="padding-top:0" aria-labelledby="done-title">
-  <div class="wrap">
-    <p class="eyebrow">When you're done</p>
-    <h2 id="done-title">Your assistant will...</h2>
-    <div class="g-four">
-      <div class="gcard"><div class="ic">🎙️</div><h3>Talk with you</h3><p>Speak to your Mac and hear it answer out loud.</p></div>
-      <div class="gcard"><div class="ic">📱</div><h3>Answer your texts</h3><p>Text it from your iPhone, from anywhere. It does the work on your Mac at home.</p></div>
-      <div class="gcard"><div class="ic">🎨</div><h3>Create for you</h3><p>Graphics, short videos and voiceovers for your posts.</p></div>
-      <div class="gcard"><div class="ic">📋</div><h3>Run your day</h3><p>Inbox, calendar, reminders and drafts, all waiting for your yes.</p></div>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0" aria-labelledby="steps-title">
-  <div class="wrap">
-    <p class="eyebrow">How it works</p>
-    <h2 id="steps-title">Four steps to the starting line.</h2>
-    <ol class="steps">
-      <li><div><b>Get your Claude plan</b><span>Claude is the AI your assistant runs on. A paid plan (Pro or higher) is paid directly to Claude.</span></div></li>
-      <li><div><b>Install Claude on your Mac</b><span>Paste one line into Terminal. The guide shows you exactly where.</span></div></li>
-      <li><div><b>Drop in the setup guide</b><span>Say "Set up my assistant," and it walks you through voice, texting and more.</span></div></li>
-      <li><div><b>Drop in your Executive Assistant skill</b><span>It asks you about 16 quick questions, then it's ready. Try "Morning briefing."</span></div></li>
-    </ol>
-  </div>
-</section>
-
-<section class="band" aria-labelledby="safe-title">
-  <div class="wrap">
-    <p class="eyebrow" style="color:#F4C7CB">Built with care</p>
-    <h2 id="safe-title">Your assistant drafts. You decide.</h2>
-    <p class="sub">It never sends, posts, buys or deletes anything without your yes. Your passwords and keys stay private: you type them yourself, never into the chat.</p>
-  </div>
-</section>
-
-<section aria-labelledby="need-title">
-  <div class="wrap">
-    <p class="eyebrow">What you'll need</p>
-    <h2 id="need-title">Before you start.</h2>
-    <ul class="need">
-      <li>A Mac running macOS 13 or newer</li>
-      <li>An iPhone on the same Apple ID (recommended)</li>
-      <li>A paid Claude plan (Pro or higher)</li>
-      <li>The free Telegram app on your phone</li>
-      <li>A small prepaid credit for the image and video tools</li>
-      <li>About 60 to 90 minutes. You can split it up.</li>
+    <ul class="phq-does">
+      <li><h3>Talk with you</h3><p>Speak to your Mac and hear it answer out loud.</p></li>
+      <li><h3>Answer your texts</h3><p>Text it from your iPhone, from anywhere. It does the work on your Mac at home.</p></li>
+      <li><h3>Create for you</h3><p>Graphics, short videos and voiceovers for your posts.</p></li>
+      <li><h3>Run your day</h3><p>Inbox, calendar, reminders and drafts, all waiting for your yes.</p></li>
     </ul>
-    <p class="sub" style="margin-top:22px">Your Claude plan and any app upgrades are paid directly to those companies.</p>
   </div>
 </section>
 
-<section id="get" style="padding-top:0" aria-labelledby="get-title">
+<section class="phq-band" aria-labelledby="safe-title">
   <div class="wrap">
-    <div class="buybox">
-      <div>
-        <p class="eyebrow" style="margin-bottom:10px">The setup guide + Executive Assistant skill</p>
-        <p class="big">$79<small> one time</small></p>
-        <p style="color:var(--lilac);margin-top:8px">An instant download. Mac edition.</p>
+    <div>
+      <p class="phq-kicker">Built with care</p>
+      <h2 id="safe-title" class="phq-display">Your assistant drafts. You decide.</h2>
+    </div>
+    <p>It never sends, posts, buys or deletes anything without your yes. Your passwords and keys stay private: you type them yourself, never into the chat.</p>
+  </div>
+</section>
+
+<section id="inside" class="phq-sec" aria-labelledby="inside-title">
+  <div class="wrap">
+    <div class="phq-head">
+      <p class="phq-kicker">What's inside</p>
+      <h2 id="inside-title" class="phq-display">Two things, one download.</h2>
+    </div>
+    <div class="phq-inside">
+      <div class="phq-item">
+        <p class="num" aria-hidden="true">01</p>
+        <h3>The setup guide</h3>
+        <p>Four short steps get you to the starting line. Then a setup guide I built inside Claude takes over and walks you through the rest, one step at a time.</p>
+        <ul class="phq-dash"><li>Copy and paste, no typing code</li><li>Plain words, no jargon</li><li>Stop any time, pick up where you left off</li><li>A "when things break" page with easy fixes</li></ul>
       </div>
-      <div style="display:grid;gap:10px;justify-items:start">
-        <a class="btn" href="https://www.etsy.com/listing/4594099032" target="_blank" rel="noopener">Get it on Etsy · $79</a>
-        <p style="color:var(--lilac);font-size:14px;margin:0">Checkout is through my Etsy shop for now.</p>
-        <a class="book" href="/ai-assistant#ways" style="font-size:15px">Rather have me set it up with you?</a>
+      <div class="phq-item">
+        <p class="num" aria-hidden="true">02</p>
+        <h3>The Executive Assistant skill</h3>
+        <p>The file that gives your assistant its job. It interviews you first, so it learns your name, your hours and how you like things done.</p>
+        <ul class="phq-dash"><li>Sorts your inbox</li><li>Guards your calendar and sets reminders</li><li>Drafts replies in your voice</li><li>Morning briefing and evening wrap-up</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<section style="padding-top:0" aria-labelledby="faq-title">
-  <div class="wrap faq-g">
-    <p class="eyebrow">Questions</p>
-    <h2 id="faq-title" style="margin-bottom:16px">Good to know.</h2>
-    <details><summary>Do I need to be technical?</summary><p>No. Every command is copy and paste, and the setup guide explains each step in plain words before it does anything.</p></details>
-    <details><summary>Is this only for Mac?</summary><p>Yes, this edition is for Mac. Your assistant works inside your Mac's own apps, like Calendar, Notes and Reminders, and iCloud carries that to your iPhone. On Windows? <a href="/ai-assistant#ways">Ask me about a custom setup.</a></p></details>
-    <details><summary>What if I get stuck?</summary><p>Come back to Claude and paste "Continue my setup." It picks up right where you left off. The guide also has a page of easy fixes for the most common snags.</p></details>
-    <details><summary>Can you set it up with me instead?</summary><p>Yes. A Remote Install is one live session over Zoom where I set it up while you watch. Or I can build a custom setup around your business. <a href="/ai-assistant#ways">See all three ways.</a></p></details>
+<section class="phq-sec" aria-labelledby="steps-title">
+  <div class="wrap phq-how">
+    <div>
+      <div class="phq-head">
+        <p class="phq-kicker">How it works</p>
+        <h2 id="steps-title" class="phq-display">Four steps to the starting line.</h2>
+      </div>
+      <ol class="phq-steps">
+        <li><div><b>Get your Claude plan</b><span>Claude is the AI your assistant runs on. A paid plan (Pro or higher) is paid directly to Claude.</span></div></li>
+        <li><div><b>Install Claude on your Mac</b><span>Paste one line into Terminal. The guide shows you exactly where.</span></div></li>
+        <li><div><b>Drop in the setup guide</b><span>Say "Set up my assistant," and it walks you through voice, texting and more.</span></div></li>
+        <li><div><b>Drop in your Executive Assistant skill</b><span>It asks you about 16 quick questions, then it's ready. Try "Morning briefing."</span></div></li>
+      </ol>
+    </div>
+    <aside class="phq-need" aria-labelledby="need-title">
+      <p class="phq-kicker">What you'll need</p>
+      <h3 id="need-title">Before you start.</h3>
+      <ul class="phq-dash">
+        <li>A Mac running macOS 13 or newer</li>
+        <li>An iPhone on the same Apple ID (recommended)</li>
+        <li>A paid Claude plan (Pro or higher)</li>
+        <li>The free Telegram app on your phone</li>
+        <li>A small prepaid credit for the image and video tools</li>
+        <li>About 60 to 90 minutes. You can split it up.</li>
+      </ul>
+      <p class="phq-fine">Your Claude plan and any app upgrades are paid directly to those companies.</p>
+    </aside>
   </div>
 </section>
+
+<section class="phq-sec" aria-labelledby="fit-title">
+  <div class="wrap">
+    <div class="phq-head">
+      <p class="phq-kicker">Is it for you?</p>
+      <h2 id="fit-title" class="phq-display">Who it's for.</h2>
+    </div>
+    <div class="phq-fit">
+      <div class="yes">
+        <h3>Made for you if</h3>
+        <ul>
+          <li>You work from a Mac running macOS 13 or newer</li>
+          <li>You'd like to set it up yourself, at your own pace</li>
+          <li>You can copy and paste. No code needed.</li>
+          <li>You want drafts that wait for your yes</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h3>Not the right fit if</h3>
+        <ul>
+          <li>You're on Windows. This edition is for Mac.</li>
+          <li>You'd rather not pay for a Claude plan</li>
+          <li>You want an assistant that sends, posts or buys on its own</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="phq-sec" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="phq-head">
+      <p class="phq-kicker">Questions</p>
+      <h2 id="faq-title" class="phq-display">Your questions, answered.</h2>
+    </div>
+    <div class="phq-faq">
+      <details><summary>Do I need to be technical?</summary><p>No. Every command is copy and paste, and the setup guide explains each step in plain words before it does anything.</p></details>
+      <details><summary>Is this only for Mac?</summary><p>Yes, this edition is for Mac. Your assistant works inside your Mac's own apps, like Calendar, Notes and Reminders, and iCloud carries that to your iPhone. On Windows? <a href="/ai-assistant#ways">Ask me about a custom setup.</a></p></details>
+      <details><summary>Is my Claude plan included?</summary><p>No. Your Claude plan (Pro or higher) is paid directly to Claude. The setup guide and the Executive Assistant skill are what you get from me.</p></details>
+      <details><summary>How do I get my files?</summary><p>Checkout is through my Etsy shop for now, and it's an instant download. After you pay, open Purchases and reviews in your Etsy account and tap Download Files. Use a browser or your computer; files don't download in the Etsy app.</p></details>
+      <details><summary>What if I get stuck?</summary><p>Come back to Claude and paste "Continue my setup." It picks up right where you left off. The guide also has a page of easy fixes for the most common snags.</p></details>
+      <details><summary>Can you set it up with me instead?</summary><p>Yes. A Remote Install is one live session over Zoom where I set it up while you watch. Or I can build a custom setup around your business. <a href="/ai-assistant#ways">See all three ways.</a></p></details>
+    </div>
+  </div>
+</section>
+
+<section class="phq-sec" aria-labelledby="me-title">
+  <div class="wrap phq-me">
+    <div class="ph">
+      <img src="assets/shea_hero-960.webp" srcset="assets/shea_hero-480.webp 480w, assets/shea_hero-960.webp 960w" sizes="(max-width: 899px) 300px, 380px" width="960" height="1200" loading="lazy" decoding="async" alt="Shea Johnson in her studio">
+    </div>
+    <div>
+      <p class="phq-kicker">Why I made this</p>
+      <h2 id="me-title" class="phq-display">I built mine first.</h2>
+      <p class="body">I run my business with an AI assistant. She lives on my laptop, talks to me out loud, and answers when I text her from my phone. I built her one step at a time, and this guide walks you through the same path.</p>
+      <img class="sig" src="assets/signature-380.webp" width="380" height="141" loading="lazy" decoding="async" alt="Shea Johnson">
+    </div>
+  </div>
+</section>
+
+<section id="get" class="phq-get" aria-labelledby="get-title">
+  <div class="wrap">
+    <p class="phq-kicker">The setup guide + Executive Assistant skill</p>
+    <h2 id="get-title" class="phq-display">Start building yours.</h2>
+    <p class="what">An instant download. Mac edition.</p>
+    <div class="phq-buy">
+      <span class="phq-price">$79<small> one time</small></span>
+      <a class="phq-btn" href="https://www.etsy.com/listing/4594099032" target="_blank" rel="noopener">Get it on Etsy · $79</a>
+    </div>
+    <p class="phq-fine">You'll need a Mac running macOS 13 or newer and a paid Claude plan (Pro or higher), paid directly to Claude.</p>
+    <p class="after">Checkout is through my Etsy shop for now. After you pay, your files are in Purchases and reviews on Etsy. Download them in a browser or on your computer.</p>
+    <p class="indie">Independent. Not sponsored by Anthropic.</p>
+  </div>
+</section>
+</main>
 
 <footer>
   <div class="wrap">
