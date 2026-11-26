@@ -137,6 +137,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   @keyframes phq-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 }
 @media (prefers-reduced-motion: reduce) { .phq-btn, .phq-piece .ph img { transition: none; } .phq-piece:hover .ph img, .phq-btn:hover { transform: none; } }
+.signup-embed { min-height: 60px; margin-top: 16px; max-width: 420px; } .signup-embed button, .signup-embed input[type=submit] { background: #2B2B2E !important; border-color: #2B2B2E !important; color: #fff !important; } .signup-embed button:hover, .signup-embed input[type=submit]:hover { background: #000 !important; }
 </style>
 </head>
 <body>
@@ -176,16 +177,16 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 
 <section class="phq-free" id="student-edition" aria-labelledby="free-title">
   <div class="wrap phq-free-grid">
-    <a href="https://sendfox.com/form/1dpxw0/1yxdoe" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/shop/student.jpg" width="700" height="700" loading="lazy" decoding="async" alt=""></a>
+    <img src="assets/shop/student.jpg" width="700" height="700" loading="lazy" decoding="async" alt="">
     <div>
       <p class="phq-kicker">Free · Powerhouse Student Edition</p>
       <h2 id="free-title" class="phq-display">Meet your study buddy.</h2>
       <p class="body">My free study partner skill for Claude. It keeps your course files in order, helps you build your own study plan and helps you learn it yourself, the ethical way.</p>
-      <div class="phq-buy">
-        <span class="phq-price">Free</span>
-        <a class="phq-btn" href="https://sendfox.com/form/1dpxw0/1yxdoe" target="_blank" rel="noopener">Get it free<span class="phq-sr"> : Powerhouse Student Edition</span></a>
+      <div class="phq-buy"><span class="phq-price">Free</span></div>
+      <div class="signup-embed" aria-label="Get the Powerhouse Student Edition free">
+        <script src="https://cdn.sendfox.com/js/embed.js" data-form="1yxdoe" data-api="https://sendfox.com" async></script>
       </div>
-      <p class="phq-fine">It comes by email.</p>
+      <p class="phq-fine">Enter your email and it comes straight to your inbox.</p>
     </div>
   </div>
 </section>
