@@ -65,6 +65,7 @@ a { color: inherit; }
 .phq-price small { font-size: 15px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
 .phq-fine { margin-top: 18px; font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 46ch; }
 .phq-demo { padding: 56px 0 72px; } .phq-demo-vid { display:block; width:100%; max-width:900px; height:auto; aspect-ratio:16/9; margin:16px auto 12px; border-radius:16px; background:#2B2B2E; box-shadow:0 18px 40px rgba(43,43,46,.18); } .phq-demo .phq-kicker, .phq-demo .phq-fine { text-align:center; } .phq-demo .phq-fine { margin-inline:auto; max-width:60ch; }
+.phq-pages-kicker { margin-top: 48px; text-align:center; } .phq-pages { margin-top: 16px; display:grid; gap:24px; grid-template-columns: repeat(3, 1fr); } .phq-pages img { width:100%; height:auto; border-radius:12px; border:1px solid var(--line); box-shadow:0 10px 28px rgba(43,43,46,.10); background:#fff; } .phq-pages figcaption { margin-top:8px; font-size:13px; color:var(--muted); text-align:center; } @media (max-width: 699px) { .phq-pages { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:12px; } .phq-pages figure { flex:0 0 72%; scroll-snap-align:start; } }
 .phq-sec { padding: 104px 0 0; }
 .phq-head h2 { margin-top: 14px; font-size: clamp(36px, 4.6vw, 58px); max-width: 20ch; }
 .phq-head p.body { margin-top: 14px; color: var(--body); max-width: 46ch; }
@@ -238,7 +239,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
   <div class="wrap">
     <p class="phq-kicker" id="demo-title">See it live · from my workshop</p>
     <video class="phq-demo-vid" src="assets/video/guide-demo.mp4" poster="assets/video/guide-demo-poster.jpg" controls muted playsinline autoplay preload="metadata" width="1280" height="720" aria-label="Shea showing her AI assistant live at a workshop, with captions"></video>
-    <p class="phq-fine">Captions are on. For sound, tap the speaker icon. This is my own setup at a live workshop. The guide builds your executive assistant: inbox, calendar, reminders and briefings. The social media agent in this clip is not part of the guide.</p>
+    <p class="phq-fine">Captions are on. For sound, tap the speaker icon. This is my own setup at a live workshop. The guide builds your executive assistant, and it can make simple graphics too. My full social media team in this clip is my own setup.</p>
   </div>
 </section>
 
@@ -252,6 +253,12 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       <div><h3>The setup guide (PDF, 10 pages)</h3><p>Plain words, copy and paste, no code. Stop any time and pick up where you left off.</p></div>
       <div><h3>The Executive Assistant skill (ZIP)</h3><p>It interviews you first, then gets to work on your inbox, calendar, reminders and drafts.</p></div>
       <div><h3>The setup files (ZIP) and a commands sheet (TXT)</h3><p>Everything the guide asks you to copy is already typed for you.</p></div>
+    </div>
+    <p class="phq-kicker phq-pages-kicker">A peek inside the real guide</p>
+    <div class="phq-pages">
+      <figure><img src="assets/guide-pages/page-1.jpg" width="700" height="906" loading="lazy" decoding="async" alt="The cover of the setup guide: Powerhouse Entrepreneur Executive Assistant, Works While You Sleep"><figcaption>The cover.</figcaption></figure>
+      <figure><img src="assets/guide-pages/page-2.jpg" width="700" height="906" loading="lazy" decoding="async" alt="The welcome page of the setup guide, listing what your assistant will do when you're done"><figcaption>Welcome: what your assistant will do when you're done.</figcaption></figure>
+      <figure><img src="assets/guide-pages/page-7.jpg" width="700" height="906" loading="lazy" decoding="async" alt="The Important to know page: sleep, briefings, keys stay private, and nothing sent without your yes"><figcaption>Important to know: plain answers before you start.</figcaption></figure>
     </div>
   </div>
 </section>
