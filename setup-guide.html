@@ -55,6 +55,7 @@ a { color: inherit; }
 .phq-price { font: 600 34px/1 "Inter", sans-serif; letter-spacing: -0.02em; }
 .phq-price small { font-size: 15px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
 .phq-fine { margin-top: 18px; font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 46ch; }
+.phq-demo { padding: 56px 0 72px; } .phq-demo-vid { display:block; width:100%; max-width:900px; height:auto; aspect-ratio:16/9; margin:16px auto 12px; border-radius:16px; background:#2B2B2E; box-shadow:0 18px 40px rgba(43,43,46,.18); } .phq-demo .phq-kicker, .phq-demo .phq-fine { text-align:center; }
 .phq-sec { padding: 104px 0 0; }
 .phq-head h2 { margin-top: 14px; font-size: clamp(36px, 4.6vw, 58px); max-width: 20ch; }
 .phq-head p.body { margin-top: 14px; color: var(--body); max-width: 46ch; }
@@ -204,6 +205,14 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     </div>
   </div>
 </header>
+
+<section class="phq-demo" aria-labelledby="demo-title">
+  <div class="wrap">
+    <p class="phq-kicker" id="demo-title">See it live · from my workshop</p>
+    <video class="phq-demo-vid" src="assets/video/guide-demo.mp4" poster="assets/video/guide-demo-poster.jpg" controls muted playsinline autoplay loop preload="metadata" width="1920" height="1080" aria-label="Shea showing her AI assistant live at a workshop, with captions"></video>
+    <p class="phq-fine">Captions are on. Tap the video for sound.</p>
+  </div>
+</section>
 
 <section class="phq-sec" style="padding-top:0" aria-labelledby="pr-title">
   <div class="wrap">
