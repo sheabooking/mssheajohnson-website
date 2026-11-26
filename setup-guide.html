@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Build Your AI Executive Assistant: The Setup Guide | Shea Johnson</title>
 <meta name="description" content="My step-by-step setup guide plus my Executive Assistant skill for Claude. Build your own AI assistant on your Mac, at your own pace. $79, an instant download.">
+<link rel="canonical" href="https://mssheajohnson.com/setup-guide">
+<meta property="og:type" content="product">
+<meta property="og:title" content="Build Your AI Executive Assistant: The Setup Guide">
+<meta property="og:description" content="My step-by-step guide plus my Executive Assistant skill for Claude. Build your own AI assistant on your Mac, at your own pace.">
+<meta property="og:url" content="https://mssheajohnson.com/setup-guide">
+<meta property="og:image" content="https://mssheajohnson.com/assets/og-guide-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -48,14 +57,14 @@ a { color: inherit; }
 .phq-display { font-family: "Alta", Georgia, serif; font-weight: 400; line-height: 0.98; letter-spacing: 0.01em; text-wrap: balance; }
 .phq-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 600 16px/1 "Inter", sans-serif; padding: 18px 28px; border-radius: 999px; background: var(--ink); color: #fff; text-decoration: none; white-space: nowrap; transition: background .2s ease, transform .2s ease; }
 .phq-btn:hover { background: var(--ink-soft); transform: translateY(-1px); }
-.phq-link { font: 600 15px/1.4 "Inter", sans-serif; color: var(--ink); text-decoration: underline; text-decoration-color: var(--blush); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.phq-link { display: inline-block; padding: 12px 0; font: 600 15px/1.4 "Inter", sans-serif; color: var(--ink); text-decoration: underline; text-decoration-color: var(--blush); text-decoration-thickness: 2px; text-underline-offset: 5px; }
 .phq-link:hover { text-decoration-color: var(--ink); }
 .phq-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .phq-buy { margin-top: 34px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 26px; }
 .phq-price { font: 600 34px/1 "Inter", sans-serif; letter-spacing: -0.02em; }
 .phq-price small { font-size: 15px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
 .phq-fine { margin-top: 18px; font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 46ch; }
-.phq-demo { padding: 56px 0 72px; } .phq-demo-vid { display:block; width:100%; max-width:900px; height:auto; aspect-ratio:16/9; margin:16px auto 12px; border-radius:16px; background:#2B2B2E; box-shadow:0 18px 40px rgba(43,43,46,.18); } .phq-demo .phq-kicker, .phq-demo .phq-fine { text-align:center; }
+.phq-demo { padding: 56px 0 72px; } .phq-demo-vid { display:block; width:100%; max-width:900px; height:auto; aspect-ratio:16/9; margin:16px auto 12px; border-radius:16px; background:#2B2B2E; box-shadow:0 18px 40px rgba(43,43,46,.18); } .phq-demo .phq-kicker, .phq-demo .phq-fine { text-align:center; } .phq-demo .phq-fine { margin-inline:auto; max-width:60ch; }
 .phq-sec { padding: 104px 0 0; }
 .phq-head h2 { margin-top: 14px; font-size: clamp(36px, 4.6vw, 58px); max-width: 20ch; }
 .phq-head p.body { margin-top: 14px; color: var(--body); max-width: 46ch; }
@@ -143,6 +152,25 @@ a { color: inherit; }
 .phq-inside h3 { font: 600 20px/1.3 "Inter", sans-serif; }
 .phq-inside p { margin-top: 6px; color: var(--body); max-width: 44ch; }
 
+/* ---------- How it works + fit check ---------- */
+.phq-steps { list-style: none; counter-reset: st; margin-top: 36px; display: grid; gap: 28px 56px; }
+@media (min-width: 800px) { .phq-steps { grid-template-columns: repeat(3, 1fr); } }
+.phq-steps li { counter-increment: st; }
+.phq-steps li::before { content: counter(st); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--blush); font: 600 17px/1 "Inter", sans-serif; margin-bottom: 14px; }
+.phq-steps h3 { font: 600 20px/1.3 "Inter", sans-serif; }
+.phq-steps p { margin-top: 6px; color: var(--body); }
+.phq-fit { margin-top: 36px; display: grid; gap: 36px 72px; }
+@media (min-width: 800px) { .phq-fit { grid-template-columns: 1fr 1fr; } }
+.phq-fit h3 { font: 600 18px/1.3 "Inter", sans-serif; margin-bottom: 14px; }
+.phq-midbuy { margin-top: 48px; }
+@media (max-width: 520px) { .phq-midbuy .phq-btn { width: 100%; } }
+@media (max-width: 699px) {
+  .phq-texts { display: flex; overflow-x: auto; gap: 16px; scroll-snap-type: x mandatory; padding-bottom: 12px; justify-items: initial; }
+  .phq-texts figure { flex: 0 0 78%; scroll-snap-align: start; }
+}
+.phq-swipe { display: none; }
+@media (max-width: 699px) { .phq-swipe { display: block; } }
+
 /* ---------- FAQ ---------- */
 .phq-faq { margin-top: 32px; max-width: 780px; border-top: 1px solid var(--line); }
 .phq-faq details { border-bottom: 1px solid var(--line); padding: 20px 0; }
@@ -165,7 +193,7 @@ a { color: inherit; }
 
 footer { border-top: 1px solid #F1E6E7; padding: 32px 0 48px; color: var(--muted); font-size: 15px; }
 footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-footer a { text-decoration: none; color: var(--muted); }
+footer a { display: inline-block; padding: 12px 0; text-decoration: none; color: var(--muted); }
 footer a:hover { color: var(--ink); text-decoration: underline; }
 
 @media (max-width: 699px) { .phq-sec { padding-top: 80px; } .phq-txt, .phq-get { margin-top: 80px; } .phq-txt .wrap { padding: 64px 0; } .phq-sub { margin-top: 64px; } }
@@ -182,7 +210,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 <nav class="topbar" aria-label="Site">
   <div class="wrap">
     <a class="home" href="/">Shea Johnson</a>
-    <span style="display:flex;gap:16px;align-items:center"><a class="book hide-sm" href="/ai-assistant#ways">All options</a><a class="btn" style="padding:12px 18px;font-size:15px" href="https://www.etsy.com/listing/4594099032" target="_blank" rel="noopener">Get the guide</a></span>
+    <span style="display:flex;gap:16px;align-items:center"><a class="book hide-sm" href="/shop">Shop</a><a class="btn" style="padding:12px 18px;font-size:15px" href="https://www.etsy.com/listing/4594099032" target="_blank" rel="noopener">Get it on Etsy · $79</a></span>
   </div>
 </nav>
 
@@ -192,13 +220,13 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     <div>
       <p class="phq-kicker">The setup guide · Mac edition</p>
       <h1 class="phq-display">An agent that works while you sleep.</h1>
-      <p class="phq-lede">Your own AI executive assistant, built on your Mac. It sorts, drafts, reminds and briefs you. You approve.</p>
+      <p class="phq-lede">My step-by-step guide plus my Executive Assistant skill. You build your own AI assistant on your Mac, at your own pace. It sorts, drafts, reminds and briefs you. You approve.</p>
       <div class="phq-buy">
         <span class="phq-price">$79<small> one time</small></span>
         <a class="phq-btn" href="https://www.etsy.com/listing/4594099032" target="_blank" rel="noopener">Get it on Etsy · $79</a>
         <a class="phq-link" href="#inside">See what's inside</a>
       </div>
-      <p class="phq-fine">An instant download. You'll need a Mac running macOS 13 or newer and a paid Claude plan (Pro or higher).</p>
+      <p class="phq-fine">An instant download. You'll need a Mac running macOS 13 or newer and a paid Claude plan.</p>
     </div>
     <div class="phq-hero-img">
       <img src="assets/shop/guide-desk-1000.jpg" srcset="assets/shop/guide-desk-600.jpg 604w, assets/shop/guide-desk-1000.jpg 999w" sizes="(max-width: 899px) 300px, 480px" width="999" height="1240" fetchpriority="high" alt="The Powerhouse Entrepreneur Executive Assistant setup guide on an iPad">
@@ -209,12 +237,61 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 <section class="phq-demo" aria-labelledby="demo-title">
   <div class="wrap">
     <p class="phq-kicker" id="demo-title">See it live · from my workshop</p>
-    <video class="phq-demo-vid" src="assets/video/guide-demo.mp4" poster="assets/video/guide-demo-poster.jpg" controls muted playsinline autoplay loop preload="metadata" width="1920" height="1080" aria-label="Shea showing her AI assistant live at a workshop, with captions"></video>
-    <p class="phq-fine">Captions are on. Tap the video for sound.</p>
+    <video class="phq-demo-vid" src="assets/video/guide-demo.mp4" poster="assets/video/guide-demo-poster.jpg" controls muted playsinline autoplay preload="metadata" width="1280" height="720" aria-label="Shea showing her AI assistant live at a workshop, with captions"></video>
+    <p class="phq-fine">Captions are on. For sound, tap the speaker icon. This is my own setup at a live workshop. The guide builds your executive assistant: inbox, calendar, reminders and briefings. The social media agent in this clip is not part of the guide.</p>
   </div>
 </section>
 
-<section class="phq-sec" style="padding-top:0" aria-labelledby="pr-title">
+<section id="inside" class="phq-sec" style="padding-top:0" aria-labelledby="inside-title">
+  <div class="wrap">
+    <div class="phq-head">
+      <p class="phq-kicker">What's inside</p>
+      <h2 id="inside-title" class="phq-display">Everything in one download.</h2>
+    </div>
+    <div class="phq-inside">
+      <div><h3>The setup guide (PDF, 10 pages)</h3><p>Plain words, copy and paste, no code. Stop any time and pick up where you left off.</p></div>
+      <div><h3>The Executive Assistant skill (ZIP)</h3><p>It interviews you first, then gets to work on your inbox, calendar, reminders and drafts.</p></div>
+      <div><h3>The setup files (ZIP) and a commands sheet (TXT)</h3><p>Everything the guide asks you to copy is already typed for you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="phq-sec" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="phq-head">
+      <p class="phq-kicker">How it works</p>
+      <h2 id="how-title" class="phq-display">Three steps.</h2>
+    </div>
+    <ol class="phq-steps">
+      <li><h3>Download.</h3><p>Your files arrive the moment you check out on Etsy.</p></li>
+      <li><h3>Follow the guide.</h3><p>Copy, paste, and read what each step does before it does it. Stop any time.</p></li>
+      <li><h3>Meet your assistant.</h3><p>It interviews you about your business, then starts on your inbox, calendar and reminders.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="phq-sec" aria-labelledby="fit-title">
+  <div class="wrap">
+    <div class="phq-head">
+      <p class="phq-kicker">Is this for you?</p>
+      <h2 id="fit-title" class="phq-display">An honest fit check.</h2>
+    </div>
+    <div class="phq-fit">
+      <div><h3>This is for you if:</h3><ul class="phq-dash">
+        <li>You run a small business and your inbox and calendar eat your day.</li>
+        <li>You have a Mac and you're comfortable following written steps.</li>
+        <li>You want an assistant that drafts and asks, and never acts without you.</li>
+      </ul></div>
+      <div><h3>This is not for you if:</h3><ul class="phq-dash">
+        <li>You're on Windows or a Chromebook. This edition is Mac only.</li>
+        <li>You want someone to set it up for you. This is a do-it-yourself guide.</li>
+        <li>You don't want a monthly Claude plan. The assistant needs one.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="phq-sec" aria-labelledby="pr-title">
   <div class="wrap">
     <div class="phq-head">
       <p class="phq-kicker">What it takes off your plate</p>
@@ -254,7 +331,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 <section class="phq-sec" aria-labelledby="proof-title">
   <div class="wrap">
     <div class="phq-head">
-      <p class="phq-kicker">Social proof</p>
+      <p class="phq-kicker">Kind words</p>
       <h2 id="proof-title" class="phq-display">What people say.</h2>
       <p class="body">What people say about working with me: my coaching and AI training, reviewed on Trustpilot. These are not reviews of the guide.</p>
     </div>
@@ -270,7 +347,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 
     <div class="phq-sub">
       <h3>From early testers of my AI agent</h3>
-      <p>AI setups I did in person with business owners.</p>
+      <p>From AI setups I did in person with business owners. These are not from buyers of the guide.</p>
       <div class="phq-shots">
         <figure><img src="assets/proof/action-diana-setup.jpg" width="608" height="620" loading="lazy" decoding="async" alt="Shea working with Diana at her shop, Lady &amp; the Leash, during an AI assistant setup"><figcaption><b>Diana</b> · Lady &amp; the Leash</figcaption></figure>
         <figure><img src="assets/proof/action-tamicka-laughing.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Shea and Tamicka laughing together at a laptop during an AI assistant setup"><figcaption><b>Tamicka</b> · House of Seven Café · complimentary setup</figcaption></figure>
@@ -279,7 +356,8 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
 
     <div class="phq-sub">
       <h3>Texts from early testers of my AI agent</h3>
-      <p>Sent to me after their setups. Shared with permission; names removed.</p>
+      <p>Sent to me after I set up their assistants. Shared with permission; names removed.</p>
+      <p class="phq-swipe">Swipe to read more.</p>
       <div class="phq-texts">
         <figure><img src="assets/proof/tester-text-a.jpg" width="600" height="824" loading="lazy" decoding="async" alt="Text messages: This is getting real. I'm obsessed. I'm literally almost done setting this up and you're right the more you use it the less you really do need to do anything. I'm handing everything off to them. Thank you for sharing and thanks for setting it up for me. I'm super grateful. If only people knew man..."></figure>
         <figure><img src="assets/proof/tester-text-b.jpg" width="600" height="621" loading="lazy" decoding="async" alt="Text messages: Yay! Can't wait! I'm floored, (assistant name hidden) is incredible. You the GOAT of 2026, followed by a mind-blown emoji"></figure>
@@ -287,19 +365,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
         <figure><img src="assets/proof/tester-text-d.jpg" width="600" height="502" loading="lazy" decoding="async" alt="Text messages: OBSESSEDDDDDD. I LOVE YOU YO. IM SO THANKFUL FOR THIS. I AM HAVING SO MUCH FUNNNN"></figure>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="inside" class="phq-sec" aria-labelledby="inside-title">
-  <div class="wrap">
-    <div class="phq-head">
-      <p class="phq-kicker">What's inside</p>
-      <h2 id="inside-title" class="phq-display">Two things, one download.</h2>
-    </div>
-    <div class="phq-inside">
-      <div><h3>The setup guide</h3><p>Plain words, copy and paste, no code. Stop any time and pick up where you left off.</p></div>
-      <div><h3>The Executive Assistant skill</h3><p>It interviews you first, then gets to work on your inbox, calendar, reminders and drafts.</p></div>
-    </div>
+    <div class="phq-midbuy"><a class="phq-btn" href="https://www.etsy.com/listing/4594099032" target="_blank" rel="noopener">Get it on Etsy · $79</a></div>
   </div>
 </section>
 
@@ -312,9 +378,17 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
     <div class="phq-faq">
       <details><summary>Do I need to be technical?</summary><p>No. Every command is copy and paste, and each step is explained in plain words before it does anything.</p></details>
       <details><summary>Is this only for Mac?</summary><p>Yes, this edition is for Mac. Your assistant works inside your Mac's own apps, like Calendar, Notes and Reminders.</p></details>
-      <details><summary>Is my Claude plan included?</summary><p>No. Your Claude plan (Pro or higher) is paid directly to Claude. The guide and the skill are what you get from me.</p></details>
-      <details><summary>How do I get my files?</summary><p>It's an instant download through my Etsy shop. Open Purchases on Etsy in a browser or on your computer and tap Download Files.</p></details>
+      <details><summary>Is my Claude plan included?</summary><p>No. Your Claude plan is paid directly to Claude. The guide and the skill are what you get from me.</p></details>
+      <details><summary>What does Claude cost?</summary><p>You'll need a paid Claude account. Any paid plan works, and the starter plan is fine. It's paid to Claude, not to me, so check <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> for today's price. A paid plan is what lets Claude run in your Mac's Terminal, where your assistant and its skill live.</p></details>
+      <details><summary>How do I get my files?</summary><p>It's an instant download through my Etsy shop. Open Purchases on Etsy in a browser or on your computer and tap Download Files.</p><p>On your phone? The Etsy app can't download files. Open etsy.com in your browser, or use your computer, then go to Purchases and tap Download Files.</p></details>
+      <details><summary>How long does setup take?</summary><p>About an hour and a half, and you can stop and pick up where you left off.</p></details>
+      <details><summary>Does my Mac have to stay on?</summary><p>It needs to be on, but sleep is fine. If your Mac is asleep when a job is due, it runs as soon as the Mac wakes. You can also set your Mac to wake itself before your morning briefing.</p></details>
+      <details><summary>Will it send things on its own?</summary><p>No. It drafts and asks first. Nothing is sent, posted, bought or deleted without your OK.</p></details>
+      <details><summary>What if a step doesn't work?</summary><p>The guide is self-guided and has its own troubleshooting section. For a download or file problem, message me through Etsy.</p></details>
+      <details><summary>Can I get a refund?</summary><p>All sales are final on digital downloads. If a file won't download or open, message me on Etsy and I'll make it right.</p></details>
+      <details><summary>What about my privacy?</summary><p>Your assistant lives on your own Mac, and your files stay there. When it works on something, like an email or your calendar, that piece is sent to Claude to process, under your own Claude account's privacy settings. I never see your data.</p></details>
     </div>
+    <div class="phq-midbuy"><a class="phq-btn" href="https://www.etsy.com/listing/4594099032" target="_blank" rel="noopener">Get it on Etsy · $79</a></div>
   </div>
 </section>
 
@@ -326,7 +400,7 @@ footer a:hover { color: var(--ink); text-decoration: underline; }
       <span class="phq-price">$79<small> one time</small></span>
       <a class="phq-btn" href="https://www.etsy.com/listing/4594099032" target="_blank" rel="noopener">Get it on Etsy · $79</a>
     </div>
-    <p class="phq-fine">An instant download. You'll need a Mac running macOS 13 or newer and a paid Claude plan (Pro or higher).</p>
+    <p class="phq-fine">An instant download. You'll need a Mac running macOS 13 or newer and a paid Claude plan.</p>
     <p class="after">Checkout is through my Etsy shop for now.</p>
     <p class="indie">Independent. Not sponsored by Anthropic.</p>
   </div>
